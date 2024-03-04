@@ -11,11 +11,20 @@ function App() {
         tg.ready();
     }, [])
 
+    let id;
+    if (typeof tg.initDataUnsafe === 'string') {
+        let initData = JSON.parse(tg.initDataUnsafe);
+        id = initData?.user?.id;
+    } else {
+        id = tg.initDataUnsafe?.user?.id;
+    }
+
     return (
         <div className="App">
             <Header/>
             <button onClick={onClose}>Закрити</button>
             <button onClick={onToggleButton}>toggle</button>
+            <span>{id}</span>
         </div>
     );
 }
