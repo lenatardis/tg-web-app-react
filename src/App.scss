@@ -5,8 +5,15 @@ body {
 
 body {
   font: normal 16px Arial, sans-serif, cursive;
-  background: #ffffff;
-  color: #222;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.resize {
+  width: 760px;
+  height:100vh;
+  margin: 0 auto;
+  background: #091223;
 }
 
 * {
@@ -23,7 +30,7 @@ menu, nav, ul, ul li {
   list-style: none;
 }
 
-a, a:visited, a:active, a:link {
+a, a:visited, a:active, a {
   color: #222;
   text-decoration: none;
 }
@@ -61,7 +68,7 @@ h1 {
 
 h2 {
   /*padding: 1rem 0 1rem;*/
-  color: #222;
+  color: #ffffff;
   font-weight: bold;
   /*  text-align: center;*/
 }

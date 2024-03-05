@@ -12,7 +12,6 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import './App.scss';
-import './fonts/icomoon/fonts.css';
 
 function App() {
     console.log(window.Telegram.WebApp);
@@ -46,7 +45,7 @@ function App() {
     ]);
 
     return (
-        <div>
+        <div className="resize">
             <RouterProvider router={router}/>
         </div>
     );

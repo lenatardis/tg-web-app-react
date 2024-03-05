@@ -1,41 +1,42 @@
 import styles from "./Navigation.module.scss";
 import {useNavigate, Link, useLocation} from "react-router-dom";
 import usePageName from "../../hooks/usePageName";
-import IconHome from '../../icons/IconHome';
-import IconWallet from '../../icons/IconWallet';
-import IconPro from '../../icons/IconPro';
-import IconManager from '../../icons/IconManager';
-import IconHistory from '../../icons/IconHistory';
+import IconMain from '../../assets/images/main.svg';
+import IconWallet from '../../assets/images/wallet.svg';
+import IconPro from '../../assets/images/pro.svg';
+import IconManager from '../../assets/images/manager.svg';
+import IconHistory from '../../assets/images/history.svg';
 
 
 const Navigation = () => {
     let navigate = useNavigate();
     const currentPageName = usePageName();
     console.log(currentPageName);
+
     const isActive = (pageName) => {
-        if (pageName === "" && currentPageName === "") return true;
+        if (pageName === "main" && currentPageName === "") return true;
         return currentPageName === pageName;
     };
 
+    const navigation = [
+        {icon: IconMain, name: 'main', url: '/'},
+        {icon: IconWallet, name: 'wallet', url: '/wallet'},
+        {icon: IconPro, name: 'pro', url: '/pro'},
+        {icon: IconManager, name: 'manager', url: '/manager'},
+        {icon: IconHistory, name: 'history', url: '/history'},
+    ]
+
     return (
-        <div className={`${styles.navigation_bar}`}>
-            <Link to="/" className={isActive("") ? styles.active : ""}>
-                <IconHome className={`${styles.icon} ${isActive("") ? styles.activeIcon : ""}`}/>Home
-            </Link>
-            <Link to="/wallet" className={isActive("wallet") ? styles.active : ""}>
-                <IconWallet className={`${styles.icon} ${isActive("wallet") ? styles.activeIcon : ""}`}/>Wallet
-            </Link>
-            <Link to="/pro" className={isActive("pro") ? styles.active : ""}>
-                <IconPro className={`${styles.icon} ${isActive("pro") ? styles.activeIcon : ""}`}/>Pro
-            </Link>
-            <Link to="/manager" className={isActive("manager") ? styles.active : ""}>
-                <IconManager className={`${styles.icon} ${isActive("manager") ? styles.activeIcon : ""}`}/>Manager
-            </Link>
-            <Link to="/history" className={isActive("history") ? styles.active : ""}>
-                <IconHistory className={`${styles.icon} ${isActive("history") ? styles.activeIcon : ""}`}/>History
-            </Link>
+        <div className={`${styles['navigation-bar']}`}>
+            {navigation && (
+                navigation.map((item, index) =>
+                    <Link key={index} to={item.url}  className={`${styles['navigation-item']} ${isActive(item.name) ? styles['navigation-item__active'] : ""}`}>
+                        <img className={styles.icon} src={item.icon} alt=""/>
+                        <span>{item.name}</span>
+                    </Link>
+                )
+            )}
         </div>
     )
 }
-
 export default Navigation;

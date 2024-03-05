@@ -1,18 +1,32 @@
-.navigation_bar {
+.navigation-bar {
   background: grey;
   display: flex;
   justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
-.active {
-  color: pink !important;
+.navigation-item {
+  &__active {
+    border-radius: 18px;
+    background-color: aqua;
+
+    span {
+      color: pink;
+    }
+  }
 }
+
 
 .icon {
   margin-bottom: 6px;
 }
 
 .activeIcon {
-  /*fill: pink !important;*/
+
 }
 
+.icon {
+  width: 24px;
+  height: 24px;
+}
