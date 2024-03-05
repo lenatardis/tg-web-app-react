@@ -32,7 +32,7 @@ const Navigation = () => {
                     {navigation && (
                         navigation.map((item, index) =>
                             <Link key={index} to={item.url}
-                                  className={`navigation-item ${isActive(item.name) ? styles['navigation-item__active'] : ""}`}>
+                                  className={`${styles['navigation-item']} ${isActive(item.name) ? styles['navigation-item__active'] : ""}`}>
                                 <img className={styles.icon} src={item.icon} alt=""/>
                                 <span>{item.name}</span>
                             </Link>

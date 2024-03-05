@@ -8,19 +8,24 @@
 .wrap {
   display: flex;
   justify-content: space-between;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding: 18px 15px 25px;
   background: #080F1E;
+  font-size: 15px;
 }
 
 .navigation-item {
+  display: flex;
+  flex-direction: column;
+  width: 64px;
+  padding: 8px 0;
+  text-align: center;
+  img {
+    align-self: center;
+  }
+
   &__active {
     border-radius: 18px;
-    background-color: aqua;
-
-    span {
-
-    }
+    background-color: #2C4A7E;
   }
 }
 
