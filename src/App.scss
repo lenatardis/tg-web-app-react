@@ -1,0 +1,81 @@
+body {
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
+}
+
+body {
+  font: normal 16px Arial, sans-serif, cursive;
+  background: #ffffff;
+  color: #222;
+}
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+body, html, p, h1, h2, h3, menu, nav, ul, ul li {
+  margin: 0;
+  padding: 0;
+}
+
+menu, nav, ul, ul li {
+  list-style: none;
+}
+
+a, a:visited, a:active, a:link {
+  color: #222;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #222;
+  text-decoration: none;
+}
+
+:focus {
+  outline: none !important;
+}
+
+a img {
+  border: none;
+}
+
+form, menu, iframe {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+ol, ul, dl, li, dt, dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1 {
+  padding: 0;
+  line-height: 1.2em;
+}
+
+h2 {
+  /*padding: 1rem 0 1rem;*/
+  color: #222;
+  font-weight: bold;
+  /*  text-align: center;*/
+}
+
+h3 {
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+

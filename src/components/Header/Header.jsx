@@ -1,17 +1,15 @@
 import React from 'react';
-import Button from "../Button/Button";
-import {useTelegram} from "../../hooks/useTelegram";
-import './Header.css';
+import './Header.scss';
+import {useNavigate} from "react-router-dom";
 
 const Header = () => {
-    const {user, onClose} = useTelegram();
+    let navigate = useNavigate();
 
     return (
         <div className={'header'}>
-           <span>Telegram username</span>
-            <span className={'username'}>
-                {user?.username}
-            </span>
+           <span onClick = {() => {navigate(-1)}}>Back button</span>
+            <span>Text</span>
+            <span>Menu button</span>
         </div>
     );
 };

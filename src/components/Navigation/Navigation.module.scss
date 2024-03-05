@@ -1,0 +1,18 @@
+.navigation_bar {
+  background: grey;
+  display: flex;
+  justify-content: space-between;
+}
+
+.active {
+  color: pink !important;
+}
+
+.icon {
+  margin-bottom: 6px;
+}
+
+.activeIcon {
+  /*fill: pink !important;*/
+}
+
