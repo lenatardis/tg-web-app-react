@@ -4,7 +4,7 @@ import Navigation from "../Navigation/Navigation";
 
 const Layout = () => {
     return (
-        <div>
+        <div className="inner-wrap">
             <Outlet />
             <Navigation />
         </div>

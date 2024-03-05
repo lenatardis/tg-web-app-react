@@ -1,12 +1,9 @@
 body {
-  background: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
-}
-
-body {
-  font: normal 16px Arial, sans-serif, cursive;
+  font: normal 16px 'Roboto', sans-serif;
   background: #1a1a1a;
   color: #fff;
+  /*background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);*/
 }
 
 .resize {
@@ -14,6 +11,12 @@ body {
   height: 100vh;
   margin: 0 auto;
   background: #091223;
+  .inner-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -91,5 +94,19 @@ strong {
 
 em {
   font-style: italic;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../src/assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../src/assets/fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
 }
 
