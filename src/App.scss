@@ -8,12 +8,14 @@ body {
 
 .resize {
   width: 620px;
-  height: 100vh;
   margin: 0 auto;
-  background: #091223;
+  &.main-content {
+    height: 100vh;
+    background: #091223;
+  }
   .inner-wrap {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: relative;
     overflow: hidden;
   }
@@ -40,13 +42,13 @@ menu, nav, ul, ul li {
   list-style: none;
 }
 
-a, a:visited, a:active, a {
-  color: #222;
+a, a:visited, a:active, a:link {
+  color: #ffffff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #222;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -77,10 +79,8 @@ h1 {
 }
 
 h2 {
-  /*padding: 1rem 0 1rem;*/
   color: #ffffff;
   font-weight: bold;
-  /*  text-align: center;*/
 }
 
 h3 {

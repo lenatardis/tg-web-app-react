@@ -45,7 +45,7 @@ function App() {
     ]);
 
     return (
-        <div className="resize">
+        <div className="resize main-content">
             <RouterProvider router={router}/>
         </div>
     );

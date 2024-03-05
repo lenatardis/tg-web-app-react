@@ -1,14 +1,16 @@
 .navigation-bar {
- /* position: fixed;
+  position: fixed;
+  left: 0;
   bottom: 0;
-  top: 0;
   width: 100%;
-  height:100px;*/
+}
+
+.wrap {
   display: flex;
-  background: grey;
   justify-content: space-between;
   padding-left: 25px;
   padding-right: 25px;
+  background: #080F1E;
 }
 
 .navigation-item {
@@ -17,20 +19,13 @@
     background-color: aqua;
 
     span {
-      color: pink;
+
     }
   }
 }
 
 .icon {
   margin-bottom: 6px;
-}
-
-.activeIcon {
-
-}
-
-.icon {
   width: 24px;
   height: 24px;
 }
