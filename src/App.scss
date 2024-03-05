@@ -10,10 +10,17 @@ body {
 }
 
 .resize {
-  width: 760px;
-  height:100vh;
+  width: 620px;
+  height: 100vh;
   margin: 0 auto;
   background: #091223;
+}
+
+@media screen and (max-width: 800px) {
+  .resize {
+    margin: 0;
+    width: 100%;
+  }
 }
 
 * {
