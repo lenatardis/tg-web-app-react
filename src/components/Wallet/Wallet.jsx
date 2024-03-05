@@ -4,8 +4,8 @@ import Header from "../Header/Header";
 const Wallet = () => {
     return (
         <div>
-            <Header/>
-            <div className={`${styles.main} title`}>
+            <Header back text="Wallet" menu />
+            <div className={`${styles.main} wrap`}>
                 <h2 className='title'>Wallet</h2>
             </div>
         </div>

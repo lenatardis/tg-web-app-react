@@ -1,15 +1,27 @@
 import React from 'react';
-import './Header.scss';
+import styles from "./Header.module.scss";
 import {useNavigate} from "react-router-dom";
+import IconArrowLeft from '../../assets/images/arrow-left.svg';
+import Menu from '../../assets/images/menu.svg';
 
-const Header = () => {
+const Header = ({back, text, menu}) => {
     let navigate = useNavigate();
 
     return (
-        <div className={'header'}>
-           <span onClick = {() => {navigate(-1)}}>Back button</span>
-            <span>Text</span>
-            <span>Menu button</span>
+        <div className={styles.header}>
+            {back && (
+                <span onClick={() => {
+                    navigate(-1)
+                }} className={styles.back}>
+               <img src={IconArrowLeft} alt="back"/>
+           </span>
+            )}
+            {text && (
+                <span className={styles.title}>{text}</span>
+            )}
+            {menu && (
+                <span className={styles.menu}><img src={Menu} alt="menu"/></span>
+            )}
         </div>
     );
 };

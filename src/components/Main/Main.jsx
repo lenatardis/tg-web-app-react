@@ -1,9 +1,13 @@
 import styles from "./Main.module.scss";
+import Header from "../Header/Header";
 
 const Main = () => {
     return (
-        <div className={`${styles.main} title`}>
-            <h2 className='title'> Main</h2>
+        <div>
+            <Header back text="Main" menu/>
+            <div className={`${styles.main} wrap`}>
+                <h2 className='title'> Main</h2>
+            </div>
         </div>
     )
 }

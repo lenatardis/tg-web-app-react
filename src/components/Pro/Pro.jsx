@@ -1,9 +1,13 @@
 import styles from "./Pro.module.scss";
+import Header from "../Header/Header";
 
 const Pro = () => {
     return (
-        <div className={`${styles.main} title`}>
-            <h2 className='title'>Pro</h2>
+        <div>
+            <Header back text="Pro" menu/>
+            <div className={`${styles.main} wrap`}>
+                <h2 className='title'>Pro</h2>
+            </div>
         </div>
     )
 }
