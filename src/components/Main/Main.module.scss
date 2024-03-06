@@ -1,3 +1,36 @@
 .main {
+  background: #242b3f;
+}
 
+.total-block {
+  padding-top: 30px;
+
+  p {
+    font-size: 18px;
+    padding-bottom: 16px;
+    line-height: 1.01rem;
+  }
+}
+
+.currency-block {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 28px;
+}
+
+.total {
+  display: inline-block;
+  font: bold 42px 'BaiJamjuree', sans-serif;
+  line-height: 2.37rem;
+  margin-right: 20px;
+}
+
+.currency {
+  display: inline-block;
+  padding: 6px 14.5px;
+  background: #4C81BA;
+  border-radius: 40px;
+  color: #000000;
+  font-weight: 700;
+  line-height: 0.9rem;
 }
