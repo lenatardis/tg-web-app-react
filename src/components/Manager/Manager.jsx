@@ -1,5 +1,5 @@
 import styles from "./Manager.module.scss";
-import Header from "../Header/Header";
+import Header from "../Common/Header/Header";
 
 const Manager = () => {
     return (

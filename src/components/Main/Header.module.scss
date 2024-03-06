@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 45px 16px 0;
+
+  >div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.iconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2e2e32;
+  cursor: pointer;
+}
+
+.iconAccount {
+  margin-right: 12px;
+}

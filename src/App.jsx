@@ -5,6 +5,7 @@ import Wallet from "./components/Wallet/Wallet";
 import Pro from "./components/Pro/Pro";
 import Manager from "./components/Manager/Manager";
 import History from "./components/History/History";
+import Account from "./components/Account/Account";
 import Navigation from "./components/Navigation/Navigation";
 import Layout from "./components/Layout/Layout";
 import {
@@ -40,6 +41,7 @@ function App() {
                 {path: "pro", element: <Pro/>},
                 {path: "manager", element: <Manager/>},
                 {path: "history", element: <History/>},
+                {path: "account", element: <Account/>}
             ],
         },
     ]);

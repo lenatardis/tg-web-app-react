@@ -1,5 +1,5 @@
 import styles from "./Main.module.scss";
-import Header from "../Header/Header";
+import Header from "./Header";
 
 const Main = () => {
     return (

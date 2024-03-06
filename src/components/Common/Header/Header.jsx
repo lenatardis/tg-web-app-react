@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from "./Header.module.scss";
 import {useNavigate} from "react-router-dom";
-import IconArrowLeft from '../../assets/images/arrow-left.svg';
-import Menu from '../../assets/images/menu.svg';
+import IconArrowLeft from '../../../assets/images/arrow-left.svg';
+import Menu from '../../../assets/images/menu.svg';
 
 const Header = ({back, text, menu}) => {
     let navigate = useNavigate();
