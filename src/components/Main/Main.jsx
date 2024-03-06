@@ -7,6 +7,8 @@ import IconBitcoin from "../../assets/images/bitcoin.svg";
 import IconEtherium from "../../assets/images/etherium.svg";
 import IconLitecoin from "../../assets/images/litecoin.svg";
 import IconSomecoin from "../../assets/images/somecoin.svg";
+import IconLoader from "../../assets/images/loading.svg";
+
 import {Link} from "react-router-dom";
 
 const Main = () => {
@@ -38,17 +40,19 @@ const Main = () => {
                         <div key={index}
                              className={`${styles['currency-list__item']}`}>
                             <div className={`${styles['title-block']}`}>
-                                <img className={styles.icon} src={item.icon} alt="{item.name}"/>
-                                <span>{item.name}</span>
+                                <img className={styles.image} src={item.icon} alt="{item.name}"/>
+                                <div>
+                                    <p>{item.name}</p>
+                                    {index !== 0 && <p className={styles.addition}>USDT</p>}
+                                </div>
+                                {index === 0 && <img className={styles.loader} src={IconLoader} alt="loading"/>}
                             </div>
                             <div className={`${styles['value-block']}`}>
                                 <div>
-                                    <span>{item.value}</span>
-                                    <span>{item.value2}</span>
+                                    <p>{item.value}</p>
+                                    <p className={styles.addition}>{item.value2}</p>
                                 </div>
-                                <div>
-
-                                </div>
+                                <span className={styles.fluctuation}>+0,73%</span>
                             </div>
                         </div>
                     )
