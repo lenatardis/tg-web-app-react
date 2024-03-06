@@ -34,3 +34,41 @@
   font-weight: 700;
   line-height: 0.9rem;
 }
+
+.currency-list {
+  background: #091223;
+  padding-top: 25px;
+  border-radius: 24px 24px 0 0;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    background: #0D182E;
+    padding: 1.125rem;
+    border-radius: 1.125rem;
+    margin-bottom: 6px;
+    font-size: 18px;
+
+    &:last-child {
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.icon {
+  margin-right: 12px;
+}
+
+.title-block {
+  display: flex;
+  align-items: center;
+}
+
+.value-block {
+  display: flex;
+
+  > div:first-child {
+    display: flex;
+    flex-direction: column;
+  }
+}
