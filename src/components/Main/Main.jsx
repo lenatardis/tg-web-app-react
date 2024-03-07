@@ -8,6 +8,8 @@ import IconEtherium from "../../assets/images/etherium.svg";
 import IconLitecoin from "../../assets/images/litecoin.svg";
 import IconSomecoin from "../../assets/images/somecoin.svg";
 import IconLoader from "../../assets/images/loading.svg";
+import TotalBlock from "./TotalBlock";
+import CurrencyList from "./CurrencyList";
 
 import {Link} from "react-router-dom";
 import MainLinks from "./MainLinks";
@@ -31,40 +33,9 @@ const Main = () => {
     return (
         <div className={styles.main}>
             <Header back text="Main" qr/>
-            <div className={`${styles['total-block']} wrap`}>
-                <p>Total amount in wallets</p>
-                <div className={`${styles['currency-block']}`}>
-                    <span className={styles.total}>{sign}{' '}{total}</span>
-                    <span className={styles.currency}>{currency.toUpperCase()}</span>
-                </div>
-            </div>
+            <TotalBlock currency={currency} total={total} sign={sign}/>
             <MainLinks/>
-            <div className={`${styles['currency-list']} wrap`}>
-                {cryptoCurrencies && (
-                    cryptoCurrencies.map((item, index) =>
-                        <div key={index}
-                             className={`${styles['currency-list__item']}`}>
-                            <div className={`${styles['title-block']}`}>
-                                <img className={styles.image} src={item.icon} alt="{item.name}"/>
-                                <div>
-                                    <p>{item.name}</p>
-                                    {index !== 0 && <p className={styles.addition}>USDT</p>}
-                                </div>
-                                {index === 0 && <img className={styles.loader} src={IconLoader} alt="loading"/>}
-                            </div>
-                            <div className={`${styles['value-block']}`}>
-                                <div>
-                                    <p>{item.value}</p>
-                                    {item.value2 && (
-                                        <p className={styles.addition}>{item.value2}</p>
-                                    )}
-                                </div>
-                                <span className={styles.fluctuation}>+0,73%</span>
-                            </div>
-                        </div>
-                    )
-                )}
-            </div>
+            <CurrencyList cryptoCurrencies={cryptoCurrencies}/>
         </div>
     )
 }
