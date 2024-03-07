@@ -1,13 +1,21 @@
 .mainLinks {
   display: flex;
-  column-gap: 8px;
+  column-gap: 6px;
+  margin-bottom: 17px;
 }
 
 .link {
   display: flex;
   align-items: center;
   justify-content: center;
-  height:40px;
-  background: red;
-  width:100%;
+  font-size: 15px;
+  border-radius: 18px;
+  height: 48px;
+  background: #495268;
+  width: 100%;
+
+  span {
+    display: block;
+    margin-right: 8px;
+  }
 }

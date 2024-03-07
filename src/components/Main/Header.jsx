@@ -5,7 +5,7 @@ import IconAccount from '../../assets/images/account.svg';
 import IconQr from '../../assets/images/qr_icon.svg';
 import {useTelegram} from "../../hooks/useTelegram";
 
-const Header = ({back, text, menu}) => {
+const Header = ({qr}) => {
     let navigate = useNavigate();
 
     const {tg} = useTelegram();
@@ -26,9 +26,9 @@ const Header = ({back, text, menu}) => {
                 </Link>
                 <p>ID: {id}</p>
             </div>
-            <a className={`${styles.iconWrap} ${styles.iconQr}`}>
+            {qr && <a className={`${styles.iconWrap} ${styles.iconQr}`}>
                 <img src={IconQr} alt="account"/>
-            </a>
+            </a>}
         </div>
     );
 };

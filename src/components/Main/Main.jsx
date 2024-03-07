@@ -30,19 +30,15 @@ const Main = () => {
 
     return (
         <div className={styles.main}>
-            <Header back text="Main" menu/>
-            <div className="wrap">
-                <div className={`${styles['total-block']}`}>
-                    <p>Total amount in wallets</p>
-                    <div className={`${styles['currency-block']}`}>
-                        <span className={styles.total}>{sign}{' '}{total}</span>
-                        <span className={styles.currency}>{currency.toUpperCase()}</span>
-                    </div>
+            <Header back text="Main" qr/>
+            <div className={`${styles['total-block']} wrap`}>
+                <p>Total amount in wallets</p>
+                <div className={`${styles['currency-block']}`}>
+                    <span className={styles.total}>{sign}{' '}{total}</span>
+                    <span className={styles.currency}>{currency.toUpperCase()}</span>
                 </div>
             </div>
-
             <MainLinks/>
-
             <div className={`${styles['currency-list']} wrap`}>
                 {cryptoCurrencies && (
                     cryptoCurrencies.map((item, index) =>
@@ -59,7 +55,9 @@ const Main = () => {
                             <div className={`${styles['value-block']}`}>
                                 <div>
                                     <p>{item.value}</p>
-                                    <p className={styles.addition}>{item.value2}</p>
+                                    {item.value2 && (
+                                        <p className={styles.addition}>{item.value2}</p>
+                                    )}
                                 </div>
                                 <span className={styles.fluctuation}>+0,73%</span>
                             </div>
