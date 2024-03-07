@@ -3,12 +3,11 @@
 }
 
 .total-block {
-  padding-top: 30px;
+  padding-top: 31px;
 
   p {
     font-size: 18px;
     padding-bottom: 16px;
-    line-height: 1.01rem;
   }
 }
 
@@ -21,8 +20,8 @@
 .total {
   display: inline-block;
   font: bold 42px 'BaiJamjuree', sans-serif;
-  line-height: 2.37rem;
   margin-right: 20px;
+  line-height:0.9em;
 }
 
 .currency {
@@ -32,13 +31,14 @@
   border-radius: 40px;
   color: #000000;
   font-weight: 700;
-  line-height: 0.9rem;
 }
 
 .currency-list {
   background: #091223;
   padding-top: 25px;
   border-radius: 24px 24px 0 0;
+  height: calc(100vh - 261px - 100px);
+  overflow:auto;
 
   &__item {
     display: flex;
@@ -70,12 +70,12 @@
 }
 
 .loader {
-  margin-left: 16px;
+  margin-left: 8px;
 }
 
 .addition {
   padding-top: 6px;
-  line-height:11px;
+  /*line-height:11px;*/
   color:#565d6d;
   font-size:12px;
 }

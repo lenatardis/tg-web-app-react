@@ -10,11 +10,17 @@ import IconSomecoin from "../../assets/images/somecoin.svg";
 import IconLoader from "../../assets/images/loading.svg";
 
 import {Link} from "react-router-dom";
+import MainLinks from "./MainLinks";
 
 const Main = () => {
     const {currency, total, sign} = useSelector(getUser)[0];
 
     const cryptoCurrencies = [
+        {icon: IconTether, name: 'USDT', value: '2878778.85', value2: ''},
+        {icon: IconBitcoin, name: 'BTC', value: '39945.3', value2: '45,423.00$'},
+        {icon: IconEtherium, name: 'ETH', value: ' 2222.08', value2: '2,453.41$'},
+        {icon: IconLitecoin, name: 'LTC', value: '65.76', value2: '69.27$'},
+        {icon: IconSomecoin, name: 'BNB', value: '319.84', value2: '319.8920$'},
         {icon: IconTether, name: 'USDT', value: '2878778.85', value2: ''},
         {icon: IconBitcoin, name: 'BTC', value: '39945.3', value2: '45,423.00$'},
         {icon: IconEtherium, name: 'ETH', value: ' 2222.08', value2: '2,453.41$'},
@@ -34,6 +40,9 @@ const Main = () => {
                     </div>
                 </div>
             </div>
+
+            <MainLinks/>
+
             <div className={`${styles['currency-list']} wrap`}>
                 {cryptoCurrencies && (
                     cryptoCurrencies.map((item, index) =>

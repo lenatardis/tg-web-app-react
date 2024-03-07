@@ -16,6 +16,10 @@ body, html, p, h1, h2, h3, menu, nav, ul, ul li {
   padding: 0;
 }
 
+p, span {
+  line-height: 0.9em;
+}
+
 menu, nav, ul, ul li {
   list-style: none;
 }
