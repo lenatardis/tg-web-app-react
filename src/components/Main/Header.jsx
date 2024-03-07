@@ -21,12 +21,12 @@ const Header = ({qr}) => {
     return (
         <div className={styles.header}>
             <div>
-                <Link to="/account" className={`${styles.iconWrap} ${styles.iconAccount}`}>
+                <Link to="/account" className={`${styles['icon-wrap']} ${styles['icon-account']}`}>
                     <img src={IconAccount} alt="account"/>
                 </Link>
                 <p>ID: {id}</p>
             </div>
-            {qr && <a className={`${styles.iconWrap} ${styles.iconQr}`}>
+            {qr && <a className={`${styles['icon-wrap']} ${styles['icon-qr']}`}>
                 <img src={IconQr} alt="account"/>
             </a>}
         </div>

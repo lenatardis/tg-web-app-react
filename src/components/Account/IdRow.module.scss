@@ -1,15 +1,10 @@
-.header {
+.id-line {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
-  padding: 45px 16px 0;
-  background: #242b3f;
-
-  >div {
-    display: flex;
-    align-items: center;
-  }
+  border-radius: 18px;
+  padding: 24.5px 20px;
+  margin-bottom:32px;
+  background: #0C1527;
 }
 
 .icon-wrap {
@@ -24,5 +19,9 @@
 }
 
 .icon-account {
-  margin-right: 12px;
+  margin-right: 9px;
+}
+
+.id {
+  font-size:24px;
 }

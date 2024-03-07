@@ -9,7 +9,7 @@ import IconRefresh from "../../assets/images/refresh.svg";
 const MainLinks = () => {
 
     return (
-        <div className={`${styles.mainLinks} wrap`}>
+        <div className={`${styles['main-links']} wrap`}>
             <Link to="/" className={styles.link}>
                 <span>Deposit</span>
                 <img className={styles.icon} src={IconArrDown} alt=""/>
