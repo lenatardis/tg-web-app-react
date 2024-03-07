@@ -20,6 +20,9 @@ function App() {
 
     useEffect(() => {
         tg.ready();
+        if (tg.expand) {
+            tg.expand();
+        }
     }, [])
 
     let id;
