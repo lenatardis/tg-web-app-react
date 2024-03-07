@@ -74,6 +74,7 @@
 }
 
 .addition {
+  display:none;
   padding-top: 6px;
   line-height:11px;
   color:#565d6d;
@@ -81,7 +82,6 @@
 }
 
 .fluctuation {
-  display: none;
   background: #1A1A1A;
   border-radius: 8px;
   font-size: 12px;
