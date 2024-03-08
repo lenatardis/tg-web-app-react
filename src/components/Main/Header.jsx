@@ -25,6 +25,7 @@ const Header = ({qr}) => {
     function onQrScanned(text) {
         console.log("QR Code Text:", text);
         alert('Text is '+text);
+        console.log(text);
         return true;
     }
 

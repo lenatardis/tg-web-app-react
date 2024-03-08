@@ -27,7 +27,7 @@ const Navigation = () => {
     ]
 
     return (
-            <div className={`${styles['navigation-bar']}`}>
+            <div className="navigation-bar">
                 <div className={`${styles.wrap} resize`}>
                     {navigation && (
                         navigation.map((item, index) =>

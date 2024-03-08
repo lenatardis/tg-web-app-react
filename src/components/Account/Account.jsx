@@ -28,9 +28,9 @@ const Account = () => {
     ]
 
     return (
-        <div>
+        <div className="account-page">
             <Header back text="Account"/>
-            <div className={`${styles['account-page']} wrap`}>
+            <div className={`${styles['account-wrap']} wrap`}>
                 <IdRow id={id}/>
 
                 {menu && (
