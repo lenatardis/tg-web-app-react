@@ -18,6 +18,21 @@ const Header = ({qr}) => {
         id = tg.initDataUnsafe?.user?.id;
     }
 
+    let scanParams = {
+        text: "Please scan your QR code here."
+    };
+
+    function onQrScanned(text) {
+        console.log("QR Code Text:", text);
+        return true;
+    }
+
+    const handleScanner = () => {
+       console.log('click');
+        tg.showScanQrPopup(scanParams, onQrScanned);
+    }
+
+
     return (
         <div className={styles.header}>
             <div>
@@ -26,7 +41,7 @@ const Header = ({qr}) => {
                 </Link>
                 <p>ID: {id}</p>
             </div>
-            {qr && <a className={`${styles['icon-wrap']} ${styles['icon-qr']}`}>
+            {qr && <a className={`${styles['icon-wrap']} ${styles['icon-qr']}`} onClick={handleScanner}>
                 <img src={IconQr} alt="account"/>
             </a>}
         </div>
