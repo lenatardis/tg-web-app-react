@@ -24,12 +24,22 @@ const Header = ({qr}) => {
 
     function onQrScanned(text) {
         console.log("QR Code Text:", text);
+        alert('Text is '+text);
         return true;
     }
 
     const handleScanner = () => {
        console.log('click');
-        tg.showScanQrPopup(scanParams, onQrScanned);
+        /*tg.showScanQrPopup(scanParams, onQrScanned);*/
+        if (tg && typeof tg.showScanQrPopup === 'function') {
+            try {
+                tg.showScanQrPopup(scanParams, onQrScanned);
+            } catch (error) {
+                console.error("Error showing QR popup:", error);
+            }
+        } else {
+            console.error("Telegram API or showScanQrPopup method not available.");
+        }
     }
 
 
