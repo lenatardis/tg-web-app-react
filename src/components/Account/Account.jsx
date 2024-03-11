@@ -19,7 +19,7 @@ const Account = () => {
 
     const menu = [
         {name: 'Safety', url: '/'},
-        {name: 'Two factor verification', url: '/'},
+        {name: 'Two factor verification', url: '/verification'},
         {name: 'AML', url: '/'},
         {name: 'Information', url: '/'},
         {name: 'Support', url: '/'},
