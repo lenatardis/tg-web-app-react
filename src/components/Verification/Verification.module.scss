@@ -1,0 +1,27 @@
+.block {
+  border-radius: 18px;
+  background: #0C1527;
+}
+
+.copy-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+
+  p {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.copy-icon-wrap {
+  display: flex;
+  width:52px;
+  height:48px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: #132240;
+  border-radius: 8.4px;
+}

@@ -7,6 +7,8 @@ import Manager from "./components/Manager/Manager";
 import History from "./components/History/History";
 import Account from "./components/Account/Account";
 import Verification from "./components/Verification/Verification";
+import Verification_step2 from "./components/Verification/Verification_step2";
+import Verification_step3 from "./components/Verification/Verification_step3";
 
 import Layout from "./components/Layout/Layout";
 import {
@@ -46,7 +48,9 @@ function App() {
                 {path: "manager", element: <Manager/>},
                 {path: "history", element: <History/>},
                 {path: "account", element: <Account/>},
-                {path: "verification", element: <Verification/>}
+                {path: "verification", element: <Verification/>},
+                {path: "verification/step2", element: <Verification_step2/>},
+                {path: "verification/step3", element: <Verification_step3/>}
             ],
         },
     ]);

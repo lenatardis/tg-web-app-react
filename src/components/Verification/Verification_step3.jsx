@@ -4,18 +4,19 @@ import Steps from "./Steps";
 import DownloadLink from "../Common/MenuItem/MenuItem";
 import Button from "./Button";
 
-const Verification = () => {
+const Verification_step3 = () => {
 
     return (
         <div className="verification-page">
             <Header text="Two factor verification" back/>
             <div className="wrap">
-                <Steps step="1"/>
+                <Steps step="3"/>
                 <DownloadLink name="Download the app" url ="/"/>
-                <Button text="Enter" url="/verification/step2"/>
+                <p>Step 3</p>
+                <Button text="Enter" url="/"/>
             </div>
         </div>
     )
 }
 
-export default Verification;
+export default Verification_step3;
