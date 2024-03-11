@@ -1,0 +1,13 @@
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  padding:20px 16px;
+  border-radius:18px;
+  background:#0D182E;
+  cursor: pointer;
+  margin-bottom:8px;
+  span {
+    font-size: 18px;
+    font-weight: 700;
+  }
+}

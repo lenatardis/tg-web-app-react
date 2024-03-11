@@ -6,7 +6,8 @@ import Pro from "./components/Pro/Pro";
 import Manager from "./components/Manager/Manager";
 import History from "./components/History/History";
 import Account from "./components/Account/Account";
-import Navigation from "./components/Navigation/Navigation";
+import Verification from "./components/Verification/Verification";
+
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
@@ -44,7 +45,8 @@ function App() {
                 {path: "pro", element: <Pro/>},
                 {path: "manager", element: <Manager/>},
                 {path: "history", element: <History/>},
-                {path: "account", element: <Account/>}
+                {path: "account", element: <Account/>},
+                {path: "verification", element: <Verification/>}
             ],
         },
     ]);

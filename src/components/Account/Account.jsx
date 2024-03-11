@@ -4,7 +4,7 @@ import Header from "../Common/Header/Header";
 
 import {useTelegram} from "../../hooks/useTelegram";
 import IdRow from "./IdRow";
-import MenuItem from "./MenuItem";
+import MenuItem from "../Common/MenuItem/MenuItem";
 
 const Account = () => {
     const {tg} = useTelegram();
@@ -35,7 +35,7 @@ const Account = () => {
 
                 {menu && (
                     menu.map((item, index) =>
-                        <MenuItem item={item}/>
+                        <MenuItem name={item.name} url={item.url}/>
                     )
                 )}
             </div>
