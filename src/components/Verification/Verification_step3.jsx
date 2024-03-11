@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../Common/Header/Header";
 import Steps from "./Steps";
-import DownloadLink from "../Common/MenuItem/MenuItem";
+import InputBlock from "./Input-block";
 import Button from "./Button";
 
 const Verification_step3 = () => {
@@ -11,8 +11,7 @@ const Verification_step3 = () => {
             <Header text="Two factor verification" back/>
             <div className="wrap">
                 <Steps step="3"/>
-                <DownloadLink name="Download the app" url ="/"/>
-                <p>Step 3</p>
+                <InputBlock/>
                 <Button text="Enter" url="/"/>
             </div>
         </div>
