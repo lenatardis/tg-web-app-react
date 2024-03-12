@@ -14,9 +14,9 @@ const InputBlock = ({code, onCodeChange, error}) => {
 
     return (
         <div className={inputClassName}>
-            <label for="step3-code">Google Authenticator Verification Code</label>
+            <label htmlFor="step3-code">Google Authenticator Verification Code</label>
             <input type="text" name="step3_code" id="step3-code" placeholder="6-digit code" value={code}
-                   onChange={handleNameChange} maxlength="6"/>
+                   onChange={handleNameChange} maxLength="6"/>
         </div>
     )
 }
