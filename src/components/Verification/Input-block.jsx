@@ -1,20 +1,19 @@
 import React from "react";
 import verificationstyles from "./Verification.module.scss";
 import styles from "./Input-block.module.scss";
-import {useState} from "react";
 
-const InputBlock = () => {
-    const [code, setCode] = useState('');
-
+const InputBlock = ({code, onCodeChange, error}) => {
     const handleNameChange = (e) => {
         let value = e.target.value;
         if (/^\d*$/.test(value)) {
-            setCode(value);
+            onCodeChange(value);
         }
-    }
+    };
+
+    const inputClassName = `${verificationstyles.block} ${styles['input-block']} ${error ? styles['input-block__error'] : ''}`;
 
     return (
-        <div className={`${styles['input-block']} ${verificationstyles.block}`}>
+        <div className={inputClassName}>
             <label for="step3-code">Google Authenticator Verification Code</label>
             <input type="text" name="step3_code" id="step3-code" placeholder="6-digit code" value={code}
                    onChange={handleNameChange} maxlength="6"/>

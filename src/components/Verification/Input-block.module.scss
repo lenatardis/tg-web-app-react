@@ -4,9 +4,11 @@
   margin-bottom: 8px;
   padding: 16px;
   border: 1px solid transparent;
-  &__err {
+
+  &__error {
     border-color: #ba5349;
   }
+
   label {
     margin-bottom: 16px;
     font-size: 15px;
@@ -22,7 +24,8 @@
     color: #3d4658;
     line-height: 0.9em;
     background: transparent;
-    border:none;
+    border: none;
+
     &::placeholder {
       color: #3d4658;
     }

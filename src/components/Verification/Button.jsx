@@ -3,13 +3,19 @@ import styles from "./Button.module.scss";
 
 import {useNavigate} from "react-router-dom";
 
-const Button = ({text, url}) => {
+const Button = ({text, url, onValidation}) => {
 
     let navigate = useNavigate();
 
+    const handleClick = () => {
+        if (!onValidation || (onValidation && onValidation())) {
+            navigate(url);
+        }
+    };
+
     return (
-        <button className={styles.button} onClick={() => navigate(`${url}`)}>
-           <span>{text}</span>
+        <button className={styles.button} onClick={handleClick}>
+            <span>{text}</span>
         </button>
     )
 }
