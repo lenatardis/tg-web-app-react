@@ -23,15 +23,12 @@ const Header = ({qr}) => {
     };
 
     function onQrScanned(text) {
-        console.log("QR Code Text:", text);
         alert('Text is '+text);
         console.log(text);
         return true;
     }
 
     const handleScanner = () => {
-       console.log('click');
-        /*tg.showScanQrPopup(scanParams, onQrScanned);*/
         if (tg && typeof tg.showScanQrPopup === 'function') {
             try {
                 tg.showScanQrPopup(scanParams, onQrScanned);

@@ -35,7 +35,7 @@ const Account = () => {
 
                 {menu && (
                     menu.map((item, index) =>
-                        <MenuItem name={item.name} url={item.url}/>
+                        <MenuItem key={index} name={item.name} url={item.url}/>
                     )
                 )}
             </div>
