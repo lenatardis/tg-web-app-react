@@ -3,7 +3,7 @@ import styles from "./Button.module.scss";
 
 import {useNavigate} from "react-router-dom";
 
-const Button = ({text, url, onValidation}) => {
+const Button = ({text, url, onValidation, className}) => {
 
     let navigate = useNavigate();
 
@@ -13,8 +13,10 @@ const Button = ({text, url, onValidation}) => {
         }
     };
 
+    const buttonClasses = `${styles.button} ${className || ''}`.trim();
+
     return (
-        <button className={styles.button} onClick={handleClick}>
+        <button className={buttonClasses} onClick={handleClick}>
             <span>{text}</span>
         </button>
     )
