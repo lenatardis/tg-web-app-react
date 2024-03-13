@@ -24,7 +24,7 @@ const Account = () => {
         {name: 'Information', url: '/'},
         {name: 'Support', url: '/'},
         {name: 'Language', url: '/'},
-        {name: 'History CVV', url: '/'}
+        {name: 'History CVV', url: '/cvv'}
     ]
 
     return (
