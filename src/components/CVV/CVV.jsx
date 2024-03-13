@@ -2,10 +2,12 @@ import styles from "./CVV.module.scss";
 import Header from "../Common/Header/Header"
 import {useState} from "react";
 import RadioButton from "./RadioButton";
+import RadioButtonRow from "./RadioButtonRow";
+import IconBitcoin from "../../assets/images/bitcoin.svg";
 
 const CVV = () => {
-    const [selectedOption1, setSelectedOption1] = useState(null);
-    const [selectedOption2, setSelectedOption2] = useState(null);
+    const [selectedOption1, setSelectedOption1] = useState('orders');
+    const [selectedOption2, setSelectedOption2] = useState('BTC/USDT');
 
     const handleOptionChange1 = (option) => {
         setSelectedOption1(option);
@@ -14,41 +16,18 @@ const CVV = () => {
     const handleOptionChange2 = (option) => {
         setSelectedOption2(option);
     };
+
     return (
         <div>
             <Header back text="CVV"/>
             <div className="wrap">
                 <div className={styles.row}>
-                    <RadioButton
-                        text="Orders"
-                        selected={selectedOption1 === "Orders"}
-                        onSelect={() => handleOptionChange1("Orders")}
-                    />
-                    <RadioButton
-                        text="Transactions"
-                        selected={selectedOption1 === "Transactions"}
-                        onSelect={() => handleOptionChange1("Transactions")}
-                    />
-                    <p>Selected option {selectedOption1}</p>
+                    <RadioButton name="option_1" value="orders" text="Orders" onSelect={handleOptionChange1} selected={selectedOption1}/>
+                    <RadioButton name="option_1" value="transactions" text="Transactions" onSelect={handleOptionChange1} selected={selectedOption1}/>
                 </div>
-                <div className={styles.row}>
-                    <RadioButton
-                        text="24h"
-                        selected={selectedOption2 === "24h"}
-                        onSelect={() => handleOptionChange2("24h")}
-                    />
-                    <RadioButton
-                        text="Last 7d"
-                        selected={selectedOption2 === "Last 7d"}
-                        onSelect={() => handleOptionChange2("Last 7d")}
-                    />
-                    <RadioButton
-                        text="Last 30d"
-                        selected={selectedOption2 === "Last 30d"}
-                        onSelect={() => handleOptionChange2("Last 30d")}
-                    />
-                    <p>Selected option {selectedOption2}</p>
-                </div>
+                <RadioButtonRow name="option_2" value="BTC/USDT" text="BTC/USDT" onSelect={handleOptionChange2} selected={selectedOption2} src={IconBitcoin}/>
+                <RadioButtonRow name="option_2" value="BTC/USDC" text="BTC/USDC" onSelect={handleOptionChange2} selected={selectedOption2} src={IconBitcoin}/>
+                <RadioButtonRow name="option_2" value="BTC/USDA" text="BTC/USDA" onSelect={handleOptionChange2} selected={selectedOption2} src={IconBitcoin}/>
             </div>
         </div>
     )

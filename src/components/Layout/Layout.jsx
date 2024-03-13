@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 const Layout = () => {
     const location = useLocation();
     const mainRoute = location.pathname.split('/')[1];
-    const noNavBarMainRoutes = ['account', 'verification'];
+    const noNavBarMainRoutes = ['account', 'verification', 'cvv'];
     const isHomeRoute = location.pathname === '/';
     const showNav = isHomeRoute || !noNavBarMainRoutes.includes(mainRoute);
 

@@ -1,7 +1,38 @@
-.radioButton {
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 40px;
 
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #0D182E;
+    border-radius: 14px;
+    pointer-events: none;
+    font-size:15px;
+    z-index: 1;
+  }
 }
 
-.selected {
+.radio {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  line-height: 0.9em;
+  z-index: 2;
+  cursor: pointer;
 
+  &:checked + p {
+    background: #2C4A7E;
+  }
 }

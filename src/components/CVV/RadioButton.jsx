@@ -1,14 +1,16 @@
 import styles from "./RadioButton.module.scss";
 
-const RadioButton = ({text, selected, onSelect}) => {
+const RadioButton = ({name, value, text, onSelect, selected}) => {
+
+    const handleChange = () => {
+        onSelect(value);
+    }
 
     return (
-        <button
-            className={`${styles.radioButton} ${selected ? styles.selected : ""}`}
-            onClick={onSelect}
-        >
-            {text}
-        </button>
+       <div className={styles.wrap}>
+           <input type="radio" className={styles.radio} name={name} value={value} checked={selected === value} onChange={handleChange}/>
+           <p>{text}</p>
+       </div>
     );
 };
 
