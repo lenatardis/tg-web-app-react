@@ -91,6 +91,10 @@ em {
     min-height: 100vh;
     position: relative;
     padding-bottom: 110px;
+
+    &.no-padding {
+      padding-bottom: 0;
+    }
   }
 }
 
@@ -141,9 +145,11 @@ em {
   width: 100%;
 }
 
+/*
 .account-page ~ .navigation-bar, .verification-page ~ .navigation-bar {
   display: none;
 }
+*/
 
 
 
