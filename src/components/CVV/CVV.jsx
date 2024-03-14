@@ -5,6 +5,8 @@ import {useState} from "react";
 import RadioButton from "./RadioButton";
 import RadioButtonRow from "./RadioButtonRow";
 import IconBitcoin from "../../assets/images/bitcoin.svg";
+import SearchInput from "./Search";
+import SearchIcon from "../../assets/images/search.svg";
 import {DateField} from '@mui/x-date-pickers/DateField';
 import dayjs, { Dayjs } from 'dayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -14,8 +16,9 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 const CVV = () => {
     const [selectedOption1, setSelectedOption1] = useState('orders');
     const [selectedOption2, setSelectedOption2] = useState('Last 7d');
-    const [selectedOption3, setSelectedOption3] = useState('All');
+    const [selectedOption3, setSelectedOption3] = useState('');
     const [selectedOption4, setSelectedOption4] = useState('BTC/USDT');
+    const [searchInputValue, setSearchInputValue] = useState('');
 
     const [value, setValue] = React.useState(dayjs('2024/01/21'));
     const [value2, setValue2] = React.useState(dayjs('2024/01/28'));
@@ -35,6 +38,11 @@ const CVV = () => {
     const handleOptionChange4 = (option) => {
         setSelectedOption4(option);
     };
+
+    const handleSearchInputChange = (text) => {
+        setSearchInputValue(text);
+    };
+
 
     return (
         <div>
@@ -80,8 +88,7 @@ const CVV = () => {
                 </div>
                 <h2>Currency pair</h2>
                 <div className={`${styles.row} ${styles.row3}`}>
-                    <RadioButton name="option_3" value="All" text="All" onSelect={handleOptionChange3}
-                                 selected={selectedOption3}/>
+                    <SearchInput name="historyCVV_search" value={searchInputValue} onSearch={setSearchInputValue} src={SearchIcon}/>
                     <RadioButton name="option_3" value="Crypto" text="Crypto" onSelect={handleOptionChange3}
                                  selected={selectedOption3}/>
                     <RadioButton name="option_3" value="Fiat" text="Fiat" onSelect={handleOptionChange3}
