@@ -100,11 +100,11 @@ const CVV = () => {
                                 selected={selectedOption4} src={IconBitcoin}/>
                 <RadioButtonRow name="option_4" value="BTC/USDA" text="BTC/USDA" onSelect={handleOptionChange4}
                                 selected={selectedOption4} src={IconBitcoin}/>
-                <RadioButtonRow name="option_4" value="BTC/USDT" text="BTC/USDT" onSelect={handleOptionChange4}
+                <RadioButtonRow name="option_4" value="BTC/USDK" text="BTC/USDK" onSelect={handleOptionChange4}
                                 selected={selectedOption4} src={IconBitcoin}/>
-                <RadioButtonRow name="option_4" value="BTC/USDC" text="BTC/USDC" onSelect={handleOptionChange4}
+                <RadioButtonRow name="option_4" value="BTC/USDF" text="BTC/USDF" onSelect={handleOptionChange4}
                                 selected={selectedOption4} src={IconBitcoin}/>
-                <RadioButtonRow name="option_4" value="BTC/USDA" text="BTC/USDA" onSelect={handleOptionChange4}
+                <RadioButtonRow name="option_4" value="BTC/USDP" text="BTC/USDP" onSelect={handleOptionChange4}
                                 selected={selectedOption4} src={IconBitcoin}/>
             </div>
         </div>
