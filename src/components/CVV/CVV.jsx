@@ -8,13 +8,13 @@ import IconBitcoin from "../../assets/images/bitcoin.svg";
 import SearchInput from "./Search";
 import SearchIcon from "../../assets/images/search.svg";
 import {DateField} from '@mui/x-date-pickers/DateField';
-import dayjs, { Dayjs } from 'dayjs';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs, {Dayjs} from 'dayjs';
+import {DemoContainer} from '@mui/x-date-pickers/internals/demo';
+import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
+import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
 
 const CVV = () => {
-    const [selectedOption1, setSelectedOption1] = useState('orders');
+    const [selectedOption1, setSelectedOption1] = useState('Orders');
     const [selectedOption2, setSelectedOption2] = useState('Last 7d');
     const [selectedOption3, setSelectedOption3] = useState('');
     const [selectedOption4, setSelectedOption4] = useState('BTC/USDT');
@@ -43,6 +43,30 @@ const CVV = () => {
         setSearchInputValue(text);
     };
 
+    const radioButtonInfo = {
+        option_1: [
+            {name: "option_1", value: "Orders"},
+            {name: "option_1", value: "Transactions"},
+        ],
+        option_2: [
+            {name: "option_2", value: "24h"},
+            {name: "option_2", value: "Last 7d"},
+            {name: "option_2", value: "Last 30d"},
+        ],
+        option_3: [
+            {name: "option_3", value: "Crypto"},
+            {name: "option_3", value: "Fiat"}
+        ],
+        option_4: [
+            {name: "option_3", value: "BTC/USDT"},
+            {name: "option_3", value: "BTC/USDC"},
+            {name: "option_3", value: "BTC/USDE"},
+            {name: "option_3", value: "BTC/USDK"},
+            {name: "option_3", value: "BTC/USDM"},
+            {name: "option_3", value: "BTC/USDN"},
+        ]
+    };
+
 
     return (
         <div>
@@ -50,19 +74,21 @@ const CVV = () => {
             <div className={`${styles['cvv-wrap']} wrap`}>
                 <h2>Type</h2>
                 <div className={styles.row}>
-                    <RadioButton name="option_1" value="orders" text="Orders" onSelect={handleOptionChange1}
-                                 selected={selectedOption1}/>
-                    <RadioButton name="option_1" value="transactions" text="Transactions" onSelect={handleOptionChange1}
-                                 selected={selectedOption1}/>
+                    {
+                        radioButtonInfo.option_1.map(({name, value}) => (
+                            <RadioButton key={value} name={name} value={value} selected={selectedOption1}
+                                         onSelect={handleOptionChange1}/>
+                        ))
+                    }
                 </div>
                 <h2>Period</h2>
                 <div className={`${styles.row} ${styles.row2}`}>
-                    <RadioButton name="option_2" value="24h" text="24h" onSelect={handleOptionChange2}
-                                 selected={selectedOption2}/>
-                    <RadioButton name="option_2" value="Last 7d" text="Last 7d" onSelect={handleOptionChange2}
-                                 selected={selectedOption2}/>
-                    <RadioButton name="option_2" value="Last 30d" text="Last 30d" onSelect={handleOptionChange2}
-                                 selected={selectedOption2}/>
+                    {
+                        radioButtonInfo.option_2.map(({name, value}) => (
+                            <RadioButton key={value} name={name} value={value} selected={selectedOption2}
+                                         onSelect={handleOptionChange2}/>
+                        ))
+                    }
                 </div>
                 <div className={`${styles['datefield-row']}`}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -88,24 +114,21 @@ const CVV = () => {
                 </div>
                 <h2>Currency pair</h2>
                 <div className={`${styles.row} ${styles.row3}`}>
-                    <SearchInput name="historyCVV_search" value={searchInputValue} onSearch={setSearchInputValue} src={SearchIcon}/>
-                    <RadioButton name="option_3" value="Crypto" text="Crypto" onSelect={handleOptionChange3}
-                                 selected={selectedOption3}/>
-                    <RadioButton name="option_3" value="Fiat" text="Fiat" onSelect={handleOptionChange3}
-                                 selected={selectedOption3}/>
+                    <SearchInput name="historyCVV_search" value={searchInputValue} onSearch={setSearchInputValue}
+                                 src={SearchIcon}/>
+                    {
+                        radioButtonInfo.option_3.map(({name, value}) => (
+                            <RadioButton key={value} name={name} value={value} selected={selectedOption3}
+                                         onSelect={handleOptionChange3}/>
+                        ))
+                    }
                 </div>
-                <RadioButtonRow name="option_4" value="BTC/USDT" text="BTC/USDT" onSelect={handleOptionChange4}
-                                selected={selectedOption4} src={IconBitcoin}/>
-                <RadioButtonRow name="option_4" value="BTC/USDC" text="BTC/USDC" onSelect={handleOptionChange4}
-                                selected={selectedOption4} src={IconBitcoin}/>
-                <RadioButtonRow name="option_4" value="BTC/USDA" text="BTC/USDA" onSelect={handleOptionChange4}
-                                selected={selectedOption4} src={IconBitcoin}/>
-                <RadioButtonRow name="option_4" value="BTC/USDK" text="BTC/USDK" onSelect={handleOptionChange4}
-                                selected={selectedOption4} src={IconBitcoin}/>
-                <RadioButtonRow name="option_4" value="BTC/USDF" text="BTC/USDF" onSelect={handleOptionChange4}
-                                selected={selectedOption4} src={IconBitcoin}/>
-                <RadioButtonRow name="option_4" value="BTC/USDP" text="BTC/USDP" onSelect={handleOptionChange4}
-                                selected={selectedOption4} src={IconBitcoin}/>
+                {
+                    radioButtonInfo.option_4.map(({name, value}) => (
+                        <RadioButtonRow key={value} name={name} value={value} selected={selectedOption4}
+                                        onSelect={handleOptionChange4} src={IconBitcoin}/>
+                    ))
+                }
             </div>
         </div>
     )
