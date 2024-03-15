@@ -7,12 +7,12 @@ const RadioButtonRow = ({name, value, onSelect, selected, src}) => {
     }
 
     return (
-        <div className={styles.wrap}>
+        <label className={styles.wrap}>
             <input type="radio" className={styles.radio} name={name} value={value} checked={selected === value} onChange={handleChange}/>
             <img src={src} alt=""/>
             <p>{value}</p>
             <span/>
-        </div>
+        </label>
     );
 };
 

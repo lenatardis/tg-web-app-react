@@ -23,26 +23,6 @@ const CVV = () => {
     const [value, setValue] = React.useState(dayjs('2024/01/21'));
     const [value2, setValue2] = React.useState(dayjs('2024/01/28'));
 
-    const handleOptionChange1 = (option) => {
-        setSelectedOption1(option);
-    };
-
-    const handleOptionChange2 = (option) => {
-        setSelectedOption2(option);
-    };
-
-    const handleOptionChange3 = (option) => {
-        setSelectedOption3(option);
-    };
-
-    const handleOptionChange4 = (option) => {
-        setSelectedOption4(option);
-    };
-
-    const handleSearchInputChange = (text) => {
-        setSearchInputValue(text);
-    };
-
     const radioButtonInfo = {
         option_1: [
             {name: "option_1", value: "Orders"},
@@ -58,15 +38,14 @@ const CVV = () => {
             {name: "option_3", value: "Fiat"}
         ],
         option_4: [
-            {name: "option_3", value: "BTC/USDT"},
-            {name: "option_3", value: "BTC/USDC"},
-            {name: "option_3", value: "BTC/USDE"},
-            {name: "option_3", value: "BTC/USDK"},
-            {name: "option_3", value: "BTC/USDM"},
-            {name: "option_3", value: "BTC/USDN"},
+            {name: "option_4", value: "BTC/USDT"},
+            {name: "option_4", value: "BTC/USDC"},
+            {name: "option_4", value: "BTC/USDE"},
+            {name: "option_4", value: "BTC/USDK"},
+            {name: "option_4", value: "BTC/USDM"},
+            {name: "option_4", value: "BTC/USDN"},
         ]
     };
-
 
     return (
         <div>
@@ -77,7 +56,7 @@ const CVV = () => {
                     {
                         radioButtonInfo.option_1.map(({name, value}) => (
                             <RadioButton key={value} name={name} value={value} selected={selectedOption1}
-                                         onSelect={handleOptionChange1}/>
+                                         onSelect={setSelectedOption1}/>
                         ))
                     }
                 </div>
@@ -86,7 +65,7 @@ const CVV = () => {
                     {
                         radioButtonInfo.option_2.map(({name, value}) => (
                             <RadioButton key={value} name={name} value={value} selected={selectedOption2}
-                                         onSelect={handleOptionChange2}/>
+                                         onSelect={setSelectedOption2}/>
                         ))
                     }
                 </div>
@@ -119,14 +98,14 @@ const CVV = () => {
                     {
                         radioButtonInfo.option_3.map(({name, value}) => (
                             <RadioButton key={value} name={name} value={value} selected={selectedOption3}
-                                         onSelect={handleOptionChange3}/>
+                                         onSelect={setSelectedOption3}/>
                         ))
                     }
                 </div>
                 {
                     radioButtonInfo.option_4.map(({name, value}) => (
                         <RadioButtonRow key={value} name={name} value={value} selected={selectedOption4}
-                                        onSelect={handleOptionChange4} src={IconBitcoin}/>
+                                        onSelect={setSelectedOption4} src={IconBitcoin}/>
                     ))
                 }
             </div>

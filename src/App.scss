@@ -61,7 +61,6 @@ h1,h2,h3 {
 
 h1 {
   padding: 0;
-  line-height: 1.2em;
 }
 
 h2 {
@@ -147,6 +146,10 @@ em {
   left: 0;
   bottom: 0;
   width: 100%;
+}
+
+input, label {
+  line-height: 0.9em;
 }
 
 
