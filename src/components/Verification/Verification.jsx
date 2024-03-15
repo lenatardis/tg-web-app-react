@@ -4,8 +4,13 @@ import Steps from "./Steps";
 import DownloadLink from "../Common/MenuItem/MenuItem";
 import Button from "./Button";
 import styles from "./Verification.module.scss";
+import {useNavigate} from "react-router-dom";
 
 const Verification = () => {
+    let navigate = useNavigate();
+    const handleNextStep = () => {
+        navigate('/verification/step2');
+    };
 
     return (
         <div className="verification-page">
@@ -13,7 +18,7 @@ const Verification = () => {
             <div className={`${styles['vp-wrap']} wrap`}>
                 <Steps step="1"/>
                 <DownloadLink name="Download the app" url="/"/>
-                <Button text="Enter" url="/verification/step2" className={styles['vp-button']}/>
+                <Button text="Enter" className={styles['vp-button']} handleClick={handleNextStep}/>
             </div>
         </div>
     )
