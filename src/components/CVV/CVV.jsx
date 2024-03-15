@@ -39,11 +39,11 @@ const CVV = () => {
         ],
         option_4: [
             {name: "option_4", value: "BTC/USDT"},
-            {name: "option_4", value: "BTC/USDC"},
-            {name: "option_4", value: "BTC/USDE"},
-            {name: "option_4", value: "BTC/USDK"},
-            {name: "option_4", value: "BTC/USDM"},
-            {name: "option_4", value: "BTC/USDN"},
+            {name: "option_4", value: "BTC/ETH"},
+            {name: "option_4", value: "BTC/LTC"},
+            {name: "option_4", value: "BTC/BNB"},
+            {name: "option_4", value: "BTC/SOL"},
+            {name: "option_4", value: "BTC/XLM"},
         ]
     };
 
