@@ -154,6 +154,49 @@
 }
 
 .order-row {
-  margin-bottom: 44px;
+  padding-bottom: 44px;
+  margin-bottom: 0;
   column-gap: 8px;
+}
+
+.history-popup {
+  position: fixed;
+  left:0;
+  bottom: 0;
+  width:100%;
+  z-index: 100;
+
+  :global(.resize) {
+    padding-top: 16px;
+    padding-bottom: 37px;
+    background: #111E39;
+    border-radius: 18px 18px 0 0;
+  }
+
+  &__wrap {
+
+  }
+
+  &__close {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 24px;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width:24px;
+      height: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  &__item {
+    border-radius:18px;
+    padding:18px;
+    background: #0D182E;
+  }
 }

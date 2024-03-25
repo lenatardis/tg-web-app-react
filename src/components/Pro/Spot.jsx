@@ -1,6 +1,5 @@
 import styles from "./Pro.module.scss";
 import Header from "../Common/Header/Header";
-import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
 import useSubRoute from "../../hooks/useSubRoute";
 import NavLinks from "./NavLinks";
 import IconTether from "../../assets/images/tether_min.svg";
@@ -8,15 +7,16 @@ import IconSelect from "../../assets/images/select.svg";
 import React, {useState} from "react";
 import RadioButton from "../Common/RadioButton/RadioButton";
 import MarketPrice from "./MarketPrice";
-import Button from "../Common/Button";
 import BtnBlock from "./BtnBlock";
 import Balance from "./Balance";
+import IconClose from "../../assets/images/close.svg";
 
 const Spot = () => {
     let subroute = useSubRoute();
     const [selectedOption1, setSelectedOption1] = useState('Buy');
     const [selectedOption2, setSelectedOption2] = useState('Market');
     const [selectedOption3, setSelectedOption3] = useState('Orders\' history');
+    const [historyPopUp, setHistoryPopUp] = useState(false);
 
     const radioButtonInfo = {
         option_1: [
@@ -32,6 +32,16 @@ const Spot = () => {
             {name: "option3", value: "Orders\' history"}
         ]
     };
+
+    const handleSelectOption3 = (value) => {
+        setSelectedOption3(value);
+        setHistoryPopUp(historyPopUp => !historyPopUp);
+    }
+
+    const closePopUp = () => {
+        setHistoryPopUp(false);
+        setSelectedOption3('Orders\' history');
+    }
 
     return (
         <div>
@@ -71,10 +81,31 @@ const Spot = () => {
                     {
                         radioButtonInfo.option_3.map(({name, value}) => (
                             <RadioButton key={value} name={name} value={value} selected={selectedOption3}
-                                         onSelect={setSelectedOption3}/>
+                                         onSelect={() => handleSelectOption3(value)}/>
                         ))
                     }
                 </div>
+                {historyPopUp && <div className={`${styles['history-popup']}`}>
+                    <div className="resize">
+                        <div className={`wrap ${styles['history-popup__wrap']}`}>
+                            <div className={`${styles['history-popup__close']}`}>
+                                <button onClick={closePopUp}>
+                                    <img src={IconClose} alt=""/>
+                                </button>
+                            </div>
+                            <div className={`${styles['history-popup__item']}`}>
+                                <div>
+                                    <div>
+                                        <span>BTC/USDT</span>
+                                        <span>Buy</span>
+                                    </div>
+                                    <div></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>}
             </div>
         </div>
     )
