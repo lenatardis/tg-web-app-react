@@ -22,20 +22,24 @@
 
 .row {
   display: flex;
-  column-gap: 3px;
+  column-gap: 8px;
   margin-bottom: 8px;
+}
+
+.main-row {
+  column-gap:3px;
 
   > * {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 48px;
     background: #0D182E;
     border-radius: 14px;
     font-size: 15px;
     cursor: pointer;
 
     &:first-child {
+      height: 48px;
       padding-left: 8px;
       padding-right: 8px;
       justify-content: flex-start;
@@ -58,12 +62,98 @@
 
     &:nth-child(2) {
       width: 100%;
-      background: #537C50;
+      height: 48px;
+
+      [type="radio"]:checked + p {
+        background: #537C50;
+      }
     }
 
     &:nth-child(3) {
       width: 100%;
-      background: #BA5349;
+      height: 48px;
+
+      [type="radio"]:checked + p {
+        background: #BA5349;
+      }
     }
   }
+}
+
+.ml-row {
+  column-gap: 3px;
+}
+
+.market-price {
+  width: 100%;
+  background: #0D182E;
+  padding: 11px 16px;
+  border-radius: 18px;
+  margin-bottom: 8px;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    span {
+      font-size: 12px;
+      color: #868B96;
+    }
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+
+    span:first-child {
+      margin-right: 14px;
+      font-size: 16px;
+    }
+
+    span:nth-of-type(2) {
+      font-size: 20px;
+    }
+  }
+}
+
+.balance {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 67px;
+  margin-bottom: 24px;
+
+  span {
+    font-size: 12px;
+  }
+}
+
+.btn-block {
+  background: #122241;
+  border-radius:18px;
+  margin-bottom: 24px;
+
+  p {
+    padding: 15px 10px 12px 16px;
+    font-size: 13px;
+    line-height: 1.1em;
+    color: #8890A0;
+
+    >span {
+      display: block;
+    }
+  }
+}
+
+.buy-btn {
+  background: #537C50;
+}
+
+.sell-btn {
+  background: #BA5349;
+}
+
+.order-row {
+  margin-bottom: 44px;
+  column-gap: 8px;
 }

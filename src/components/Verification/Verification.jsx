@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Common/Header/Header";
 import Steps from "./Steps";
 import DownloadLink from "../Common/MenuItem/MenuItem";
-import Button from "./Button";
+import Button from "../Common/Button";
 import styles from "./Verification.module.scss";
 import {useNavigate} from "react-router-dom";
 

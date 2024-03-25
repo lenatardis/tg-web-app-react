@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Button.module.scss";
 
-const Button = ({text, url, onValidation, handleClick, className}) => {
+const Button = ({text, handleClick, className}) => {
 
     const buttonClasses = `${styles.button} ${className || ''}`.trim();
 
