@@ -2,14 +2,16 @@ import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import Main from "./components/Main/Main";
 import Wallet from "./components/Wallet/Wallet";
-import Pro from "./components/Pro/Pro";
 import Manager from "./components/Manager/Manager";
 import History from "./components/History/History";
 import Account from "./components/Account/Account";
 import Verification from "./components/Verification/Verification";
 import Verification_step2 from "./components/Verification/Verification_step2";
 import Verification_step3 from "./components/Verification/Verification_step3";
+import Pro from "./components/Pro/Pro";
 import CVV from "./components/CVV/CVV";
+import Spot from "./components/Pro/Spot";
+import Exchange from "./components/Pro/Exchange";
 
 import Layout from "./components/Layout/Layout";
 import {
@@ -45,7 +47,6 @@ function App() {
                 {index: true, element: <Main/>},
                 {path: "wallet", element: <Wallet/>},
                 {path: "wallet/:id", element: <Wallet/>},
-                {path: "pro", element: <Pro/>},
                 {path: "manager", element: <Manager/>},
                 {path: "history", element: <History/>},
                 {path: "account", element: <Account/>},
@@ -53,6 +54,9 @@ function App() {
                 {path: "verification/step2", element: <Verification_step2/>},
                 {path: "verification/step3", element: <Verification_step3/>},
                 {path: "cvv", element: <CVV/>},
+                {path: "pro", element: <Pro/>},
+                {path: "pro/spot", element: <Spot/>},
+                {path: "pro/exchange", element: <Exchange/>}
             ],
         },
     ]);

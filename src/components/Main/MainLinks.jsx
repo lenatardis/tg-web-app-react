@@ -18,7 +18,7 @@ const MainLinks = () => {
                 <span>Withdraw</span>
                 <img className={styles.icon} src={IconArrUp} alt=""/>
             </Link>
-            <Link to="/pro" className={styles.link}>
+            <Link to="/pro/exchange" className={styles.link}>
                 <span>Exchange</span>
                 <img className={styles.icon} src={IconRefresh} alt=""/>
             </Link>

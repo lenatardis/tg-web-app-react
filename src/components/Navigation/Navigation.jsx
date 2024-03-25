@@ -21,7 +21,7 @@ const Navigation = () => {
     const navigation = [
         {icon: IconMain, name: 'Main', url: '/'},
         {icon: IconWallet, name: 'Wallet', url: '/wallet'},
-        {icon: IconPro, name: 'Pro', url: '/pro'},
+        {icon: IconPro, name: 'Pro', url: '/pro/spot'},
         {icon: IconManager, name: 'Manager', url: '/manager'},
         {icon: IconHistory, name: 'History', url: '/history'},
     ]

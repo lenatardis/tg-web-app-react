@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./CVV.module.scss";
 import Header from "../Common/Header/Header"
 import {useState} from "react";
-import RadioButton from "./RadioButton";
+import RadioButton from "../Common/RadioButton/RadioButton";
 import RadioButtonRow from "./RadioButtonRow";
 import IconBitcoin from "../../assets/images/bitcoin.svg";
 import SearchInput from "./Search";
