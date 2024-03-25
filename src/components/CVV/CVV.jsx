@@ -12,6 +12,7 @@ import dayjs, {Dayjs} from 'dayjs';
 import {DemoContainer} from '@mui/x-date-pickers/internals/demo';
 import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider';
 import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
+import Button from "../Common/Button";
 
 const CVV = () => {
     const [selectedOption1, setSelectedOption1] = useState('Orders');
@@ -108,6 +109,7 @@ const CVV = () => {
                                         onSelect={setSelectedOption4} src={IconBitcoin}/>
                     ))
                 }
+                <Button text="Get CVV" className={`${styles['cvv-btn']}`} handleClick={null}/>
             </div>
         </div>
     )
