@@ -6,7 +6,7 @@ $popup_gap: 101px;
   left: 0;
   bottom: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1;
   font-size: 12px;
 
   :global(.resize) {
@@ -17,14 +17,18 @@ $popup_gap: 101px;
     height: auto;
     max-height: calc(100vh - #{$header_height});
     position: relative;
-    transition: bottom 2000ms linear;
+    transition: bottom 500ms linear;
     bottom: -1000px;
-
-    &.popup-show {
-      bottom:0;
-    }
+    z-index: 1;
   }
 
+  &.popup-show {
+    z-index:100;
+    :global(.resize) {
+      bottom:0;
+      z-index:100;
+    }
+  }
 
   &__scrollable-wrap {
     height: auto;

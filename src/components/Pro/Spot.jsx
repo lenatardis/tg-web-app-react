@@ -98,7 +98,7 @@ const Spot = () => {
                         ))
                     }
                 </div>
-                {historyPopUp && <HistoryPopUp closePopUp={closePopUp} bottom={historyPopUp}/>}
+                <HistoryPopUp closePopUp={closePopUp} isVisible={historyPopUp}/>
             </div>
         </div>
     )

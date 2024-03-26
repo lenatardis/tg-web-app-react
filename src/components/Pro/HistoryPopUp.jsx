@@ -17,10 +17,10 @@ const historyInfo = {
     ]
 };
 
-const HistoryPopUp = ({closePopUp, bottom}) => {
+const HistoryPopUp = ({closePopUp, isVisible}) => {
     return (
-        <div className={`${styles['history-popup']}`}>
-            <div className={`resize ${bottom ? styles['popup-show'] : ''}`}>
+        <div className={`${styles['history-popup']} ${isVisible ? styles['popup-show'] : ''}`}>
+            <div className="resize">
                 <div className={`wrap ${styles['history-popup__wrap']}`}>
                     <div className={`${styles['history-popup__close']}`}>
                         <button onClick={closePopUp}>
