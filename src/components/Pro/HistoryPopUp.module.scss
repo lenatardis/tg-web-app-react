@@ -17,7 +17,7 @@ $popup_gap: 101px;
     height: auto;
     max-height: calc(100vh - #{$header_height});
     position: relative;
-    transition: bottom 1000ms linear;
+    transition: bottom 2000ms linear;
     bottom: -1000px;
 
     &.popup-show {
