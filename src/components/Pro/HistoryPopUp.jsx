@@ -8,6 +8,7 @@ const historyInfo = {
         {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
         {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
         {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
         {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"}
     ]
 };

@@ -7,7 +7,7 @@ const HistoryPopUpItem = ({date1, date2, amount, price}) => {
             <div className={`${styles['history-popup__title-row']}`}>
                 <div>
                     <h2>BTC/USDT</h2>
-                    <span>Buy</span>
+                   {/* <span>Buy</span>*/}
                 </div>
                 <div>
                     <span>{date1}</span>

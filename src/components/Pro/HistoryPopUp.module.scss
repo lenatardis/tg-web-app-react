@@ -1,3 +1,5 @@
+$header_height: 90px;
+
 .history-popup {
   position: fixed;
   left: 0;
@@ -11,6 +13,9 @@
     padding-bottom: 37px;
     background: #111E39;
     border-radius: 18px 18px 0 0;
+    height: auto;
+    max-height: calc(100vh - #{$header_height});
+    overflow: auto;
   }
 
   &__wrap {
