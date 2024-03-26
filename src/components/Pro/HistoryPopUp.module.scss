@@ -6,7 +6,7 @@ $popup_gap: 101px;
   left: 0;
   bottom: 0;
   width: 100%;
-  z-index: 1;
+  z-index: -1;
   font-size: 12px;
 
   :global(.resize) {
@@ -19,7 +19,7 @@ $popup_gap: 101px;
     position: relative;
     transition: bottom 500ms linear;
     bottom: -1000px;
-    z-index: 1;
+    z-index: -1;
   }
 
   &.popup-show {
