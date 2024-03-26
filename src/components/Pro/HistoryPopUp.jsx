@@ -9,6 +9,10 @@ const historyInfo = {
         {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
         {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
         {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
         {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"}
     ]
 };
@@ -23,12 +27,14 @@ const HistoryPopUp = ({closePopUp}) => {
                             <img src={IconClose} alt=""/>
                         </button>
                     </div>
-                    {
-                        historyInfo.items.map(({date1, date2, amount, price}, index) => (
-                            <HistoryPopUpItem key={index} date1={date1} date2={date2} amount={amount}
-                                         price={price}/>
-                        ))
-                    }
+                    <div className={`${styles['history-popup__scrollable-wrap']}`}>
+                        {
+                            historyInfo.items.map(({date1, date2, amount, price}, index) => (
+                                <HistoryPopUpItem key={index} date1={date1} date2={date2} amount={amount}
+                                                  price={price}/>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>
