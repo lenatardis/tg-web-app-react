@@ -10,6 +10,7 @@ import MarketPrice from "./MarketPrice";
 import BtnBlock from "./BtnBlock";
 import Balance from "./Balance";
 import IconClose from "../../assets/images/close.svg";
+import HistoryPopUp from "./HistoryPopUp";
 
 const Spot = () => {
     let subroute = useSubRoute();
@@ -85,27 +86,7 @@ const Spot = () => {
                         ))
                     }
                 </div>
-                {historyPopUp && <div className={`${styles['history-popup']}`}>
-                    <div className="resize">
-                        <div className={`wrap ${styles['history-popup__wrap']}`}>
-                            <div className={`${styles['history-popup__close']}`}>
-                                <button onClick={closePopUp}>
-                                    <img src={IconClose} alt=""/>
-                                </button>
-                            </div>
-                            <div className={`${styles['history-popup__item']}`}>
-                                <div>
-                                    <div>
-                                        <span>BTC/USDT</span>
-                                        <span>Buy</span>
-                                    </div>
-                                    <div></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>}
+                {historyPopUp && <HistoryPopUp closePopUp={closePopUp}/>}
             </div>
         </div>
     )
