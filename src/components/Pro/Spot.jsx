@@ -9,7 +9,7 @@ import RadioButton from "../Common/RadioButton/RadioButton";
 import MarketPrice from "./MarketPrice";
 import BtnBlock from "./BtnBlock";
 import Balance from "./Balance";
-import IconClose from "../../assets/images/close.svg";
+import {useEffect} from "react";
 import HistoryPopUp from "./HistoryPopUp";
 
 const Spot = () => {
@@ -18,6 +18,18 @@ const Spot = () => {
     const [selectedOption2, setSelectedOption2] = useState('Market');
     const [selectedOption3, setSelectedOption3] = useState('Orders\' history');
     const [historyPopUp, setHistoryPopUp] = useState(false);
+
+    useEffect(() => {
+        if (historyPopUp) {
+            document.body.classList.add('noscroll');
+        } else {
+            document.body.classList.remove('noscroll');
+        }
+
+        return () => {
+            document.body.classList.remove('noscroll');
+        };
+    }, [historyPopUp]);
 
     const radioButtonInfo = {
         option_1: [
