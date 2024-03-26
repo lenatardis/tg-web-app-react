@@ -16,6 +16,13 @@ $popup_gap: 101px;
     border-radius: 18px 18px 0 0;
     height: auto;
     max-height: calc(100vh - #{$header_height});
+    position: relative;
+    transition: bottom 1000ms linear;
+    bottom: -1000px;
+
+    &.popup-show {
+      bottom:0;
+    }
   }
 
 
