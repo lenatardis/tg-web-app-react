@@ -5,8 +5,7 @@ import {useState} from "react";
 import RadioButton from "../Common/RadioButton/RadioButton";
 import RadioButtonRow from "./RadioButtonRow";
 import IconBitcoin from "../../assets/images/bitcoin.svg";
-import SearchInput from "./Search";
-import SearchIcon from "../../assets/images/search.svg";
+import SearchInput from "../Common/Search/Search";
 import {DateField} from '@mui/x-date-pickers/DateField';
 import dayjs, {Dayjs} from 'dayjs';
 import {DemoContainer} from '@mui/x-date-pickers/internals/demo';
@@ -94,8 +93,7 @@ const CVV = () => {
                 </div>
                 <h2>Currency pair</h2>
                 <div className={`${styles.row} ${styles.row3}`}>
-                    <SearchInput name="historyCVV_search" value={searchInputValue} onSearch={setSearchInputValue}
-                                 src={SearchIcon}/>
+                    <SearchInput name="historyCVV_search" value={searchInputValue} onSearch={setSearchInputValue}/>
                     {
                         radioButtonInfo.option_3.map(({name, value}) => (
                             <RadioButton key={value} name={name} value={value} selected={selectedOption3}

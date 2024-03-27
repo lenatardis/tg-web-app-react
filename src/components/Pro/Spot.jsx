@@ -20,6 +20,7 @@ const Spot = () => {
     const [selectedOption3, setSelectedOption3] = useState('Orders\' history');
     const [historyPopUp, setHistoryPopUp] = useState(false);
     const [currencyPopUp, setCurrencyPopUp] = useState(false);
+    const [searchInputValue, setSearchInputValue] = useState('');
 
     useEffect(() => {
         if (historyPopUp) {
@@ -109,7 +110,7 @@ const Spot = () => {
                     }
                 </div>
                 <HistoryPopUp closePopUp={closeHistoryPopUp} isVisible={historyPopUp}/>
-                {currencyPopUp && <CurrencyPopUp closePopUp={closeCurrencyPopUp}/>}
+                {currencyPopUp && <CurrencyPopUp closePopUp={closeCurrencyPopUp} searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue}/>}
             </div>
         </div>
     )

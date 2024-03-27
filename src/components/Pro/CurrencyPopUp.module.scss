@@ -21,4 +21,10 @@ $navigation_height: 102px;
     background: pink;
     z-index: 150;
   }
+
+  :global(.wrap) {
+    padding-top: 15px;
+  }
+
+
 }
