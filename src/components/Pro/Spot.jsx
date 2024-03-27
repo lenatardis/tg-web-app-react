@@ -22,6 +22,7 @@ const Spot = () => {
     const [currencyPopUp, setCurrencyPopUp] = useState(false);
     const [searchInputValue, setSearchInputValue] = useState('');
     const [selectedCurrency, setSelectedCurrency] = useState('FIAT');
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
         if (historyPopUp) {
@@ -68,6 +69,10 @@ const Spot = () => {
         setCurrencyPopUp(false);
     }
 
+    const handleCheckBox = () => {
+        setChecked(checked => !checked);
+    }
+
     return (
         <div>
             <Header back text="Exchange" menu/>
@@ -112,8 +117,11 @@ const Spot = () => {
                 </div>
                 <HistoryPopUp closePopUp={closeHistoryPopUp} isVisible={historyPopUp}/>
                 {currencyPopUp && <CurrencyPopUp closePopUp={closeCurrencyPopUp}
-                                                 searchInputValue={searchInputValue} setSearchInputValue={setSearchInputValue}
-                                                 selectedCurrency={selectedCurrency} setSelectedCurrency={setSelectedCurrency}
+                                                 searchInputValue={searchInputValue}
+                                                 setSearchInputValue={setSearchInputValue}
+                                                 selectedCurrency={selectedCurrency}
+                                                 setSelectedCurrency={setSelectedCurrency}
+                                                 checked={checked} setChecked={handleCheckBox}
                 />}
             </div>
         </div>

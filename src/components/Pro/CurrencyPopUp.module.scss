@@ -37,5 +37,9 @@ $navigation_height: 102px;
       line-height: 0.9em;
       border-radius: 30px;
     }
+
+    > div:not(:first-child) {
+      width: 60px;
+    }
   }
 }
