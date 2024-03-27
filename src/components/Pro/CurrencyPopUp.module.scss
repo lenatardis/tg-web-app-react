@@ -1,0 +1,24 @@
+$navigation_height: 102px;
+
+.currency-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 150;
+  /*font-size: 12px;*/
+
+  :global(.resize) {
+    /*padding-top: 16px;
+    background: #111E39;
+    border-radius: 18px 18px 0 0;
+    height: auto;
+    position: relative;
+    transition: bottom 500ms linear;
+    bottom: -1000px;
+    z-index: -1;*/
+    height: calc(100vh - #{$navigation_height});
+    background: pink;
+    z-index: 150;
+  }
+}

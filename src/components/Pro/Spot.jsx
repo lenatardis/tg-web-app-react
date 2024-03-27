@@ -11,6 +11,7 @@ import BtnBlock from "./BtnBlock";
 import Balance from "./Balance";
 import {useEffect} from "react";
 import HistoryPopUp from "./HistoryPopUp";
+import CurrencyPopUp from "./CurrencyPopUp";
 
 const Spot = () => {
     let subroute = useSubRoute();
@@ -61,13 +62,17 @@ const Spot = () => {
         setCurrencyPopUp(true);
     }
 
+    const closeCurrencyPopUp = () => {
+        setCurrencyPopUp(false);
+    }
+
     return (
         <div>
             <Header back text="Exchange" menu/>
             <div className="wrap">
                 <NavLinks subroute={subroute}/>
                 <div className={`${styles['row']} ${styles['main-row']}`}>
-                    <span>
+                    <span onClick={openCurrencyPopUp}>
                         <img src={IconTether} alt=""/>
                         <span>USDT/EUR</span>
                         <span>344256.35</span>
@@ -104,6 +109,7 @@ const Spot = () => {
                     }
                 </div>
                 <HistoryPopUp closePopUp={closeHistoryPopUp} isVisible={historyPopUp}/>
+                {currencyPopUp && <CurrencyPopUp closePopUp={closeCurrencyPopUp}/>}
             </div>
         </div>
     )
