@@ -18,6 +18,7 @@ const Spot = () => {
     const [selectedOption2, setSelectedOption2] = useState('Market');
     const [selectedOption3, setSelectedOption3] = useState('Orders\' history');
     const [historyPopUp, setHistoryPopUp] = useState(false);
+    const [currencyPopUp, setCurrencyPopUp] = useState(false);
 
     useEffect(() => {
         if (historyPopUp) {
@@ -51,9 +52,13 @@ const Spot = () => {
         setHistoryPopUp(historyPopUp => !historyPopUp);
     }
 
-    const closePopUp = () => {
+    const closeHistoryPopUp = () => {
         setHistoryPopUp(false);
         setSelectedOption3('Orders\' history');
+    }
+
+    const openCurrencyPopUp = () => {
+        setCurrencyPopUp(true);
     }
 
     return (
@@ -98,7 +103,7 @@ const Spot = () => {
                         ))
                     }
                 </div>
-                <HistoryPopUp closePopUp={closePopUp} isVisible={historyPopUp}/>
+                <HistoryPopUp closePopUp={closeHistoryPopUp} isVisible={historyPopUp}/>
             </div>
         </div>
     )
