@@ -25,7 +25,7 @@ const Spot = () => {
     const [checked, setChecked] = useState(false);
 
     useEffect(() => {
-        if (historyPopUp) {
+        if (historyPopUp || currencyPopUp) {
             document.body.classList.add('noscroll');
         } else {
             document.body.classList.remove('noscroll');
@@ -34,7 +34,7 @@ const Spot = () => {
         return () => {
             document.body.classList.remove('noscroll');
         };
-    }, [historyPopUp]);
+    }, [historyPopUp, currencyPopUp]);
 
     const radioButtonInfo = {
         option_1: [
