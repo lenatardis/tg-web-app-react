@@ -26,5 +26,16 @@ $navigation_height: 102px;
     padding-top: 15px;
   }
 
+  &__button-row {
+    display: flex;
+    padding-top: 8px;
+    column-gap: 4px;
 
+    [type="radio"] + p {
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      line-height: 0.9em;
+      border-radius: 30px;
+    }
+  }
 }

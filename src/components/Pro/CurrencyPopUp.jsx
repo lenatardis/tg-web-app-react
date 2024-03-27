@@ -4,7 +4,9 @@ import Header from "../Common/Header/Header";
 import SearchInput from "../Common/Search/Search";
 import RadioButton from "../Common/RadioButton/RadioButton";
 
-const CurrencyPopUp = ({closePopUp, searchInputValue, setSearchInputValue}) => {
+const CurrencyPopUp = ({closePopUp, searchInputValue, setSearchInputValue, selectedCurrency, setSelectedCurrency}) => {
+
+    const buttonArray = ['BTC', 'ETH', 'FIAT', 'LTK', 'BNB'];
 
     return (
         <div className={`${styles['currency-popup']}`}>
@@ -12,7 +14,14 @@ const CurrencyPopUp = ({closePopUp, searchInputValue, setSearchInputValue}) => {
                 <Header back text="Exchange" menu close={closePopUp}/>
                 <div className="wrap">
                     <SearchInput name="currencypopup_search" value={searchInputValue} onSearch={setSearchInputValue}/>
-
+                    <div className={`${styles['currency-popup__button-row']}`}>
+                        {
+                            buttonArray.map((el, index) => (
+                                <RadioButton key={el} name="currencyPopupCurrency" value={el} selected={selectedCurrency}
+                                             onSelect={setSelectedCurrency}/>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>
