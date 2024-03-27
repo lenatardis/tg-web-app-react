@@ -18,7 +18,7 @@ $navigation_height: 102px;
     bottom: -1000px;
     z-index: -1;*/
     height: calc(100vh - #{$navigation_height});
-    background: pink;
+    background: #091223;
     z-index: 150;
   }
 
@@ -29,6 +29,7 @@ $navigation_height: 102px;
   &__button-row {
     display: flex;
     padding-top: 8px;
+    margin-bottom: 8px;
     column-gap: 4px;
 
     [type="radio"] + p {
@@ -41,5 +42,32 @@ $navigation_height: 102px;
     > div:not(:first-child) {
       width: 60px;
     }
+  }
+}
+
+.list-item {
+  padding: 30px 16px;
+  margin-bottom: 8px;
+  border-radius: 18px;
+  background: #0D182E;
+  font-size: 18px;
+  font-weight: 500;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > div:first-child {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
   }
 }

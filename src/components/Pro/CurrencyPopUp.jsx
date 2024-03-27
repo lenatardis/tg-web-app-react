@@ -4,6 +4,7 @@ import Header from "../Common/Header/Header";
 import SearchInput from "../Common/Search/Search";
 import RadioButton from "../Common/RadioButton/RadioButton";
 import CheckBox from "./Checkbox";
+import ListItem from "./ListItem";
 
 const CurrencyPopUp = ({
                            closePopUp,
@@ -17,6 +18,17 @@ const CurrencyPopUp = ({
 
     const buttonArray = ['BTC', 'ETH', 'FIAT', 'LTK', 'BNB'];
 
+    const listInfo = {
+        items: [
+            {name: "USDT/USD", value: "42.200 USDT "},
+            {name: "USDT/USD", value: "0.0021647 BTC"},
+            {name: "USDT/USD", value: "0.005956 BTC"},
+            {name: "USDT/USD", value: "0.006618 BTC"},
+            {name: "USDT/USD", value: "0.0046746 BTC"},
+            {name: "USDT/USD", value: "0.005956 BTC"}
+        ]
+    }
+
     return (
         <div className={`${styles['currency-popup']}`}>
             <div className="resize">
@@ -27,13 +39,19 @@ const CurrencyPopUp = ({
                         <CheckBox name="currencypopup_checkbox" value={checked} setChecked={setChecked}/>
                         {
                             buttonArray.map((el, index) => (
-                                <RadioButton key={el} name="currencyPopupCurrency" value={el}
+                                <RadioButton key={index} name="currencyPopupCurrency" value={el}
                                              selected={selectedCurrency}
                                              onSelect={setSelectedCurrency}/>
                             ))
                         }
                     </div>
-                    {checked && <p>Checked</p>}
+                    <div className={`${styles['currency-popup__list-wrap']}`}>
+                        {
+                            listInfo.items.map(({name, value}, index) => (
+                                <ListItem key={index} text1={name} text2={value}/>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </div>
