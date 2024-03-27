@@ -1,4 +1,6 @@
+$header_height: 90px;
 $navigation_height: 102px;
+$popup_gap: 111px;
 
 .currency-popup {
   position: fixed;
@@ -23,7 +25,13 @@ $navigation_height: 102px;
   }
 
   :global(.wrap) {
+    height: calc(100vh - #{$navigation_height} - #{$header_height});
     padding-top: 15px;
+  }
+
+  &__list-wrap {
+    height: calc(100vh - #{$navigation_height} - #{$header_height} - #{$popup_gap});
+    overflow: auto;
   }
 
   &__button-row {
