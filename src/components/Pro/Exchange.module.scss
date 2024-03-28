@@ -1,9 +1,10 @@
 .exchange-wrap {
-  padding-top: 32px;
+  padding-top: 24px;
 }
 
 .exchange-block {
   position: relative;
+  margin-bottom: 24px;
 
   &__item {
     background: #0D182E;
@@ -87,4 +88,5 @@
   border-radius:9.56px;
   border: none;
   cursor:pointer;
+  z-index:2;
 }

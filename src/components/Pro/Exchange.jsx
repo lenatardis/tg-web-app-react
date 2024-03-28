@@ -59,6 +59,7 @@ const Exchange = () => {
                             <img src={IconVerticalSwitch} alt=""/>
                         </button>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -4,10 +4,11 @@ $popup_gap: 64px;
 .history-popup {
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: -1000px;
+  transition: all 800ms;
   width: 100%;
-  z-index: -1;
   font-size: 12px;
+  z-index: 100;
 
   :global(.resize) {
     padding-top: 16px;
@@ -16,16 +17,14 @@ $popup_gap: 64px;
     height: auto;
     max-height: calc(100vh - #{$header_height});
     position: relative;
-    transition: bottom 500ms linear;
+    transition: all 800ms;
     bottom: -1000px;
-    z-index: -1;
   }
 
   &.popup-show {
-    z-index:100;
+    bottom:0;
     :global(.resize) {
       bottom:0;
-      z-index:100;
     }
   }
 
