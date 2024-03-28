@@ -36,6 +36,8 @@ $popup_gap: 111px;
 
   &__button-row {
     display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     padding-top: 8px;
     margin-bottom: 8px;
     column-gap: 4px;
@@ -45,6 +47,10 @@ $popup_gap: 111px;
       font-family: 'Inter', sans-serif;
       line-height: 0.9em;
       border-radius: 30px;
+    }
+
+    > div {
+      flex: 0 0 auto;
     }
 
     > div:not(:first-child) {

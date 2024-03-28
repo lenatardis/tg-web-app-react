@@ -16,7 +16,7 @@ const CurrencyPopUp = ({
                            setChecked
                        }) => {
 
-    const buttonArray = ['BTC', 'ETH', 'FIAT', 'LTK', 'BNB'];
+    const buttonArray = ['BTC', 'ETH', 'FIAT', 'LTK', 'BNB', 'BSV', 'DOGE', 'ETC', 'SOL', 'ENJ' ];
 
     const listInfo = {
         items: [
