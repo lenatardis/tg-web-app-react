@@ -1,5 +1,5 @@
 import styles from "./HistoryPopUp.module.scss";
-import IconBin from "../../assets/images/bin.svg";
+import IconBin from "../../../../assets/images/bin.svg";
 
 const HistoryPopUpItem = ({date1, date2, amount, price}) => {
     return (

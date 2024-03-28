@@ -1,5 +1,5 @@
 import styles from "./Checkbox.module.scss";
-import IconStar from "../../assets/images/star.svg";
+import IconStar from "../../../../../assets/images/star.svg";
 
 const CheckBox = ({name, value, setChecked}) => {
 

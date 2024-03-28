@@ -1,9 +1,9 @@
 import styles from "./CurrencyPopUp.module.scss";
 import React from "react";
-import Header from "../Common/Header/Header";
-import SearchInput from "../Common/Search/Search";
-import RadioButton from "../Common/RadioButton/RadioButton";
-import CheckBox from "./Checkbox";
+import Header from "../../../Common/Header/Header";
+import SearchInput from "../../../Common/Search/Search";
+import RadioButton from "../../../Common/RadioButton/RadioButton";
+import CheckBox from "./Checkbox/Checkbox";
 import ListItem from "./ListItem";
 
 const CurrencyPopUp = ({

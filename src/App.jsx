@@ -10,8 +10,8 @@ import Verification_step2 from "./components/Verification/Verification_step2";
 import Verification_step3 from "./components/Verification/Verification_step3";
 import Pro from "./components/Pro/Pro";
 import CVV from "./components/CVV/CVV";
-import Spot from "./components/Pro/Spot";
-import Exchange from "./components/Pro/Exchange";
+import Spot from "./components/Pro/Spot/Spot";
+import Exchange from "./components/Pro/Exchange/Exchange";
 
 import Layout from "./components/Layout/Layout";
 import {

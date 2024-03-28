@@ -1,17 +1,17 @@
-import styles from "./Pro.module.scss";
-import Header from "../Common/Header/Header";
-import useSubRoute from "../../hooks/useSubRoute";
-import NavLinks from "./NavLinks";
-import IconTether from "../../assets/images/tether_min.svg";
-import IconSelect from "../../assets/images/select.svg";
+import styles from "../Pro.module.scss";
+import Header from "../../Common/Header/Header";
+import useSubRoute from "../../../hooks/useSubRoute";
+import NavLinks from "../NavLinks";
+import IconTether from "../../../assets/images/tether_min.svg";
+import IconSelect from "../../../assets/images/select.svg";
 import React, {useState} from "react";
-import RadioButton from "../Common/RadioButton/RadioButton";
+import RadioButton from "../../Common/RadioButton/RadioButton";
 import MarketPrice from "./MarketPrice";
 import BtnBlock from "./BtnBlock";
 import Balance from "./Balance";
 import {useEffect} from "react";
-import HistoryPopUp from "./HistoryPopUp";
-import CurrencyPopUp from "./CurrencyPopUp";
+import HistoryPopUp from "./HistoryPopUp/HistoryPopUp";
+import CurrencyPopUp from "./CurrencyPopUp/CurrencyPopUp";
 
 const Spot = () => {
     let subroute = useSubRoute();

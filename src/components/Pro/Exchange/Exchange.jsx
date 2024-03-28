@@ -1,12 +1,12 @@
 import styles from "./Exchange.module.scss";
-import Header from "../Common/Header/Header";
-import useSubRoute from "../../hooks/useSubRoute";
-import NavLinks from "./NavLinks";
+import Header from "../../Common/Header/Header";
+import useSubRoute from "../../../hooks/useSubRoute";
+import NavLinks from "../NavLinks";
 import React from "react";
-import IconEtherium from "../../assets/images/etherium.svg";
-import IconBitcoin from "../../assets/images/bitcoin.svg";
-import IconUp from "../../assets/images/up.svg";
-import IconVerticalSwitch from "../../assets/images/switch-vertical.svg";
+import IconEtherium from "../../../assets/images/etherium.svg";
+import IconBitcoin from "../../../assets/images/bitcoin.svg";
+import IconUp from "../../../assets/images/up.svg";
+import IconVerticalSwitch from "../../../assets/images/switch-vertical.svg";
 
 const Exchange = () => {
     let subroute = useSubRoute();
