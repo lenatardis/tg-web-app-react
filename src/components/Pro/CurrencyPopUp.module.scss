@@ -8,11 +8,11 @@ $popup_gap: 111px;
   top: -1000px;
   width: 100%;
   z-index: 100;
-  transition: top 500ms linear;
+  transition: all 800ms;
 
   :global(.resize) {
     position: relative;
-    transition: top 500ms linear;
+    transition: all 800ms;
     top: -1000px;
     height: calc(100vh - #{$navigation_height});
     background: #091223;
