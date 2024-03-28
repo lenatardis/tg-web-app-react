@@ -7,21 +7,23 @@ $popup_gap: 111px;
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 150;
-  /*font-size: 12px;*/
+  z-index: -1;
 
   :global(.resize) {
-    /*padding-top: 16px;
-    background: #111E39;
-    border-radius: 18px 18px 0 0;
-    height: auto;
     position: relative;
-    transition: bottom 500ms linear;
-    bottom: -1000px;
-    z-index: -1;*/
+    transition: top 500ms linear;
+    top: -1000px;
+    z-index: -1;
     height: calc(100vh - #{$navigation_height});
     background: #091223;
-    z-index: 150;
+  }
+
+  &.popup-show {
+    z-index:150;
+    :global(.resize) {
+      top:0;
+      z-index:150;
+    }
   }
 
   :global(.wrap) {

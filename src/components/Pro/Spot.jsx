@@ -116,13 +116,13 @@ const Spot = () => {
                     }
                 </div>
                 <HistoryPopUp closePopUp={closeHistoryPopUp} isVisible={historyPopUp}/>
-                {currencyPopUp && <CurrencyPopUp closePopUp={closeCurrencyPopUp}
+                <CurrencyPopUp closePopUp={closeCurrencyPopUp} isVisible={currencyPopUp}
                                                  searchInputValue={searchInputValue}
                                                  setSearchInputValue={setSearchInputValue}
                                                  selectedCurrency={selectedCurrency}
                                                  setSelectedCurrency={setSelectedCurrency}
                                                  checked={checked} setChecked={handleCheckBox}
-                />}
+                />
             </div>
         </div>
     )

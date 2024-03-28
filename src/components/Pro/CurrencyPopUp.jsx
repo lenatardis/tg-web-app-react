@@ -8,6 +8,7 @@ import ListItem from "./ListItem";
 
 const CurrencyPopUp = ({
                            closePopUp,
+                           isVisible,
                            searchInputValue,
                            setSearchInputValue,
                            selectedCurrency,
@@ -16,7 +17,7 @@ const CurrencyPopUp = ({
                            setChecked
                        }) => {
 
-    const buttonArray = ['BTC', 'ETH', 'FIAT', 'LTK', 'BNB', 'BSV', 'DOGE', 'ETC', 'SOL', 'ENJ' ];
+    const buttonArray = ['BTC', 'ETH', 'FIAT', 'LTK', 'BNB', 'BSV', 'DOGE', 'ETC', 'SOL', 'ENJ'];
 
     const listInfo = {
         items: [
@@ -30,7 +31,7 @@ const CurrencyPopUp = ({
     }
 
     return (
-        <div className={`${styles['currency-popup']}`}>
+        <div className={`${styles['currency-popup']} ${isVisible ? styles['popup-show'] : ''}`}>
             <div className="resize">
                 <Header back text="Exchange" menu close={closePopUp}/>
                 <div className="wrap">
