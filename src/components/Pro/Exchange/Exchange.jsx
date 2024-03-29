@@ -45,9 +45,9 @@ const Exchange = () => {
     return (
         <div>
             <Header back text="Exchange" menu/>
-            <div className="wrap">
+            <div className={`${styles['exchange-wrap']} wrap`}>
                 <NavLinks subroute={subroute}/>
-                <div className={`${styles['exchange-wrap']}`}>
+                <div className={styles.mainWrap}>
                     <div className={`${styles['exchange-block']}`}>
                         <div className={`${styles['exchange-block__item']}`}>
                             <div className={`${styles['title-row']}`}>
