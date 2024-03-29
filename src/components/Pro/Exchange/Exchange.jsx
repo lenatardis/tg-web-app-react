@@ -11,6 +11,9 @@ import IconTether from "../../../assets/images/tether.svg";
 import IconLitecoin from "../../../assets/images/litecoin.svg";
 import useClickOutside from "../../../hooks/useClickOutside";
 import Button from "../../Common/Button";
+import {useSelector, useDispatch} from "react-redux";
+import {setGiveCurrency, setGetCurrency} from "../../../store/user-slice";
+import {getGiveCurrency, getGetCurrency} from "../../../store/selectors";
 
 const cryptocurrencies = [
     {name: 'Etherium', src: IconEtherium, abbreviation: 'ETH'},
@@ -32,15 +35,22 @@ const Exchange = () => {
     useClickOutside(dropdownRef1, () => setDropDownOpen1(false));
     useClickOutside(dropdownRef2, () => setDropDownOpen2(false));
 
+    const dispatch = useDispatch();
+
     const handleSelect1 = (crypto) => {
         setSelectedCrypto1(crypto);
+        dispatch(setGiveCurrency(crypto.abbreviation));
         setDropDownOpen1(false);
     };
 
     const handleSelect2 = (crypto) => {
         setSelectedCrypto2(crypto);
+        dispatch(setGetCurrency(crypto.abbreviation));
         setDropDownOpen2(false);
     };
+
+    let give = useSelector(getGiveCurrency);
+    let get = useSelector(getGetCurrency);
 
     return (
         <div>
