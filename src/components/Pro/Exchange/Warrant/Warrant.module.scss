@@ -1,0 +1,40 @@
+$navigation_height: 110px;
+
+.warrantWrap {
+  background: #242b3f;
+  height: calc(100vh - #{$navigation_height});
+}
+
+.warrantHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 11.58vh;
+  height: 35.1vh;
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
+.arrowWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 31px;
+  background: #303752;
+  cursor: pointer;
+
+  img {
+    transform: rotate(180deg);
+  }
+}
+
+.dashboardWrap {
+  background: #091223;
+  border-radius:18px 18px 0 0;
+  height: calc(100vh - 35.1vh - #{$navigation_height});
+}

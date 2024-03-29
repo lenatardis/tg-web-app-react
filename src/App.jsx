@@ -12,7 +12,7 @@ import Pro from "./components/Pro/Pro";
 import CVV from "./components/CVV/CVV";
 import Spot from "./components/Pro/Spot/Spot";
 import Exchange from "./components/Pro/Exchange/Exchange";
-import Warrant from "./components/Pro/Exchange/Warrant";
+import Warrant from "./components/Pro/Exchange/Warrant/Warrant";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
