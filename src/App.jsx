@@ -12,13 +12,14 @@ import Pro from "./components/Pro/Pro";
 import CVV from "./components/CVV/CVV";
 import Spot from "./components/Pro/Spot/Spot";
 import Exchange from "./components/Pro/Exchange/Exchange";
-
+import Warrant from "./components/Pro/Exchange/Warrant";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
 import './App.scss';
+
 
 function App() {
     console.log(window.Telegram.WebApp);
@@ -56,7 +57,8 @@ function App() {
                 {path: "cvv", element: <CVV/>},
                 {path: "pro", element: <Pro/>},
                 {path: "pro/spot", element: <Spot/>},
-                {path: "pro/exchange", element: <Exchange/>}
+                {path: "pro/exchange", element: <Exchange/>},
+                {path: "pro/exchange/warrant", element: <Warrant/>}
             ],
         },
     ]);

@@ -14,12 +14,10 @@ const userSlice = createSlice({
     reducers: {
         setGiveCurrency(state, action) {
             state.exchange.give = action.payload;
-            console.log(state.exchange);
         },
 
         setGetCurrency(state, action) {
             state.exchange.get = action.payload;
-            console.log(state.exchange);
         },
     }
 });

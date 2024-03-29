@@ -2,7 +2,7 @@ import styles from "./Exchange.module.scss";
 import Header from "../../Common/Header/Header";
 import useSubRoute from "../../../hooks/useSubRoute";
 import NavLinks from "../NavLinks";
-import { useState, useRef } from "react";
+import {useState, useRef, useEffect} from "react";
 import IconEtherium from "../../../assets/images/etherium.svg";
 import IconBitcoin from "../../../assets/images/bitcoin.svg";
 import IconUp from "../../../assets/images/up.svg";
@@ -12,8 +12,9 @@ import IconLitecoin from "../../../assets/images/litecoin.svg";
 import useClickOutside from "../../../hooks/useClickOutside";
 import Button from "../../Common/Button";
 import {useSelector, useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import {setGiveCurrency, setGetCurrency} from "../../../store/user-slice";
-import {getGiveCurrency, getGetCurrency} from "../../../store/selectors";
+import {getGetCurrency, getGiveCurrency} from "../../../store/selectors";
 
 const cryptocurrencies = [
     {name: 'Etherium', src: IconEtherium, abbreviation: 'ETH'},
@@ -24,8 +25,15 @@ const cryptocurrencies = [
 
 const Exchange = () => {
     let subroute = useSubRoute();
-    const [selectedCrypto1, setSelectedCrypto1] = useState(cryptocurrencies[0]);
-    const [selectedCrypto2, setSelectedCrypto2] = useState(cryptocurrencies[1]);
+
+    let give = useSelector(getGiveCurrency);
+    let get = useSelector(getGetCurrency);
+    let initialValue1 = cryptocurrencies.find(el => el.abbreviation === give) || cryptocurrencies[0];
+    let initialValue2 = cryptocurrencies.find(el => el.abbreviation === get) || cryptocurrencies[1];
+
+    const [selectedCrypto1, setSelectedCrypto1] = useState(initialValue1);
+    const [selectedCrypto2, setSelectedCrypto2] = useState(initialValue2);
+
     const [dropDownOpen1, setDropDownOpen1] = useState(false);
     const [dropDownOpen2, setDropDownOpen2] = useState(false);
 
@@ -49,8 +57,7 @@ const Exchange = () => {
         setDropDownOpen2(false);
     };
 
-    let give = useSelector(getGiveCurrency);
-    let get = useSelector(getGetCurrency);
+    let navigate = useNavigate();
 
     return (
         <div>
@@ -124,7 +131,7 @@ const Exchange = () => {
                     <div className={styles.rateWrap}>
                         <p>1 {selectedCrypto1.abbreviation} = 0.05246116 {selectedCrypto2.abbreviation}</p>
                     </div>
-                    <Button text="Exchange" handleClick={null}/>
+                    <Button text="Exchange" handleClick={() => navigate('/pro/exchange/warrant')}/>
                 </div>
             </div>
         </div>
