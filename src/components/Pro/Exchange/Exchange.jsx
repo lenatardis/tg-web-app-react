@@ -112,7 +112,7 @@ const Exchange = () => {
                         </button>
                     </div>
                     <div className={styles.rateWrap}>
-                        <p>1 ETH = 0.05246116 ВTC</p>
+                        <p>1 {selectedCrypto1.abbreviation} = 0.05246116 {selectedCrypto2.abbreviation}</p>
                     </div>
                     <Button text="Exchange" handleClick={null}/>
                 </div>
