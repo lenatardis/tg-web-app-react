@@ -2,13 +2,14 @@ import styles from "./Exchange.module.scss";
 import Header from "../../Common/Header/Header";
 import useSubRoute from "../../../hooks/useSubRoute";
 import NavLinks from "../NavLinks";
-import {useState} from "react";
+import { useState, useRef } from "react";
 import IconEtherium from "../../../assets/images/etherium.svg";
 import IconBitcoin from "../../../assets/images/bitcoin.svg";
 import IconUp from "../../../assets/images/up.svg";
 import IconVerticalSwitch from "../../../assets/images/switch-vertical.svg";
 import IconTether from "../../../assets/images/tether.svg";
 import IconLitecoin from "../../../assets/images/litecoin.svg";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 const cryptocurrencies = [
     {name: 'Etherium', src: IconEtherium, abbreviation: 'ETH'},
@@ -23,6 +24,12 @@ const Exchange = () => {
     const [selectedCrypto2, setSelectedCrypto2] = useState(cryptocurrencies[1]);
     const [dropDownOpen1, setDropDownOpen1] = useState(false);
     const [dropDownOpen2, setDropDownOpen2] = useState(false);
+
+    const dropdownRef1 = useRef(null);
+    const dropdownRef2 = useRef(null);
+
+    useClickOutside(dropdownRef1, () => setDropDownOpen1(false));
+    useClickOutside(dropdownRef2, () => setDropDownOpen2(false));
 
     const handleSelect1 = (crypto) => {
         setSelectedCrypto1(crypto);
@@ -48,7 +55,7 @@ const Exchange = () => {
                             </div>
                             <div>
                                 <span className={`${styles['number']}`}>0.00</span>
-                                <div className={styles.dropdownWrap}>
+                                <div className={styles.dropdownWrap} ref={dropdownRef1}>
                                     <div onClick={() => setDropDownOpen1(dropDownOpen1 => !dropDownOpen1)}>
                                         <img src={selectedCrypto1.src} alt="" className={`${styles['currency-img']}`}/>
                                         <span>{selectedCrypto1.name}</span>
@@ -77,7 +84,7 @@ const Exchange = () => {
                             </div>
                             <div>
                                 <span className={`${styles['number']}`}>0.00</span>
-                                <div className={styles.dropdownWrap}>
+                                <div className={styles.dropdownWrap} ref={dropdownRef2}>
                                     <div onClick={() => setDropDownOpen2(dropDownOpen2 => !dropDownOpen2)}>
                                         <img src={selectedCrypto2.src} alt="" className={styles['currency-img']}/>
                                         <span>{selectedCrypto2.name}</span>
