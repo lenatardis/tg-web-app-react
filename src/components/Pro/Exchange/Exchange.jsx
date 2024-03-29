@@ -10,6 +10,7 @@ import IconVerticalSwitch from "../../../assets/images/switch-vertical.svg";
 import IconTether from "../../../assets/images/tether.svg";
 import IconLitecoin from "../../../assets/images/litecoin.svg";
 import useClickOutside from "../../../hooks/useClickOutside";
+import Button from "../../Common/Button";
 
 const cryptocurrencies = [
     {name: 'Etherium', src: IconEtherium, abbreviation: 'ETH'},
@@ -110,7 +111,10 @@ const Exchange = () => {
                             <img src={IconVerticalSwitch} alt=""/>
                         </button>
                     </div>
-
+                    <div className={styles.rateWrap}>
+                        <p>1 ETH = 0.05246116 ВTC</p>
+                    </div>
+                    <Button text="Exchange" handleClick={null}/>
                 </div>
             </div>
         </div>
