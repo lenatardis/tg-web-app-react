@@ -24,10 +24,6 @@
         margin-bottom: 5px;
       }
 
-      > div {
-        display: flex;
-        align-items: center;
-      }
     }
 
     button {
@@ -89,4 +85,46 @@
   border-radius:9.56px;
   border: none;
   z-index:2;
+}
+
+.dropdownWrap {
+  position: relative;
+  cursor:pointer;
+
+  >div {
+    display: flex;
+    align-items: center;
+  }
+
+  >ul {
+    position: absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    height: auto;
+    background: #0D182E;
+    padding-top: 5px;
+    border: 5px solid #091223;
+    border-radius:18px;
+    z-index: 3;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom:10px;
+
+      img {
+        display: block;
+        margin-right: 5px;
+      }
+
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.icon-flipped {
+  transform: rotate(180deg);
 }

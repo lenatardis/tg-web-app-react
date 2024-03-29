@@ -48,21 +48,23 @@ const Exchange = () => {
                             </div>
                             <div>
                                 <span className={`${styles['number']}`}>0.00</span>
-                                <div onClick={() => setDropDownOpen1(dropDownOpen1 => !dropDownOpen1)}>
-                                    <img src={selectedCrypto1.src} alt="" className={`${styles['currency-img']}`}/>
-                                    <span>{selectedCrypto1.name}</span>
-                                    <button>
-                                        <img src={IconUp} alt=""/>
-                                    </button>
+                                <div className={styles.dropdownWrap}>
+                                    <div onClick={() => setDropDownOpen1(dropDownOpen1 => !dropDownOpen1)}>
+                                        <img src={selectedCrypto1.src} alt="" className={`${styles['currency-img']}`}/>
+                                        <span>{selectedCrypto1.name}</span>
+                                        <button>
+                                            <img src={IconUp} alt="" className={`${!dropDownOpen1 ? styles['icon-flipped'] : ''}`}/>
+                                        </button>
+                                    </div>
+                                    {dropDownOpen1 && <ul className={styles.dropdownList}>
+                                        {cryptocurrencies.map((crypto, index) => (
+                                            <li key={index} onClick={() => handleSelect1(crypto)}>
+                                                <img src={crypto.src} alt=""/>
+                                                <span>{crypto.name}</span>
+                                            </li>
+                                        ))}
+                                    </ul>}
                                 </div>
-                                {dropDownOpen1 && <ul className={styles.dropdownList}>
-                                    {cryptocurrencies.map((crypto, index) => (
-                                        <li key={index} onClick={() => handleSelect1(crypto)}>
-                                            <img src={crypto.src} alt=""/>
-                                            <span>{crypto.name}</span>
-                                        </li>
-                                    ))}
-                                </ul>}
                             </div>
                             <div className={`${styles['availability-row']}`}>
                                 <p>2,655.08984 ETH available</p>
@@ -75,21 +77,23 @@ const Exchange = () => {
                             </div>
                             <div>
                                 <span className={`${styles['number']}`}>0.00</span>
-                                <div onClick={() => setDropDownOpen2(dropDownOpen2 => !dropDownOpen2)}>
-                                    <img src={selectedCrypto2.src} alt="" className={`${styles['currency-img']}`}/>
-                                    <span>{selectedCrypto2.name}</span>
-                                    <button>
-                                        <img src={IconUp} alt=""/>
-                                    </button>
+                                <div className={styles.dropdownWrap}>
+                                    <div onClick={() => setDropDownOpen2(dropDownOpen2 => !dropDownOpen2)}>
+                                        <img src={selectedCrypto2.src} alt="" className={styles['currency-img']}/>
+                                        <span>{selectedCrypto2.name}</span>
+                                        <button>
+                                            <img src={IconUp} alt="" className={`${!dropDownOpen2 ? styles['icon-flipped'] : ''}`}/>
+                                        </button>
+                                    </div>
+                                    {dropDownOpen2 && <ul className={styles.dropdownList}>
+                                        {cryptocurrencies.map((crypto, index) => (
+                                            <li key={index} onClick={() => handleSelect2(crypto)}>
+                                                <img src={crypto.src} alt="" className={`${styles['currency-img']} ${!dropDownOpen2 ? styles['icon-flipped'] : ''}`}/>
+                                                <span>{crypto.name}</span>
+                                            </li>
+                                        ))}
+                                    </ul>}
                                 </div>
-                                {dropDownOpen2 && <ul className={styles.dropdownList}>
-                                    {cryptocurrencies.map((crypto, index) => (
-                                        <li key={index} onClick={() => handleSelect2(crypto)}>
-                                            <img src={crypto.src} alt=""/>
-                                            <span>{crypto.name}</span>
-                                        </li>
-                                    ))}
-                                </ul>}
                             </div>
                             <div className={`${styles['availability-row']}`}>
                                 <p>2,655.04 BTC available</p>
