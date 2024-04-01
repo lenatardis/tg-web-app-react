@@ -35,6 +35,88 @@ $navigation_height: 110px;
 
 .dashboardWrap {
   background: #091223;
-  border-radius:18px 18px 0 0;
+  border-radius: 18px 18px 0 0;
   height: calc(100vh - 35.1vh - #{$navigation_height});
+  padding-top: 16px;
 }
+
+.exchangePanel {
+  padding: 18px;
+  border-radius: 18px;
+  background: #0C1527;
+  margin-bottom: 32px;
+}
+
+.imgRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+  }
+
+  img:first-child {
+    margin-right: 24px;
+  }
+
+  img:last-child {
+    margin-left: 24px;
+  }
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background: #3D4452;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-size: 15px;
+  }
+}
+
+.currencyTitle {
+  margin-bottom: 14px;
+
+  span {
+    font-size: 20px;
+  }
+}
+
+.panel {
+  border-radius: 18px;
+  padding: 20px;
+  background: #0D182E;
+}
+
+.statusRow {
+  padding-top: 15px;
+
+  > span:nth-of-type(2) {
+    color: #E7D000;
+
+  }
+}
+
+.statusPanel {
+  margin-bottom: 8px;
+}
+
+.commisionRow {
+  span {
+    color: #6E7482;
+  }
+}
+
+
