@@ -2,7 +2,7 @@ $navigation_height: 110px;
 
 .warrantWrap {
   background: #242b3f;
-  height: calc(100vh - #{$navigation_height});
+ /* min-height: calc(100vh - #{$navigation_height});*/
 }
 
 .warrantHeader {
@@ -36,7 +36,7 @@ $navigation_height: 110px;
 .dashboardWrap {
   background: #091223;
   border-radius: 18px 18px 0 0;
-  height: calc(100vh - 35.1vh - #{$navigation_height});
+  /*height: calc(100vh - 35.1vh - #{$navigation_height});*/
   padding-top: 16px;
 }
 
