@@ -6,6 +6,7 @@ import useSubRoute from "../../../hooks/useSubRoute";
 import React, {useState} from "react";
 import RadioButton from "../../Common/RadioButton/RadioButton";
 import PopUpLink from "../PopUpLink/PopUpLink";
+import ListItem from "./ListItem";
 
 const Transactions = () => {
     let subroute = useSubRoute();
@@ -18,11 +19,24 @@ const Transactions = () => {
             {name: "option1", value: "Receive"},
         ]
     };
+
+    const listInfo = {
+        items: [
+            {name: "4WH...JRloe", value: "-191.201 USDT", date: '24-01-18', time: '20:29:05'},
+            {name: "R0v7...1TItZ", value: "+321.201 USDT", date: '24-01-15', time: '21:45:23'},
+            {name: "R0v7...1TItZ", value: "+321.201 USDT", date: '24-01-13', time: '08:12:03'},
+            {name: "R0v7...1TItZ", value: "+321.201 USDT", date: '24-01-12', time: '13:16:16'},
+            {name: "R0v7...1TItZ", value: "+321.201 USDT", date: '24-01-11', time: '14:30:01'},
+            {name: "R0v7...1TItZ", value: "+321.201 USDT", date: '24-01-10', time: '15:00:45'}
+        ]
+    }
+
     return (
         <div>
             <Header back text="History"/>
             <div className="wrap">
-                <NavLinks subroute={subroute} text1="Orders" link1="/history/orders" text2="Transactions" link2="/history/transactions"/>
+                <NavLinks subroute={subroute} text1="Orders" link1="/history/orders" text2="Transactions"
+                          link2="/history/transactions"/>
                 <div className={historyStyles.row}>
                     {
                         radioButtonInfo.option_1.map(({name, value}) => (
@@ -33,6 +47,13 @@ const Transactions = () => {
                 </div>
                 <div className={styles.linkBlock}>
                     <PopUpLink text="Choose currency"/>
+                </div>
+                <div className={styles.transactionsBlock}>
+                    {
+                        listInfo.items.map(({name, value, date, time}, index) => (
+                            <ListItem key={index} name={name} value={value} date={date} time={time}/>
+                        ))
+                    }
                 </div>
             </div>
         </div>

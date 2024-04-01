@@ -1,3 +1,13 @@
+$header_height: 90px;
+$navigation_height: 102px;
+$popup_gap: 193px;
+
 .linkBlock {
   margin-bottom:34px;
+}
+
+.transactionsBlock {
+  height: auto;
+  overflow: auto;
+  max-height: calc(100vh - #{$header_height} - #{$navigation_height} - #{$popup_gap});
 }
