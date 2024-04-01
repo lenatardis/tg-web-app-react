@@ -3,7 +3,6 @@ import {useTelegram} from "./hooks/useTelegram";
 import Main from "./components/Main/Main";
 import Wallet from "./components/Wallet/Wallet";
 import Manager from "./components/Manager/Manager";
-import History from "./components/History/History";
 import Account from "./components/Account/Account";
 import Verification from "./components/Verification/Verification";
 import Verification_step2 from "./components/Verification/Verification_step2";
@@ -13,6 +12,9 @@ import CVV from "./components/CVV/CVV";
 import Spot from "./components/Pro/Spot/Spot";
 import Exchange from "./components/Pro/Exchange/Exchange";
 import Warrant from "./components/Pro/Exchange/Warrant/Warrant";
+import History from "./components/History/History";
+import Orders from "./components/History/Orders/Orders";
+import Transactions from "./components/History/Transactions/Transactions";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
@@ -50,6 +52,8 @@ function App() {
                 {path: "wallet/:id", element: <Wallet/>},
                 {path: "manager", element: <Manager/>},
                 {path: "history", element: <History/>},
+                {path: "history/orders", element: <Orders/>},
+                {path: "history/transactions", element: <Transactions/>},
                 {path: "account", element: <Account/>},
                 {path: "verification", element: <Verification/>},
                 {path: "verification/step2", element: <Verification_step2/>},
