@@ -1,7 +1,7 @@
 import styles from "../Pro.module.scss";
 import Header from "../../Common/Header/Header";
 import useSubRoute from "../../../hooks/useSubRoute";
-import NavLinks from "../NavLinks";
+import NavLinks from "../../Common/NavLinks/NavLinks";
 import IconTether from "../../../assets/images/tether_min.svg";
 import IconSelect from "../../../assets/images/select.svg";
 import React, {useState} from "react";
@@ -77,7 +77,7 @@ const Spot = () => {
         <div>
             <Header back text="Exchange" menu/>
             <div className="wrap">
-                <NavLinks subroute={subroute}/>
+                <NavLinks subroute={subroute} text1="Exchange" link1={'/pro/exchange'} text2="Spot" link2={'/pro/spot'}/>
                 <div className={`${styles['row']} ${styles['main-row']}`}>
                     <span onClick={openCurrencyPopUp}>
                         <img src={IconTether} alt=""/>

@@ -1,8 +1,8 @@
 import styles from "./Exchange.module.scss";
 import Header from "../../Common/Header/Header";
 import useSubRoute from "../../../hooks/useSubRoute";
-import NavLinks from "../NavLinks";
-import {useState, useRef, useEffect} from "react";
+import NavLinks from "../../Common/NavLinks/NavLinks";
+import React, {useState, useRef, useEffect} from "react";
 import IconEtherium from "../../../assets/images/etherium.svg";
 import IconBitcoin from "../../../assets/images/bitcoin.svg";
 import IconUp from "../../../assets/images/up.svg";
@@ -63,7 +63,7 @@ const Exchange = () => {
         <div>
             <Header back text="Exchange" menu/>
             <div className={`${styles['exchange-wrap']} wrap`}>
-                <NavLinks subroute={subroute}/>
+                <NavLinks subroute={subroute} text1="Exchange" link1={'/pro/exchange'} text2="Spot" link2={'/pro/spot'}/>
                 <div className={styles.mainWrap}>
                     <div className={`${styles['exchange-block']}`}>
                         <div className={`${styles['exchange-block__item']}`}>
