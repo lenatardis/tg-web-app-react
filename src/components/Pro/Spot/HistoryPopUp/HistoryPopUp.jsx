@@ -5,15 +5,15 @@ import HistoryPopUpItem from "../../../Common/HistoryPopUpItem/HistoryPopUpItem"
 
 const historyInfo = {
     'items': [
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
-        {date1: "24-01-18", date2: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"}
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"},
+        {date: "24-01-18", time: "20:29:05", amount: "0.9141 USD", price: "55,691.68 USDT"}
     ]
 };
 
@@ -29,8 +29,8 @@ const HistoryPopUp = ({closePopUp, isVisible}) => {
                     </div>
                     <div className={`${styles['history-popup__scrollable-wrap']}`}>
                         {
-                            historyInfo.items.map(({date1, date2, amount, price}, index) => (
-                                <HistoryPopUpItem key={index} date1={date1} date2={date2} amount={amount}
+                            historyInfo.items.map(({date, time, amount, price}, index) => (
+                                <HistoryPopUpItem key={index} date={date} time={time} amount={amount}
                                                   price={price}/>
                             ))
                         }
