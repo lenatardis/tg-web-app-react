@@ -1,10 +1,10 @@
-import styles from "./HistoryPopUp.module.scss";
-import IconBin from "../../../../assets/images/bin.svg";
+import styles from "./HistoryPopUpItem.module.scss";
+import IconBin from "../../../assets/images/bin.svg";
 
 const HistoryPopUpItem = ({date1, date2, amount, price}) => {
     return (
-        <div className={`${styles['history-popup__item']}`}>
-            <div className={`${styles['history-popup__title-row']}`}>
+        <div className={styles.item}>
+            <div className={styles.titleRow}>
                 <div>
                     <h2>BTC/USDT</h2>
                    {/* <span>Buy</span>*/}
@@ -14,7 +14,7 @@ const HistoryPopUpItem = ({date1, date2, amount, price}) => {
                     <span>{date2}</span>
                 </div>
             </div>
-            <div className={`${styles['history-popup__info-block']}`}>
+            <div className={styles.infoBlock}>
                 <div>
                     <div>
                         <h3>Side</h3>

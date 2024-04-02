@@ -1,7 +1,7 @@
 import styles from "./HistoryPopUp.module.scss";
 import IconClose from "../../../../assets/images/close.svg";
 import React from "react";
-import HistoryPopUpItem from "./HistoryPopUpItem";
+import HistoryPopUpItem from "../../../Common/HistoryPopUpItem/HistoryPopUpItem";
 
 const historyInfo = {
     'items': [
