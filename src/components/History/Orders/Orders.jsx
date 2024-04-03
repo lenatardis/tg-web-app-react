@@ -5,10 +5,11 @@ import useSubRoute from "../../../hooks/useSubRoute";
 import PopUpLink from "../PopUpLink/PopUpLink";
 import HistoryPopUpItem from "../../Common/HistoryPopUpItem/HistoryPopUpItem";
 import React, {useState} from "react";
+import PopUp from "./PopUp/PopUp";
 
 const Orders = () => {
     let subroute = useSubRoute();
-    const [historyPopUp, setHistoryPopUp] = useState(false);
+    const [popUp, setPopUp] = useState(false);
 
     const ordersInfo = {
         'items': [
@@ -23,13 +24,21 @@ const Orders = () => {
             {date: "24-01-18", time: "20:29:05", accepted:true, type:'market', amount: "0.9141 USD", price: "55,691.68 USDT"}
         ]
     };
+    const openPopUp = () => {
+        setPopUp(true);
+    }
+
+    const closePopUp = () => {
+        setPopUp(false);
+    }
+
     return (
         <div>
             <Header back text="History"/>
             <div className="wrap">
                 <NavLinks subroute={subroute} text1="Orders" link1="/history/orders" text2="Transactions" link2="/history/transactions"/>
                 <div className={styles.linkBlock}>
-                    <PopUpLink text="Filter"/>
+                    <PopUpLink text="Filter" open={openPopUp}/>
                 </div>
                 <div className={styles.orderBlock}>
                     {
@@ -40,6 +49,7 @@ const Orders = () => {
                     }
                 </div>
             </div>
+            <PopUp closePopUp={closePopUp} isVisible={popUp}/>
         </div>
     )
 }
