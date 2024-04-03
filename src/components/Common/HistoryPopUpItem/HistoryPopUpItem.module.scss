@@ -18,7 +18,7 @@
 
   h2 {
     font-size: 18px;
-    margin-right: 20px;
+    margin-right: 14px;
     display: inline-block;
   }
 
@@ -99,19 +99,40 @@
   }
 
   h3 {
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
 }
 
 .accepted, .cancelled {
+  position: relative;
+  padding-left: 7px;
   font-size: 14px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+  }
 }
 
 .accepted {
   color: #537C50;
+
+  &:before {
+    background: #537C50;
+  }
 }
 
 .cancelled {
   color: #BA5349;
+
+  &:before {
+    background: #BA5349;;
+  }
 }
