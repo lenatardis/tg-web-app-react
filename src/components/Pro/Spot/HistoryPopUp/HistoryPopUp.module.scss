@@ -32,21 +32,4 @@ $popup_gap: 64px;
     overflow: auto;
     max-height: calc(100vh - #{$header_height} - #{$popup_gap});
   }
-
-  &__close {
-    display: flex;
-    justify-content: flex-end;
-    padding-bottom: 24px;
-
-    button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 24px;
-      height: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-  }
 }

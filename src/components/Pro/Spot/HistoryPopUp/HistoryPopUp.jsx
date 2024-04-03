@@ -2,6 +2,7 @@ import styles from "./HistoryPopUp.module.scss";
 import IconClose from "../../../../assets/images/close.svg";
 import React from "react";
 import HistoryPopUpItem from "../../../Common/HistoryPopUpItem/HistoryPopUpItem";
+import ClosePopUp from "../../../Common/HistoryPopUpItem/ClosePopUp/ClosePopUp";
 
 const historyInfo = {
     'items': [
@@ -22,11 +23,7 @@ const HistoryPopUp = ({closePopUp, isVisible}) => {
         <div className={`${styles['history-popup']} ${isVisible ? styles['popup-show'] : ''}`}>
             <div className="resize">
                 <div className={`wrap ${styles['history-popup__wrap']}`}>
-                    <div className={`${styles['history-popup__close']}`}>
-                        <button onClick={closePopUp}>
-                            <img src={IconClose} alt=""/>
-                        </button>
-                    </div>
+                    <ClosePopUp close={closePopUp}/>
                     <div className={`${styles['history-popup__scrollable-wrap']}`}>
                         {
                             historyInfo.items.map(({date, time, amount, price}, index) => (

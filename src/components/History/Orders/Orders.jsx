@@ -4,10 +4,11 @@ import NavLinks from "../../Common/NavLinks/NavLinks";
 import useSubRoute from "../../../hooks/useSubRoute";
 import PopUpLink from "../PopUpLink/PopUpLink";
 import HistoryPopUpItem from "../../Common/HistoryPopUpItem/HistoryPopUpItem";
-import React from "react";
+import React, {useState} from "react";
 
 const Orders = () => {
     let subroute = useSubRoute();
+    const [historyPopUp, setHistoryPopUp] = useState(false);
 
     const ordersInfo = {
         'items': [
