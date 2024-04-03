@@ -3,25 +3,61 @@ $header_height: 90px;
 .popup {
   position: fixed;
   left: 0;
-  bottom: -1000px;
+  top: -1000px;
   transition: all 800ms;
   width: 100%;
   z-index: 100;
+  height: calc(100vh - #{$header_height});
+  overflow: auto;
 
   :global(.resize) {
+    position: relative;
     padding-top: 16px;
     background: #111E39;
     border-radius: 24px 24px 0 0;
-    height: calc(100vh - #{$header_height});
-    position: relative;
+    min-height: calc(100vh - #{$header_height});
     transition: all 800ms;
-    bottom: -1000px;
+    top: -1000px;
   }
 
   &.popup-show {
-    bottom:0;
+    top: $header_height;
+
     :global(.resize) {
-      bottom:0;
+      top: 0;
     }
   }
+
+  h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #586174;
+  }
+}
+
+.row, .row2, .mainRow {
+  display: flex;
+  column-gap: 8px;
+}
+
+.row {
+  margin-bottom: 15px;
+}
+
+.row2 {
+  margin-bottom: 25px;
+}
+
+.mainRow {
+  column-gap: 4px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  height: 64px;
+}
+
+.darkBtn {
+  height: 64px;
+  background: #0D182E;
 }
