@@ -32,18 +32,6 @@ const Orders = () => {
         setPopUp(false);
     }
 
-    useEffect(() => {
-        if (popUp) {
-            document.body.classList.add('noscroll');
-        } else {
-            document.body.classList.remove('noscroll');
-        }
-
-        return () => {
-            document.body.classList.remove('noscroll');
-        };
-    }, [popUp]);
-
     return (
         <div>
             <Header back text="History"/>
