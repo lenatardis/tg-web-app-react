@@ -3,7 +3,7 @@ import styles from "./CVV.module.scss";
 import Header from "../Common/Header/Header"
 import {useState} from "react";
 import RadioButton from "../Common/RadioButton/RadioButton";
-import RadioButtonRow from "./RadioButtonRow";
+import RadioButtonRow from "../Common/RadioButton/RadioButtonRow";
 import IconBitcoin from "../../assets/images/bitcoin.svg";
 import SearchInput from "../Common/Search/Search";
 import {DateField} from '@mui/x-date-pickers/DateField';
@@ -69,7 +69,7 @@ const CVV = () => {
                         ))
                     }
                 </div>
-                <div className={`${styles['datefield-row']}`}>
+                <div className="datefield-row">
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DemoContainer components={['DateField', 'DateField']}>
                             <DateField

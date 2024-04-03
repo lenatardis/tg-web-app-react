@@ -1,7 +1,27 @@
-.popup {
-  display: none;
+$header_height: 90px;
 
-  &-show {
-    display: block;
+.popup {
+  position: fixed;
+  left: 0;
+  bottom: -1000px;
+  transition: all 800ms;
+  width: 100%;
+  z-index: 100;
+
+  :global(.resize) {
+    padding-top: 16px;
+    background: #111E39;
+    border-radius: 24px 24px 0 0;
+    height: calc(100vh - #{$header_height});
+    position: relative;
+    transition: all 800ms;
+    bottom: -1000px;
+  }
+
+  &.popup-show {
+    bottom:0;
+    :global(.resize) {
+      bottom:0;
+    }
   }
 }
