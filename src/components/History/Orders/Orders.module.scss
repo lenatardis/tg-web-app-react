@@ -1,3 +1,12 @@
+$navigation_height:110px;
+$header_height:90px;
+$popup_gap:148px;
+
 .linkBlock {
   margin-bottom: 37px;
+}
+
+.orderBlock {
+  height: calc(100vh - #{$header_height} - #{$popup_gap} - #{$navigation_height});
+  overflow: auto;
 }
