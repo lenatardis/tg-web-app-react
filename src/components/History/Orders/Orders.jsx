@@ -4,7 +4,7 @@ import NavLinks from "../../Common/NavLinks/NavLinks";
 import useSubRoute from "../../../hooks/useSubRoute";
 import PopUpLink from "../PopUpLink/PopUpLink";
 import HistoryPopUpItem from "../../Common/HistoryPopUpItem/HistoryPopUpItem";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import PopUp from "./PopUp/PopUp";
 
 const Orders = () => {
@@ -31,6 +31,18 @@ const Orders = () => {
     const closePopUp = () => {
         setPopUp(false);
     }
+
+    useEffect(() => {
+        if (popUp) {
+            document.body.classList.add('noscroll');
+        } else {
+            document.body.classList.remove('noscroll');
+        }
+
+        return () => {
+            document.body.classList.remove('noscroll');
+        };
+    }, [popUp]);
 
     return (
         <div>
