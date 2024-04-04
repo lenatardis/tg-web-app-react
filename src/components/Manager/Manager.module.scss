@@ -1,0 +1,11 @@
+$header_height:90px;
+$navigation_height:102px;
+$inner_gap:87px;
+.innerWrap {
+  padding-top: 24px;
+}
+
+.listWrap {
+  height: calc(100vh - #{$header_height} - #{$inner_gap} - #{$navigation_height});
+  overflow: auto;
+}

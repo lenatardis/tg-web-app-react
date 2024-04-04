@@ -1,0 +1,49 @@
+.listItem {
+  padding: 16px;
+  border-radius: 18px;
+  background: #0D182E;
+  margin-bottom: 8px;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  img {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+
+    & + span {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  .nameBlock {
+    display: flex;
+    align-items: center;
+  }
+
+  .valueBlock {
+    display: flex;
+    flex-direction: column;
+
+    > span {
+      font-size: 14px;
+    }
+
+    > span:first-child {
+      font-weight: 600;
+      margin-bottom: 10px;
+
+      & + span {
+        font-weight: 400;
+        text-align: right;
+      }
+    }
+  }
+
+}
