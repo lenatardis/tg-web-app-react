@@ -15,7 +15,7 @@
     background: #0D182E;
     border-radius: 14px;
     pointer-events: none;
-    font-size:15px;
+    font-size: 15px;
     z-index: 1;
   }
 }
@@ -34,4 +34,31 @@
   &:checked + p {
     background: #2C4A7E;
   }
+}
+
+.valueBlock {
+  display: flex;
+  align-items: center;
+
+  .circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid #868B96;
+  }
+}
+
+.innerRadio {
+  .radio {
+    &:checked + p {
+      background: #0D182E;
+    }
+
+    &:checked + p .circle {
+      background: #2C4A7E;
+      border-color: transparent;
+    }
+  }
+
 }
