@@ -3,7 +3,7 @@ import styles from "./CVV.module.scss";
 import Header from "../Common/Header/Header"
 import {useState} from "react";
 import RadioButton from "../Common/RadioButton/RadioButton";
-import RadioButtonRow from "../Common/RadioButton/RadioButtonRow";
+import RadioButtonRow from "../Common/RadioButtonRow/RadioButtonRow";
 import IconBitcoin from "../../assets/images/bitcoin.svg";
 import SearchInput from "../Common/Search/Search";
 import {DateField} from '@mui/x-date-pickers/DateField';

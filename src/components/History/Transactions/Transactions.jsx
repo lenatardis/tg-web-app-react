@@ -7,10 +7,12 @@ import React, {useState} from "react";
 import RadioButton from "../../Common/RadioButton/RadioButton";
 import PopUpLink from "../PopUpLink/PopUpLink";
 import ListItem from "./ListItem";
+import PopUp from "../Transactions/PopUp/PopUp";
 
 const Transactions = () => {
     let subroute = useSubRoute();
     const [selectedOption1, setSelectedOption1] = useState('All');
+    const [popUp, setPopUp] = useState(false);
 
     const radioButtonInfo = {
         option_1: [
@@ -31,6 +33,14 @@ const Transactions = () => {
         ]
     }
 
+    const openPopUp = () => {
+        setPopUp(true);
+    }
+
+    const closePopUp = () => {
+        setPopUp(false);
+    }
+
     return (
         <div>
             <Header back text="History"/>
@@ -46,7 +56,7 @@ const Transactions = () => {
                     }
                 </div>
                 <div className={styles.linkBlock}>
-                    <PopUpLink text="Choose currency"/>
+                    <PopUpLink text="Choose currency" open={openPopUp}/>
                 </div>
                 <div className={styles.transactionsBlock}>
                     {
@@ -56,6 +66,7 @@ const Transactions = () => {
                     }
                 </div>
             </div>
+            <PopUp closePopUp={closePopUp} isVisible={popUp}/>
         </div>
     )
 }

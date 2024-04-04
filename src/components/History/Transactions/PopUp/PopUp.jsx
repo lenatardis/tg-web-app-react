@@ -9,11 +9,16 @@ import {DemoContainer} from "@mui/x-date-pickers/internals/demo";
 import {DateField} from "@mui/x-date-pickers/DateField";
 import RadioButtonRow from "../../../Common/RadioButtonRow/RadioButtonRow";
 import IconBitcoin from "../../../../assets/images/bitcoin.svg";
+import IconTether from "../../../../assets/images/tether.svg";
+import IconEtherium from "../../../../assets/images/etherium.svg";
+import IconLitecoin from "../../../../assets/images/litecoin.svg";
+import IconSomecoin from "../../../../assets/images/somecoin.svg";
 import Button from "../../../Common/Button";
+
 
 const PopUp = ({isVisible, closePopUp}) => {
 
-    const [selectedOption1, setSelectedOption1] = useState('All');
+    const [selectedOption1, setSelectedOption1] = useState('Transactions');
     const [selectedOption2, setSelectedOption2] = useState('All');
     const [selectedOption3, setSelectedOption3] = useState('24h');
     const [selectedOption4, setSelectedOption4] = useState('All');
@@ -30,8 +35,9 @@ const PopUp = ({isVisible, closePopUp}) => {
         ],
         option_2: [
             {name: "option_2", value: "All"},
-            {name: "option_2", value: "Limit"},
-            {name: "option_2", value: "Market"},
+            {name: "option_2", value: "Send"},
+            {name: "option_2", value: "Receive"},
+            {name: "option_2", value: "Exchange"}
         ],
         option_3: [
             {name: "option_3", value: "24h"},
@@ -43,12 +49,12 @@ const PopUp = ({isVisible, closePopUp}) => {
             {name: "option_4", value: "Fiat"}
         ],
         option_5: [
-            {name: "option_5", value: "BTC/USDT"},
-            {name: "option_5", value: "BTC/ETH"},
-            {name: "option_5", value: "BTC/LTC"},
-            {name: "option_5", value: "BTC/BNB"},
-            {name: "option_5", value: "BTC/SOL"},
-            {name: "option_5", value: "BTC/XLM"},
+            {name: "option_5", value: "ETH", src: IconEtherium},
+            {name: "option_5", value: "LTC", src: IconLitecoin},
+            {name: "option_5", value: "USDT", src: IconTether},
+            {name: "option_5", value: "BTC", src: IconBitcoin},
+            {name: "option_5", value: "BNB", src: IconSomecoin},
+            {name: "option_5", value: "ENJ", src: IconSomecoin}
         ]
     };
 
@@ -105,7 +111,7 @@ const PopUp = ({isVisible, closePopUp}) => {
                             </DemoContainer>
                         </LocalizationProvider>
                     </div>
-                    <h2>Currency pair</h2>
+                    <h2>Currency</h2>
                     <div className={styles.row}>
                         {
                             radioButtonInfo.option_4.map(({name, value}) => (
@@ -115,9 +121,9 @@ const PopUp = ({isVisible, closePopUp}) => {
                         }
                     </div>
                     {
-                        radioButtonInfo.option_5.map(({name, value}) => (
+                        radioButtonInfo.option_5.map(({name, value, src}) => (
                             <RadioButtonRow key={value} name={name} value={value} selected={selectedOption5}
-                                            onSelect={setSelectedOption5} src={IconBitcoin}/>
+                                            onSelect={setSelectedOption5} src={src}/>
                         ))
                     }
                     <div className={styles.row}>
