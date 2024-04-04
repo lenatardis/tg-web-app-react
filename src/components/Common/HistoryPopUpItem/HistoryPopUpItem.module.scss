@@ -95,7 +95,9 @@
 
 .orderInfoBlock.infoBlock {
   > div {
-    width: 100%
+    width: 100%;
+    justify-content: flex-start;
+    column-gap:28px;
   }
 
   h3 {

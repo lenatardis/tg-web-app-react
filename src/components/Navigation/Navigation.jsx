@@ -23,7 +23,7 @@ const Navigation = () => {
         {icon: IconWallet, name: 'Wallet', url: '/wallet'},
         {icon: IconPro, name: 'Pro', url: '/pro/spot'},
         {icon: IconManager, name: 'Manager', url: '/manager'},
-        {icon: IconHistory, name: 'History', url: '/history'},
+        {icon: IconHistory, name: 'History', url: '/history/orders'},
     ]
 
     return (

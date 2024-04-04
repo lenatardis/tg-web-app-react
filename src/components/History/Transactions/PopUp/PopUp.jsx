@@ -126,7 +126,7 @@ const PopUp = ({isVisible, closePopUp}) => {
                                             onSelect={setSelectedOption5} src={src}/>
                         ))
                     }
-                    <div className={styles.row}>
+                    <div className={styles.btnRow}>
                         <Button text="Done" handleClick={null} className={styles.btn}/>
                         <Button text="Get CVV" handleClick={null} className={styles.darkBtn}/>
                     </div>

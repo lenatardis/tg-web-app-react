@@ -34,7 +34,7 @@ $header_height: 90px;
   }
 }
 
-.row, .row2, .mainRow {
+.row, .row2, .mainRow, .btnRow {
   display: flex;
   column-gap: 8px;
 }
@@ -59,4 +59,8 @@ $header_height: 90px;
 .darkBtn {
   height: 64px;
   background: #0D182E;
+}
+
+.btnRow {
+  margin-bottom: 50px;
 }
