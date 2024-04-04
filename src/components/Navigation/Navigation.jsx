@@ -22,7 +22,7 @@ const Navigation = () => {
         {icon: IconMain, name: 'Main', url: '/'},
         {icon: IconWallet, name: 'Wallet', url: '/wallet'},
         {icon: IconPro, name: 'Pro', url: '/pro/spot'},
-        {icon: IconManager, name: 'Manager', url: '/manager'},
+        {icon: IconManager, name: 'Manager', url: '/manager/crypto'},
         {icon: IconHistory, name: 'History', url: '/history/orders'},
     ]
 
