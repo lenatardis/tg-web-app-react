@@ -1,16 +1,16 @@
 import styles from "./Wallet.module.scss";
-import Header from "../Common/Header/Header";
-import RadioButton from "../Common/RadioButton/RadioButton";
+import Header from "../../Common/Header/Header";
+import RadioButton from "../../Common/RadioButton/RadioButton";
 import React, {useState, useEffect} from "react";
 import LinkButton from "./Link/Link";
-import SearchInput from "../Common/Search/Search";
+import SearchInput from "../../Common/Search/Search";
 import TextCheckBox from "./TextCheckBox/TextCheckBox";
-import CurrencyBlock from "./CurrencyBlock/CurrencyBlock";
-import IconTether from "../../assets/images/tether.svg";
-import IconBitcoin from "../../assets/images/bitcoin.svg";
-import IconLitecoin from "../../assets/images/litecoin.svg";
-import IconEtherium from "../../assets/images/etherium.svg";
-import IconSomecoin from "../../assets/images/somecoin.svg";
+import CurrencyBlock from "../Common/CurrencyBlock/CurrencyBlock";
+import IconTether from "../../../assets/images/tether.svg";
+import IconBitcoin from "../../../assets/images/bitcoin.svg";
+import IconLitecoin from "../../../assets/images/litecoin.svg";
+import IconEtherium from "../../../assets/images/etherium.svg";
+import IconSomecoin from "../../../assets/images/somecoin.svg";
 
 const Wallet = () => {
     const [selectedOption1, setSelectedOption1] = useState('All');
@@ -85,7 +85,7 @@ const Wallet = () => {
                     {
                         filteredArray.map(({name, commercial, warrants, balance, src}, index) => (
                             <CurrencyBlock key={index} name={name} commercial={commercial} warrants={warrants}
-                                           balance={balance} src={src}/>
+                                           balance={balance} src={src} link="/wallet/currency"/>
                         ))
                     }
                 </div>

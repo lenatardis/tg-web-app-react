@@ -5,7 +5,9 @@ const initialState = {
         {currency: "eur", total: "27 378,00", sign: '€'}
     ],
     exchange:
-        {give: 'ETH', get: 'BTC'}
+        {give: 'ETH', get: 'BTC'},
+
+    selectedCurrencyWallet: {name: "USDT", commercial: 0, warrants: 0, balance: 0}
 }
 
 const userSlice = createSlice({

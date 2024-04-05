@@ -1,8 +1,11 @@
 import styles from "./CurrencyBlock.module.scss";
+import {useNavigate} from "react-router-dom";
 
-const CurrencyBlock = ({name, commercial, warrants, balance, src}) => {
+const CurrencyBlock = ({name, commercial, warrants, balance, src, link}) => {
+    let navigate = useNavigate();
+
     return (
-        <div className={styles.currencyBlock}>
+        <div className={styles.currencyBlock} onClick={() => navigate(link)}>
             <div className={styles.imgRow}>
                 <div>
                     <img src={src} alt=""/>

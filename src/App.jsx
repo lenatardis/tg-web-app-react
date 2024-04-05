@@ -1,7 +1,6 @@
 import {useEffect} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import Main from "./components/Main/Main";
-import Wallet from "./components/Wallet/Wallet";
 import Account from "./components/Account/Account";
 import Verification from "./components/Verification/Verification";
 import Verification_step2 from "./components/Verification/Verification_step2";
@@ -17,12 +16,15 @@ import Transactions from "./components/History/Transactions/Transactions";
 import Manager from "./components/Manager/Manager";
 import Crypto from "./components/Manager/Crypto/Crypto";
 import Fiat from "./components/Manager/Fiat/Fiat";
+import Wallet from "./components/Wallet/AllCurrency/Wallet";
+import SelectedCurrencyWallet from "./components/Wallet/SelectedCurrency/SelectedCurrency";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
 import './App.scss';
+
 
 
 function App() {
@@ -50,8 +52,6 @@ function App() {
             element: <Layout/>,
             children: [
                 {index: true, element: <Main/>},
-                {path: "wallet", element: <Wallet/>},
-                {path: "wallet/:id", element: <Wallet/>},
                 {path: "history", element: <History/>},
                 {path: "history/orders", element: <Orders/>},
                 {path: "history/transactions", element: <Transactions/>},
@@ -66,7 +66,9 @@ function App() {
                 {path: "pro/exchange/warrant", element: <Warrant/>},
                 {path: "manager", element: <Manager/>},
                 {path: "manager/crypto", element: <Crypto/>},
-                {path: "manager/fiat", element: <Fiat/>}
+                {path: "manager/fiat", element: <Fiat/>},
+                {path: "wallet", element: <Wallet/>},
+                {path: "wallet/currency", element: <SelectedCurrencyWallet/>},
             ],
         },
     ]);
