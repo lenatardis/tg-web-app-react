@@ -1,9 +1,9 @@
 import styles from "./TextCheckBox.module.scss";
 
-const TextRadioButton = ({name, onSelect, selected, text}) => {
+const TextCheckBox = ({name, onSelect, selected, text}) => {
 
     const handleChange = () => {
-        onSelect(!selected);
+        onSelect(selected);
     }
 
     return (
@@ -18,4 +18,4 @@ const TextRadioButton = ({name, onSelect, selected, text}) => {
     );
 };
 
-export default TextRadioButton;
+export default TextCheckBox;
