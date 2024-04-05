@@ -3,3 +3,18 @@
   column-gap: 4px;
   margin-bottom: 16px;
 }
+
+.linkRow {
+  padding-top: 15px;
+}
+
+.searchRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  label {
+    width: 42.86%;
+    height: 52px;
+  }
+}
