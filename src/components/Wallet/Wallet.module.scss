@@ -1,3 +1,7 @@
+$header_height:90px;
+$inner_gap:201px;
+$navigation_height:102px;
+
 .row {
   display: flex;
   column-gap: 4px;
@@ -12,9 +16,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 22px;
 
   label {
     width: 42.86%;
     height: 52px;
   }
+}
+
+.currencyWrap {
+  height: calc(100vh - #{$header_height} - #{$inner_gap} - #{$navigation_height});
+  overflow: auto;
 }
