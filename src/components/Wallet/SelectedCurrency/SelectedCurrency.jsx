@@ -8,6 +8,7 @@ import IconArrowDown from "../../../assets/images/arr_down.svg";
 import IconRefresh from "../../../assets/images/refresh.svg";
 import LinkButton from "../Common/Link/Link";
 import RadioButton from "../../Common/RadioButton/RadioButton";
+import Item from "../Item/Item.jsx";
 import React, {useState} from "react";
 
 const SelectedCurrencyWallet = () => {
@@ -41,6 +42,7 @@ const SelectedCurrencyWallet = () => {
                     <RadioButton name="selected_currency_wallet" value="TRC20" onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
                     <RadioButton name="selected_currency_wallet" value="ERC20" onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
                 </div>
+                <Item/>
             </div>
         </div>
     )
