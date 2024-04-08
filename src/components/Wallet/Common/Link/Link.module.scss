@@ -7,4 +7,14 @@
   font-size: 15px;
   background: #0D182E;
   border-radius: 14px;
+
+  > div {
+    display:flex;
+    align-items: center;
+
+    img {
+      display: block;
+      margin-left: 10px;
+    }
+  }
 }

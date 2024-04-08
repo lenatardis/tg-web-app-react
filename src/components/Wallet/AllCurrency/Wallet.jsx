@@ -2,7 +2,7 @@ import styles from "./Wallet.module.scss";
 import Header from "../../Common/Header/Header";
 import RadioButton from "../../Common/RadioButton/RadioButton";
 import React, {useState, useEffect} from "react";
-import LinkButton from "./Link/Link";
+import LinkButton from "../Common/Link/Link";
 import SearchInput from "../../Common/Search/Search";
 import TextCheckBox from "./TextCheckBox/TextCheckBox";
 import CurrencyBlock from "../Common/CurrencyBlock/CurrencyBlock";
