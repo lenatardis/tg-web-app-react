@@ -11,14 +11,14 @@
   justify-content: space-between;
   padding-bottom: 20px;
 
-  img {
+  img:first-child {
     display: block;
     width: 40px;
     height: 40px;
     margin-right: 16px;
   }
 
-  > div {
+  > div, .addWrap {
     display: flex;
     align-items: center;
 
@@ -49,9 +49,24 @@
       }
     }
   }
+
+  .addWrap {
+    span {
+      display: block;
+      margin-right: 5px;
+      font-size: 15px;
+      color: #858A93;
+      font-weight: 500;
+    }
+
+    img {
+      display: block;
+    }
+  }
 }
 
 .infoBlock {
+
   > div {
     display: flex;
     justify-content: space-between;
@@ -62,6 +77,25 @@
 
     &:not(:last-child) {
       margin-bottom: 10px;
+    }
+  }
+}
+
+.statusBlock {
+  padding-top: 20px;
+
+  > div {
+    border-radius: 11px;
+    padding: 9px 11px;
+    background: #43526C;
+
+    > div {
+      display: flex;
+      align-items: center;
+    }
+
+    span {
+      margin-left: 10px;
     }
   }
 }

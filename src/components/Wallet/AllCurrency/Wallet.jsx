@@ -64,10 +64,10 @@ const Wallet = () => {
     };
 
     const navigateLink = (currencyName) => {
-        let currency = currencyInfo.find((el) => el.name === currencyName )
-        let {name, commercial, warrants, balance} = currency;
+        let currency = currencyInfo.find((el) => el.name === currencyName);
+        let {name, commercial, warrants, balance, src} = currency;
         //to-do async
-        dispatch(setSelectedCurrencyWallet({name, commercial, warrants, balance }));
+        dispatch(setSelectedCurrencyWallet({name, commercial, warrants, balance, src}));
         navigate('/wallet/currency');
     }
 

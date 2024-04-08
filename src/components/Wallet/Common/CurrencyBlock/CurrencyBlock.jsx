@@ -1,7 +1,8 @@
 import styles from "./CurrencyBlock.module.scss";
-import {useNavigate} from "react-router-dom";
+import IconAdd from "../../../../assets/images/plus-circle.svg";
+import IconInfo from "../../../../assets/images/info.svg";
 
-const CurrencyBlock = ({name, commercial, warrants, balance, src, handleClick}) => {
+const CurrencyBlock = ({name, commercial, warrants, balance, src, handleClick, selected, deposit}) => {
 
     return (
         <div className={styles.currencyBlock} onClick={handleClick}>
@@ -10,14 +11,17 @@ const CurrencyBlock = ({name, commercial, warrants, balance, src, handleClick}) 
                     <img src={src} alt=""/>
                     <span>{name}</span>
                 </div>
-                <button>
+                {!selected && <button>
                     <span className={styles.buttonWrap}>
                         <span className={styles.circle}></span>
-                    <span className={styles.circle}></span>
-                    <span className={styles.circle}></span>
+                        <span className={styles.circle}></span>
+                        <span className={styles.circle}></span>
                     </span>
-
-                </button>
+                </button>}
+                {selected && <a className={styles.addWrap}>
+                    <span>Add address</span>
+                    <img src={IconAdd} alt=""/>
+                </a>}
             </div>
             <div className={styles.infoBlock}>
                 <div>
@@ -33,7 +37,14 @@ const CurrencyBlock = ({name, commercial, warrants, balance, src, handleClick}) 
                     <span>{balance}</span>
                 </div>
             </div>
-
+            {deposit && <div className={styles.statusBlock}>
+                <div>
+                    <div>
+                        <img src={IconInfo} alt=""/>
+                        <span>2,000 USDT deposit is processing.</span>
+                    </div>
+                </div>
+            </div>}
         </div>
     )
 }

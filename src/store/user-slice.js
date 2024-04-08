@@ -7,7 +7,7 @@ const initialState = {
     exchange:
         {give: 'ETH', get: 'BTC'},
 
-    selectedCurrencyWallet: {name: "USDT", commercial: 0, warrants: 0, balance: 0}
+    selectedCurrencyWallet: {name: "USDT", commercial: 0, warrants: 0, balance: 0, src: ''}
 }
 
 const userSlice = createSlice({
@@ -23,8 +23,8 @@ const userSlice = createSlice({
         },
 
         setSelectedCurrencyWallet(state, action) {
-            const {name, commercial, warrants, balance} = action.payload;
-            state.selectedCurrencyWallet = {name, commercial, warrants, balance};
+            const {name, commercial, warrants, balance, src} = action.payload;
+            state.selectedCurrencyWallet = {name, commercial, warrants, balance, src};
 
         }
     }
