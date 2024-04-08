@@ -21,6 +21,12 @@ const userSlice = createSlice({
         setGetCurrency(state, action) {
             state.exchange.get = action.payload;
         },
+
+        setSelectedCurrencyWallet(state, action) {
+            const {name, commercial, warrants, balance} = action.payload;
+            state.selectedCurrencyWallet = {name, commercial, warrants, balance};
+
+        }
     }
 });
 
@@ -28,5 +34,6 @@ export default userSlice.reducer;
 
 export const {
     setGiveCurrency,
-    setGetCurrency
+    setGetCurrency,
+    setSelectedCurrencyWallet
 } = userSlice.actions;

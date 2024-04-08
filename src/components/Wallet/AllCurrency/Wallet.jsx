@@ -11,12 +11,18 @@ import IconBitcoin from "../../../assets/images/bitcoin.svg";
 import IconLitecoin from "../../../assets/images/litecoin.svg";
 import IconEtherium from "../../../assets/images/etherium.svg";
 import IconSomecoin from "../../../assets/images/somecoin.svg";
+import {setSelectedCurrencyWallet} from "../../../store/user-slice";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Wallet = () => {
     const [selectedOption1, setSelectedOption1] = useState('All');
     const [searchInputValue, setSearchInputValue] = useState('');
     const [selectedOption2, setSelectedOption2] = useState(false);
     const [filteredArray, setFilteredArray] = useState([]);
+
+    const dispatch = useDispatch();
+    let navigate = useNavigate();
 
     const currencyInfo = [
         {name: "USDT", commercial: 0, warrants: 0, balance: 0, src: IconTether},
@@ -57,6 +63,14 @@ const Wallet = () => {
         setSelectedOption2(selected => !selected);
     };
 
+    const navigateLink = (currencyName) => {
+        let currency = currencyInfo.find((el) => el.name === currencyName )
+        let {name, commercial, warrants, balance} = currency;
+        //to-do async
+        dispatch(setSelectedCurrencyWallet({name, commercial, warrants, balance }));
+        navigate('/wallet/currency');
+    }
+
     return (
         <div>
             <Header back text="Wallet" menu/>
@@ -85,7 +99,7 @@ const Wallet = () => {
                     {
                         filteredArray.map(({name, commercial, warrants, balance, src}, index) => (
                             <CurrencyBlock key={index} name={name} commercial={commercial} warrants={warrants}
-                                           balance={balance} src={src} link="/wallet/currency"/>
+                                           balance={balance} src={src} handleClick={() => navigateLink(name)}/>
                         ))
                     }
                 </div>
