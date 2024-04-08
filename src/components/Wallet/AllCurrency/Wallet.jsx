@@ -4,7 +4,7 @@ import RadioButton from "../../Common/RadioButton/RadioButton";
 import React, {useState, useEffect} from "react";
 import LinkButton from "../Common/Link/Link";
 import SearchInput from "../../Common/Search/Search";
-import TextCheckBox from "./TextCheckBox/TextCheckBox";
+import TextCheckBox from "../Common/TextCheckBox/TextCheckBox";
 import CurrencyBlock from "../Common/CurrencyBlock/CurrencyBlock";
 import IconTether from "../../../assets/images/tether.svg";
 import IconBitcoin from "../../../assets/images/bitcoin.svg";

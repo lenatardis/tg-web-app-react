@@ -7,12 +7,16 @@ import IconArrowUp from "../../../assets/images/arr_up.svg";
 import IconArrowDown from "../../../assets/images/arr_down.svg";
 import IconRefresh from "../../../assets/images/refresh.svg";
 import LinkButton from "../Common/Link/Link";
-import React from "react";
+import RadioButton from "../../Common/RadioButton/RadioButton";
+import React, {useState} from "react";
 
 const SelectedCurrencyWallet = () => {
 
+    const [selectedOption1, setSelectedOption1] = useState('All');
+
     let wallet = useSelector(getSelectedCurrencyWallet);
     let {name, commercial, warrants, balance, src} = wallet;
+
 
     const linkInfo = [
         {name: "Deposit", src: "/", img: IconArrowUp},
@@ -32,6 +36,10 @@ const SelectedCurrencyWallet = () => {
                             <LinkButton key={index} title={name} src={src} img={img}/>
                         ))
                     }
+                </div>
+                <div className={styles.row}>
+                    <RadioButton name="selected_currency_wallet" value="TRC20" onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
+                    <RadioButton name="selected_currency_wallet" value="ERC20" onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
                 </div>
             </div>
         </div>
