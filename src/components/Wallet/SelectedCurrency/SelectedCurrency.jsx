@@ -1,6 +1,6 @@
 import Header from "../../Common/Header/Header";
 import styles from "./SelectedCurrency.module.scss";
-import {getCurrencyInfo, getSelectedCurrency} from "../../../store/selectors";
+import {getSelectedCurrencyInfo, getNetworks} from "../../../store/selectors";
 import {useSelector} from "react-redux";
 import CurrencyBlock from "../Common/CurrencyBlock/CurrencyBlock";
 import IconArrowUp from "../../../assets/images/arr_up.svg";
@@ -9,19 +9,19 @@ import IconRefresh from "../../../assets/images/refresh.svg";
 import LinkButton from "../Common/Link/Link";
 import RadioButton from "../../Common/RadioButton/RadioButton";
 import Item from "../Item/Item.jsx";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const SelectedCurrencyWallet = () => {
 
     const [selectedOption1, setSelectedOption1] = useState('All');
+    const [initialItems, setInitialItems] = useState([]);
+    const [items, setItems] = useState([]);
 
-    let selectedCurrency = useSelector(getSelectedCurrency);
+    let selectedCurrencyInfo = useSelector(getSelectedCurrencyInfo);
 
-    let currencyInfo = useSelector(getCurrencyInfo);
+    let {name, commercial, warrants, balance, src, networks} = selectedCurrencyInfo;
 
-    let selectedCurrencyInfo = currencyInfo.find((el) => el.name === selectedCurrency);
-
-    let {name, commercial, warrants, balance, src} = selectedCurrencyInfo;
+    let networkInfo = useSelector(getNetworks);
 
 
     const linkInfo = [
@@ -29,6 +29,31 @@ const SelectedCurrencyWallet = () => {
         {name: "Withdraw", src: "/", img: IconArrowDown},
         {name: "Exchange", src: "/pro/exchange", img: IconRefresh},
     ]
+
+    useEffect(() => {
+        let initialItems;
+        if (selectedCurrencyInfo && networks) {
+            initialItems = networks.flatMap(network =>
+                (networkInfo[network]?.wallets || []).map(wallet => ({
+                    ...wallet,
+                    network
+                }))
+            );
+            setInitialItems(initialItems);
+            setItems(initialItems);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (selectedCurrencyInfo) {
+            if (selectedOption1 === 'All') {
+                setItems(initialItems);
+            } else {
+                setItems(initialItems.filter(el => el.network === selectedOption1));
+            }
+        }
+    }, [selectedOption1, initialItems, selectedCurrencyInfo]);
+
 
     return (
         <div>
@@ -43,11 +68,18 @@ const SelectedCurrencyWallet = () => {
                         ))
                     }
                 </div>
-                <div className={styles.row}>
-                    <RadioButton name="selected_currency_wallet" value="TRC20" onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
-                    <RadioButton name="selected_currency_wallet" value="ERC20" onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
-                </div>
-                <Item/>
+                {name === 'USDT' && <div className={styles.row}>
+                    {
+                        networks.map((el, index) => (
+                            <RadioButton key={index} name="selected_currency_wallet" value={el} onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
+                        ))
+                    }
+                </div>}
+                {
+                    items.map(({name, address, network}, index) => (
+                        <Item name={name} address={address} network={network} key={index}/>
+                    ))
+                }
             </div>
         </div>
     )

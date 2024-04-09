@@ -3,14 +3,14 @@ import IconArrow from "../../../assets/images/arr-gr.svg";
 import CopyItem from "../../Common/CopyItem/CopyItem";
 import IconPencil from "../../../assets/images/pencil.svg";
 
-const Item = () => {
+const Item = ({name, address, network}) => {
     return (
         <div className={styles.itemWrap}>
             <div>
                 <div className={styles.titleBlock}>
-                    <h3>Wallet - 1</h3>
+                    <h3>{name}</h3>
                     <span className={styles.networkWrap}>
-                        <span>TRC20</span>
+                        <span>{network}</span>
                     </span>
                 </div>
                 <div>
@@ -24,11 +24,11 @@ const Item = () => {
             </div>
             <div>
                 <span className={styles.address}>
-                    AdXn0uQbzN
+                    {address}
                 </span>
                 <div className={styles.buttonBlock}>
                     <button>
-                        <CopyItem code="123"/>
+                        <CopyItem code={address}/>
                     </button>
                     <button>
                         <img src={IconPencil} alt=""/>
