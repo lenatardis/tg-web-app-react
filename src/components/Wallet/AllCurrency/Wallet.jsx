@@ -11,9 +11,10 @@ import IconBitcoin from "../../../assets/images/bitcoin.svg";
 import IconLitecoin from "../../../assets/images/litecoin.svg";
 import IconEtherium from "../../../assets/images/etherium.svg";
 import IconSomecoin from "../../../assets/images/somecoin.svg";
-import {setSelectedCurrencyWallet} from "../../../store/user-slice";
-import {useDispatch} from "react-redux";
+import {setSelectedCurrency} from "../../../store/user-slice";
+import {useSelector, useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import {getCurrencyInfo} from "../../../store/selectors";
 
 const Wallet = () => {
     const [selectedOption1, setSelectedOption1] = useState('All');
@@ -24,13 +25,7 @@ const Wallet = () => {
     const dispatch = useDispatch();
     let navigate = useNavigate();
 
-    const currencyInfo = [
-        {name: "USDT", commercial: 0, warrants: 0, balance: 0, src: IconTether},
-        {name: "BTC", commercial: 0, warrants: 0, balance: 1, src: IconBitcoin},
-        {name: "LTC", commercial: 0, warrants: 0, balance: 0, src: IconLitecoin},
-        {name: "ETH", commercial: 0, warrants: 0, balance: 3, src: IconEtherium},
-        {name: "BNB", commercial: 0, warrants: 0, balance: 1, src: IconSomecoin}
-    ]
+    const currencyInfo = useSelector(getCurrencyInfo);
 
     useEffect(() => {
         setFilteredArray(currencyInfo);
@@ -65,9 +60,7 @@ const Wallet = () => {
 
     const navigateLink = (currencyName) => {
         let currency = currencyInfo.find((el) => el.name === currencyName);
-        let {name, commercial, warrants, balance, src} = currency;
-        //to-do async
-        dispatch(setSelectedCurrencyWallet({name, commercial, warrants, balance, src}));
+        dispatch(setSelectedCurrency(currency.name));
         navigate('/wallet/currency');
     }
 

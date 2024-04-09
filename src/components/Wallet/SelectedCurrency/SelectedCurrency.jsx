@@ -1,6 +1,6 @@
 import Header from "../../Common/Header/Header";
 import styles from "./SelectedCurrency.module.scss";
-import {getSelectedCurrencyWallet} from "../../../store/selectors";
+import {getCurrencyInfo, getSelectedCurrency} from "../../../store/selectors";
 import {useSelector} from "react-redux";
 import CurrencyBlock from "../Common/CurrencyBlock/CurrencyBlock";
 import IconArrowUp from "../../../assets/images/arr_up.svg";
@@ -15,8 +15,13 @@ const SelectedCurrencyWallet = () => {
 
     const [selectedOption1, setSelectedOption1] = useState('All');
 
-    let wallet = useSelector(getSelectedCurrencyWallet);
-    let {name, commercial, warrants, balance, src} = wallet;
+    let selectedCurrency = useSelector(getSelectedCurrency);
+
+    let currencyInfo = useSelector(getCurrencyInfo);
+
+    let selectedCurrencyInfo = currencyInfo.find((el) => el.name === selectedCurrency);
+
+    let {name, commercial, warrants, balance, src} = selectedCurrencyInfo;
 
 
     const linkInfo = [
