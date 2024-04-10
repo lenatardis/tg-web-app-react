@@ -18,14 +18,13 @@ import Crypto from "./components/Manager/Crypto/Crypto";
 import Fiat from "./components/Manager/Fiat/Fiat";
 import Wallet from "./components/Wallet/AllCurrency/Wallet";
 import SelectedCurrencyWallet from "./components/Wallet/SelectedCurrency/SelectedCurrency";
+import ManagerDepositAddresses from "./components/Wallet/ManagerDepositAddresses/ManagerDepositAddresses";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
 import './App.scss';
-
-
 
 function App() {
     console.log(window.Telegram.WebApp);
@@ -69,6 +68,7 @@ function App() {
                 {path: "manager/fiat", element: <Fiat/>},
                 {path: "wallet", element: <Wallet/>},
                 {path: "wallet/currency", element: <SelectedCurrencyWallet/>},
+                {path: "wallet/managerdeposit", element: <ManagerDepositAddresses/>}
             ],
         },
     ]);

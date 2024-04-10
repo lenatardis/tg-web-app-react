@@ -14,7 +14,7 @@ const initialState = {
 
     selectedCurrency: 'USDT',
 
-    currencyInfo : [
+    currencyInfo: [
         {name: "USDT", commercial: 0, warrants: 0, balance: 0, src: IconTether, networks: ['TRC20', 'ERC20']},
         {name: "BTC", commercial: 0, warrants: 0, balance: 1, src: IconBitcoin, networks: ['BTC']},
         {name: "LTC", commercial: 0, warrants: 0, balance: 0, src: IconLitecoin, networks: ['LTC']},
@@ -49,7 +49,9 @@ const initialState = {
             {"name": "Wallet-2", "address": "JLdjdjdHkkdk"},
             {"name": "Wallet-3", "address": "LslssKkdkdkd"}
         ]
-    }
+    },
+
+    selectedNetwork: ''
 }
 
 const userSlice = createSlice({
@@ -66,7 +68,10 @@ const userSlice = createSlice({
 
         setSelectedCurrency(state, action) {
             state.selectedCurrency = action.payload;
-            console.log(state.selectedCurrency);
+        },
+
+        setNetwork(state, action) {
+            state.selectedNetwork = action.payload;
         }
     }
 });
@@ -77,4 +82,5 @@ export const {
     setGiveCurrency,
     setGetCurrency,
     setSelectedCurrency,
+    setNetwork
 } = userSlice.actions;

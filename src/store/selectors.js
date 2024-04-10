@@ -15,3 +15,10 @@ export const getSelectedCurrencyInfo = createSelector(
 
 export const getNetworks = (state) => state.user.networks;
 
+export const getSelectedNetwork = (state) => state.user.selectedNetwork;
+
+export const getWalletsForSelectedNetwork = createSelector(
+    [getNetworks, getSelectedNetwork],
+    (networks, selectedNetwork) => networks[selectedNetwork] || []
+);
+

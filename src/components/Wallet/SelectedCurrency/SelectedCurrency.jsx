@@ -1,7 +1,8 @@
 import Header from "../../Common/Header/Header";
 import styles from "./SelectedCurrency.module.scss";
 import {getSelectedCurrencyInfo, getNetworks} from "../../../store/selectors";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import CurrencyBlock from "../Common/CurrencyBlock/CurrencyBlock";
 import IconArrowUp from "../../../assets/images/arr_up.svg";
 import IconArrowDown from "../../../assets/images/arr_down.svg";
@@ -11,6 +12,7 @@ import RadioButton from "../../Common/RadioButton/RadioButton";
 import Item from "../Item/Item.jsx";
 import React, {useEffect, useState} from "react";
 import NetworkPopUp from "./NetworkPopup/Popup";
+import {setNetwork} from "../../../store/user-slice";
 
 const SelectedCurrencyWallet = () => {
 
@@ -20,6 +22,7 @@ const SelectedCurrencyWallet = () => {
     const [deposit, setDeposit] = useState(true);
     const [networkPopUp, setNetworkPopUp] = useState(false);
     const [selectedNetwork, setSelectedNetwork] = useState('');
+    const [shouldNavigate, setShouldNavigate] = useState(false);
 
     let selectedCurrencyInfo = useSelector(getSelectedCurrencyInfo);
 
@@ -27,6 +30,8 @@ const SelectedCurrencyWallet = () => {
 
     let networkInfo = useSelector(getNetworks);
 
+    let dispatch = useDispatch();
+    let navigate = useNavigate();
 
     const linkInfo = [
         {name: "Deposit", src: "/", img: IconArrowUp},
@@ -74,12 +79,31 @@ const SelectedCurrencyWallet = () => {
         };
     }, [networkPopUp]);
 
+    useEffect(() => {
+        let timer;
+        if (shouldNavigate) {
+            timer = setTimeout(() => {
+                navigate('/wallet/managerdeposit');
+                setShouldNavigate(false);
+            }, 1000);
+        }
+
+        return () => clearTimeout(timer);
+    }, [shouldNavigate]);
+
+
     const closeNetworkPopUp = () => {
         setNetworkPopUp(false);
     }
 
     const openNetworkPopUp = () => {
         setNetworkPopUp(true);
+    }
+
+    const handleNetworkChange = (network) => {
+        setSelectedNetwork(network);
+        dispatch(setNetwork(network));
+        setShouldNavigate(true);
     }
 
     return (
@@ -111,7 +135,7 @@ const SelectedCurrencyWallet = () => {
                         ))
                     }
                 </div>
-                <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} networks={networks} selected={selectedNetwork} onSelect={setSelectedNetwork}/>
+                <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} networks={networks} selected={selectedNetwork} onSelect={handleNetworkChange}/>
             </div>
         </div>
     )

@@ -1,7 +1,6 @@
 import styles from "./Popup.module.scss";
 import ClosePopUp from "../../../Common/ClosePopUp/ClosePopUp";
 import RadioButtonRow from "../../../Common/RadioButtonRow/RadioButtonRow";
-import Item from "../../Item/Item";
 import React from "react";
 
 const NetworkPopUp = ({closePopUp, isVisible, networks, selected, onSelect}) => {
