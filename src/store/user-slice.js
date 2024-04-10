@@ -16,27 +16,39 @@ const initialState = {
 
     currencyInfo : [
         {name: "USDT", commercial: 0, warrants: 0, balance: 0, src: IconTether, networks: ['TRC20', 'ERC20']},
-        {name: "BTC", commercial: 0, warrants: 0, balance: 1, src: IconBitcoin, networks: ['TRC20']},
-        {name: "LTC", commercial: 0, warrants: 0, balance: 0, src: IconLitecoin, networks: ['TRC20']},
-        {name: "ETH", commercial: 0, warrants: 0, balance: 3, src: IconEtherium, networks: ['TRC20']},
-        {name: "BNB", commercial: 0, warrants: 0, balance: 1, src: IconSomecoin, networks: ['TRC20']}
+        {name: "BTC", commercial: 0, warrants: 0, balance: 1, src: IconBitcoin, networks: ['BTC']},
+        {name: "LTC", commercial: 0, warrants: 0, balance: 0, src: IconLitecoin, networks: ['LTC']},
+        {name: "ETH", commercial: 0, warrants: 0, balance: 3, src: IconEtherium, networks: ['ERC20']},
+        {name: "BNB", commercial: 0, warrants: 0, balance: 1, src: IconSomecoin, networks: ['BSC']}
     ],
 
+
     networks: {
-        "TRC20": {
-            "wallets": [
-                {"name": "Wallet-1", "address": "AdXn0uQbzN"},
-                {"name": "Wallet-2", "address": "RdTHDQbzN"},
-                {"name": "Wallet-3", "address": "RdTCVNQbzN"}
-            ]
-        },
-        "ERC20": {
-            "wallets": [
-                {"name": "Wallet-1", "address": "AdXn0uQbzN"},
-                {"name": "Wallet-2", "address": "RdTHDQbzN"},
-                {"name": "Wallet-3", "address": "RdTCVNQbzN"}
-            ]
-        }
+        "TRC20": [
+            {"name": "Wallet-1", "address": "AdXn0uQbzN"},
+            {"name": "Wallet-2", "address": "RdTHDQbzN"},
+            {"name": "Wallet-3", "address": "RdTCVNQbzN"}
+        ],
+        "ERC20": [
+            {"name": "Wallet-1", "address": "AdXn0dsdsds"},
+            {"name": "Wallet-2", "address": "JsffLddsdf"},
+            {"name": "Wallet-3", "address": "RdaHdjjdJk"}
+        ],
+        "BTC": [
+            {"name": "Wallet-1", "address": "AdXn0dsfdsfs"},
+            {"name": "Wallet-2", "address": "Jsffsfsfds"},
+            {"name": "Wallet-3", "address": "Rdafafsfsd"}
+        ],
+        "LTC": [
+            {"name": "Wallet-1", "address": "GdsfsEfsfs"},
+            {"name": "Wallet-2", "address": "JGJhdhdhh"},
+            {"name": "Wallet-3", "address": "KjdshdHkdkd"}
+        ],
+        "BSC": [
+            {"name": "Wallet-1", "address": "HdkdjJdkkdk"},
+            {"name": "Wallet-2", "address": "JLdjdjdHkkdk"},
+            {"name": "Wallet-3", "address": "LslssKkdkdkd"}
+        ]
     }
 }
 

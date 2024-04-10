@@ -16,6 +16,7 @@ const SelectedCurrencyWallet = () => {
     const [selectedOption1, setSelectedOption1] = useState('All');
     const [initialItems, setInitialItems] = useState([]);
     const [items, setItems] = useState([]);
+    const [deposit, setDeposit] = useState(true);
 
     let selectedCurrencyInfo = useSelector(getSelectedCurrencyInfo);
 
@@ -34,7 +35,7 @@ const SelectedCurrencyWallet = () => {
         let initialItems;
         if (selectedCurrencyInfo && networks) {
             initialItems = networks.flatMap(network =>
-                (networkInfo[network]?.wallets || []).map(wallet => ({
+                networkInfo[network].map(wallet => ({
                     ...wallet,
                     network
                 }))
@@ -68,18 +69,22 @@ const SelectedCurrencyWallet = () => {
                         ))
                     }
                 </div>
-                {name === 'USDT' && <div className={styles.row}>
+                {networks.length > 1 && <div className={styles.row}>
                     {
                         networks.map((el, index) => (
-                            <RadioButton key={index} name="selected_currency_wallet" value={el} onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
+                            <RadioButton key={index} name="selected_currency_wallet" value={el}
+                                         onSelect={setSelectedOption1} selected={selectedOption1} inner left/>
                         ))
                     }
                 </div>}
-                {
-                    items.map(({name, address, network}, index) => (
-                        <Item name={name} address={address} network={network} key={index}/>
-                    ))
-                }
+                <div
+                    className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
+                    {
+                        items.map(({name, address, network}, index) => (
+                            <Item name={name} address={address} network={network} key={index}/>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     )
