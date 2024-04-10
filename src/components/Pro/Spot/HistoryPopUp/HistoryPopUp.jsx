@@ -1,8 +1,7 @@
 import styles from "./HistoryPopUp.module.scss";
-import IconClose from "../../../../assets/images/close.svg";
 import React from "react";
 import HistoryPopUpItem from "../../../Common/HistoryPopUpItem/HistoryPopUpItem";
-import ClosePopUp from "../../../Common/HistoryPopUpItem/ClosePopUp/ClosePopUp";
+import ClosePopUp from "../../../Common/ClosePopUp/ClosePopUp";
 
 const historyInfo = {
     'items': [
@@ -20,7 +19,7 @@ const historyInfo = {
 
 const HistoryPopUp = ({closePopUp, isVisible}) => {
     return (
-        <div className={`${styles['history-popup']} ${isVisible ? styles['popup-show'] : ''}`}>
+        <div className={`${styles['history-popup']} ${styles['bottom-popup']} ${isVisible ? styles['popup-show'] : ''}`}>
             <div className="resize">
                 <div className={`wrap ${styles['history-popup__wrap']}`}>
                     <ClosePopUp close={closePopUp}/>

@@ -1,5 +1,5 @@
 import styles from "./ClosePopUp.module.scss";
-import IconClose from "../../../../assets/images/close.svg";
+import IconClose from "../../../assets/images/close.svg";
 import React from "react";
 
 const ClosePopUp = ({close}) => {

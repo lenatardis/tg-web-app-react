@@ -5,7 +5,7 @@ import IconInfo from "../../../../assets/images/info.svg";
 const CurrencyBlock = ({name, commercial, warrants, balance, src, handleClick, selected, deposit}) => {
 
     return (
-        <div className={styles.currencyBlock} onClick={handleClick}>
+        <div className={styles.currencyBlock} onClick={selected? null : handleClick}>
             <div className={styles.imgRow}>
                 <div>
                     <img src={src} alt=""/>
@@ -18,7 +18,7 @@ const CurrencyBlock = ({name, commercial, warrants, balance, src, handleClick, s
                         <span className={styles.circle}></span>
                     </span>
                 </button>}
-                {selected && <a className={styles.addWrap}>
+                {selected && <a className={styles.addWrap} onClick={handleClick}>
                     <span>Add address</span>
                     <img src={IconAdd} alt=""/>
                 </a>}

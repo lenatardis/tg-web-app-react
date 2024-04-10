@@ -1,15 +1,18 @@
-$header_height: 90px;
-$popup_gap: 64px;
-
 @import "src/components/Common/Mixins/mixins";
+$header_height: 90px;
 
 @include bottomPopUpMixin();
 
-.history-popup {
+.network-popup {
 
   &__scrollable-wrap {
     height: auto;
     overflow: auto;
-    max-height: calc(100vh - #{$header_height} - #{$popup_gap});
+  }
+
+  h2 {
+    font-size: 19px;
+    text-align: center;
+    margin-bottom: 24px;
   }
 }

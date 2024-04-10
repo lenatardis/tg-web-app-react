@@ -43,3 +43,11 @@
     border-color: #2C4A7E;
   }
 }
+
+.networkRow {
+  padding:18px;
+
+  &:last-of-type {
+    margin-bottom: 56px;
+  }
+}

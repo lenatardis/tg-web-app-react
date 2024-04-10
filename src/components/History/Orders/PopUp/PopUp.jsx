@@ -1,5 +1,5 @@
 import styles from "../../PopUp.module.scss";
-import ClosePopUp from "../../../Common/HistoryPopUpItem/ClosePopUp/ClosePopUp";
+import ClosePopUp from "../../../Common/ClosePopUp/ClosePopUp";
 import React, {useState} from "react";
 import RadioButton from "../../../Common/RadioButton/RadioButton";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";

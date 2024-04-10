@@ -10,6 +10,7 @@ import LinkButton from "../Common/Link/Link";
 import RadioButton from "../../Common/RadioButton/RadioButton";
 import Item from "../Item/Item.jsx";
 import React, {useEffect, useState} from "react";
+import NetworkPopUp from "./NetworkPopup/Popup";
 
 const SelectedCurrencyWallet = () => {
 
@@ -17,6 +18,8 @@ const SelectedCurrencyWallet = () => {
     const [initialItems, setInitialItems] = useState([]);
     const [items, setItems] = useState([]);
     const [deposit, setDeposit] = useState(true);
+    const [networkPopUp, setNetworkPopUp] = useState(false);
+    const [selectedNetwork, setSelectedNetwork] = useState('');
 
     let selectedCurrencyInfo = useSelector(getSelectedCurrencyInfo);
 
@@ -45,6 +48,10 @@ const SelectedCurrencyWallet = () => {
         }
     }, []);
 
+   /* useEffect(() => {
+        if (networks) setSelectedNetwork(networks[0])
+    }, []);*/
+
     useEffect(() => {
         if (selectedCurrencyInfo) {
             if (selectedOption1 === 'All') {
@@ -55,13 +62,32 @@ const SelectedCurrencyWallet = () => {
         }
     }, [selectedOption1, initialItems, selectedCurrencyInfo]);
 
+    useEffect(() => {
+        if (networkPopUp) {
+            document.body.classList.add('noscroll');
+        } else {
+            document.body.classList.remove('noscroll');
+        }
+
+        return () => {
+            document.body.classList.remove('noscroll');
+        };
+    }, [networkPopUp]);
+
+    const closeNetworkPopUp = () => {
+        setNetworkPopUp(false);
+    }
+
+    const openNetworkPopUp = () => {
+        setNetworkPopUp(true);
+    }
 
     return (
         <div>
             <Header back text="Wallet" menu/>
             <div className="wrap">
                 <CurrencyBlock name={name} commercial={commercial} warrants={warrants} balance={balance} src={src}
-                               handleClick={null} selected deposit/>
+                               handleClick={openNetworkPopUp} selected deposit/>
                 <div className={styles.row}>
                     {
                         linkInfo.map(({name, src, img}, index) => (
@@ -85,6 +111,7 @@ const SelectedCurrencyWallet = () => {
                         ))
                     }
                 </div>
+                <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} networks={networks} selected={selectedNetwork} onSelect={setSelectedNetwork}/>
             </div>
         </div>
     )
