@@ -3,25 +3,28 @@ import IconArrow from "../../../assets/images/arr-gr.svg";
 import CopyItem from "../../Common/CopyItem/CopyItem";
 import IconPencil from "../../../assets/images/pencil.svg";
 
-const Item = ({name, address, network}) => {
+const Item = ({name, address, network, currency, index}) => {
     return (
-        <div className={styles.itemWrap}>
+        <div className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''}`}>
             <div>
                 <div className={styles.titleBlock}>
                     <h3>{name}</h3>
                     <span className={styles.networkWrap}>
-                        <span>{network}</span>
+                      <span>{network}{currency ? `\u00A0${currency}` : ''}</span>
                     </span>
                 </div>
                 <div>
-                    <a className={styles.arrBlock}>
+                {!currency && <a className={styles.arrBlock}>
                         <span>Deposit</span>
                         <button>
                             <img src={IconArrow} alt=""/>
                         </button>
-                    </a>
+                    </a>}
                 </div>
             </div>
+            {currency && <div className={styles.indexBlock}>
+                <p>Index: {index+1}</p>
+            </div>}
             <div>
                 <span className={styles.address}>
                     {address}

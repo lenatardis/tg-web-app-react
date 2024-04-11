@@ -24,7 +24,7 @@ const Header = ({back, text, menu, close}) => {
                 </span>
             )}
             {text && (
-                <span className={styles.title}>{text}</span>
+                <span className={`${styles.title} headerTitle`}>{text}</span>
             )}
             {menu && (
                 <span className={styles.menu}><img src={Menu} alt="menu"/></span>
