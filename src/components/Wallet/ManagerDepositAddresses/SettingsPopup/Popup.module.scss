@@ -1,4 +1,5 @@
 @import "src/components/Common/Mixins/mixins";
+
 $header_height: 90px;
 
 @include bottomPopUpMixin();
@@ -6,8 +7,8 @@ $header_height: 90px;
 .settings-popup {
 
   &__inner-wrap {
-   /* height: auto;
-    overflow: auto;*/
+    height: auto;
+    overflow: auto;
   }
 
   h2 {
@@ -15,6 +16,61 @@ $header_height: 90px;
     text-align: center;
     margin-bottom: 32px;
   }
+
+  .block {
+    background: #0D182E;
+    border-radius: 18px;
+    padding: 16px;
+
+    &:not(:last-of-type) {
+      margin-bottom: 8px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 24px;
+    }
+  }
+
+  h3, label {
+    font-size: 15px;
+    font-weight: 400;
+    color: #868B96;
+    margin-bottom: 16px;
+
+    & + p, & + input {
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+
+  label {
+    display: block;
+  }
+
+  input {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #ffffff;
+    height: 18px;
+  }
+
+  .addressBlock {
+    margin-bottom: 24px;
+
+    h3 {
+      margin-bottom: 24px;
+    }
+
+    & + p {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+.saveBtn {
+  margin-bottom: 24px;
 }
 
 
