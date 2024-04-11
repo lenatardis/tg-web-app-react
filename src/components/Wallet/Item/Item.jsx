@@ -3,7 +3,7 @@ import IconArrow from "../../../assets/images/arr-gr.svg";
 import CopyItem from "../../Common/CopyItem/CopyItem";
 import IconPencil from "../../../assets/images/pencil.svg";
 
-const Item = ({name, address, network, currency, index}) => {
+const Item = ({name, address, network, currency, index, openPopUp}) => {
     return (
         <div className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''}`}>
             <div>
@@ -14,7 +14,7 @@ const Item = ({name, address, network, currency, index}) => {
                     </span>
                 </div>
                 <div>
-                {!currency && <a className={styles.arrBlock}>
+                    {!currency && <a className={styles.arrBlock}>
                         <span>Deposit</span>
                         <button>
                             <img src={IconArrow} alt=""/>
@@ -23,7 +23,7 @@ const Item = ({name, address, network, currency, index}) => {
                 </div>
             </div>
             {currency && <div className={styles.indexBlock}>
-                <p>Index: {index+1}</p>
+                <p>Index: {index + 1}</p>
             </div>}
             <div>
                 <span className={styles.address}>
@@ -33,7 +33,7 @@ const Item = ({name, address, network, currency, index}) => {
                     <button>
                         <CopyItem code={address}/>
                     </button>
-                    <button>
+                    <button onClick={openPopUp ? openPopUp : null}>
                         <img src={IconPencil} alt=""/>
                     </button>
                 </div>

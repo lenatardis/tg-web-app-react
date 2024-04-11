@@ -10,7 +10,7 @@ const NetworkPopUp = ({closePopUp, isVisible, networks, selected, onSelect}) => 
                 <div className="wrap">
                     <ClosePopUp close={closePopUp}/>
                     <h2>Select network</h2>
-                    <div className={`${styles['network-popup__scrollable-wrap']}`}>
+                    <div className={`${styles['network-popup__inner-wrap']}`}>
                         {
                             networks.map((el, index) => (
                                <RadioButtonRow name="selected_network" value={el} key={index} selected={selected} onSelect={onSelect} networkrow/>

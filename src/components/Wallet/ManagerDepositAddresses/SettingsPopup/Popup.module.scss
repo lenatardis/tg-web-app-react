@@ -3,16 +3,18 @@ $header_height: 90px;
 
 @include bottomPopUpMixin();
 
-.network-popup {
+.settings-popup {
 
   &__inner-wrap {
-    height: auto;
-    overflow: auto;
+   /* height: auto;
+    overflow: auto;*/
   }
 
   h2 {
-    font-size: 19px;
+    font-size: 24px;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 }
+
+
