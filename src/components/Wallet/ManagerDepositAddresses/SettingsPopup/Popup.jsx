@@ -2,9 +2,13 @@ import styles from "./Popup.module.scss";
 import ClosePopUp from "../../../Common/ClosePopUp/ClosePopUp";
 import React, {useEffect, useState} from "react";
 import Button from "../../../Common/Button";
+import {useDispatch} from "react-redux";
+import {updateName} from "../../../../store/user-slice";
 
-const SettingsPopUp = ({isVisible, closePopUp, name, address, index}) => {
+const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) => {
     const [addressName, setAddressName] = useState('');
+
+    let dispatch = useDispatch();
 
     useEffect(() => {
         setAddressName(name);
@@ -12,6 +16,11 @@ const SettingsPopUp = ({isVisible, closePopUp, name, address, index}) => {
 
     const handleNameChange = (e) => {
         setAddressName(e.target.value);
+    }
+
+    const handleSave = () => {
+        dispatch(updateName({address, network, addressName}));
+        closePopUp();
     }
 
     return (
@@ -34,7 +43,7 @@ const SettingsPopUp = ({isVisible, closePopUp, name, address, index}) => {
                            <h3>Wallet address</h3>
                             <p>{address}</p>
                         </div>
-                        <Button text="Save" className={styles.saveBtn} handleClick={null}/>
+                        <Button text="Save" className={styles.saveBtn} handleClick={handleSave}/>
                     </div>
                 </div>
             </div>

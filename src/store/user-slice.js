@@ -72,15 +72,28 @@ const userSlice = createSlice({
 
         setNetwork(state, action) {
             state.selectedNetwork = action.payload;
+        },
+
+        updateName(state, action) {
+            let {address, network, addressName} = action.payload;
+            const networkWallets = state.networks[network];
+            const updatedWallets = networkWallets.map(wallet => {
+                if (wallet.address === address) {
+                    return { ...wallet, name: addressName };
+                }
+                return wallet;
+            });
+
+            state.networks[network] = updatedWallets;
         }
     }
 });
-
 export default userSlice.reducer;
 
 export const {
     setGiveCurrency,
     setGetCurrency,
     setSelectedCurrency,
-    setNetwork
+    setNetwork,
+    updateName
 } = userSlice.actions;

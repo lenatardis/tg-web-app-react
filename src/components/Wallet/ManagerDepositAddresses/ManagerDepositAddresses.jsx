@@ -47,7 +47,7 @@ const ManagerDepositAddresses = () => {
                     ))
                 }
                 <Button text="Request new address" handleClick={null}/>
-                <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address} index={selectedItem.index}/>
+                <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address} index={selectedItem.index} network={network}/>
             </div>
         </div>
     )
