@@ -97,7 +97,6 @@ const userSlice = createSlice({
             }
 
             const randomAddress = generateRandomAddress(address);
-            console.log(randomAddress);
             let newWallet = {name: name, address: randomAddress};
             state.networks[network] = [...state.networks[network], newWallet];
         }

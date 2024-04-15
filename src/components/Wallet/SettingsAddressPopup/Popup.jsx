@@ -7,14 +7,17 @@ import {updateName} from "../../../store/user-slice";
 
 const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) => {
     const [addressName, setAddressName] = useState('');
-    const [prevAddressName, setPrevAddressName] = useState('');
+    const [prevAddressName, setPrevAddressName] = useState(name);
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+    const [firstUpdate, setFirstUpdate] = useState(false);
 
     let dispatch = useDispatch();
 
     useEffect(() => {
         setAddressName(name);
-        setPrevAddressName(name);
+        if (name && !firstUpdate) {
+            setPrevAddressName(name);
+        }
     }, [name]);
 
     useEffect(() => {
@@ -25,8 +28,8 @@ const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) =
         }
     }, [addressName, prevAddressName]);
 
+
     const handleNameChange = (e) => {
-        setPrevAddressName(addressName);
         setAddressName(e.target.value);
     }
 
@@ -34,6 +37,7 @@ const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) =
         dispatch(updateName({address, network, addressName}));
         closePopUp();
         setAddressName('');
+        setPrevAddressName(addressName);
     }
 
     return (
