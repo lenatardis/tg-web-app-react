@@ -7,7 +7,7 @@ import {updateName} from "../../../store/user-slice";
 
 const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) => {
     const [addressName, setAddressName] = useState('');
-    const [prevAddressName, setPrevAddressName] = useState(name);
+    const [prevAddressName, setPrevAddressName] = useState('');
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
     const [firstUpdate, setFirstUpdate] = useState(false);
 

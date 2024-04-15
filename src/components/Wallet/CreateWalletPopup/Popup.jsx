@@ -11,7 +11,6 @@ import {createWallet} from "../../../store/user-slice";
 
 const CreateWalletPopUp = ({isVisible, closePopUp}) => {
     const [walletName, setWalletName] = useState('');
-    const [prevWalletName, setPrevWalletName] = useState('');
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [dropDownOpen, setDropDownOpen] = useState(false);
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
@@ -23,12 +22,12 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
     }, [availableNetworks]);
 
     useEffect(() => {
-        if (walletName && walletName !== prevWalletName) {
+        if (walletName) {
             setIsButtonEnabled(true);
         } else {
             setIsButtonEnabled(false);
         }
-    }, [walletName, prevWalletName]);
+    }, [walletName]);
 
     const dropdownRef = useRef(null);
     useClickOutside(dropdownRef, () => setDropDownOpen(false));
@@ -46,7 +45,6 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
     }
 
     const handleChange = (e) => {
-        setPrevWalletName(walletName);
         setWalletName(e.target.value);
     }
 
