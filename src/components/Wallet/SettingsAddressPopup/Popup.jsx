@@ -7,20 +7,33 @@ import {updateName} from "../../../store/user-slice";
 
 const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) => {
     const [addressName, setAddressName] = useState('');
+    const [prevAddressName, setPrevAddressName] = useState('');
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
     let dispatch = useDispatch();
 
     useEffect(() => {
         setAddressName(name);
+        setPrevAddressName(name);
     }, [name]);
 
+    useEffect(() => {
+        if (addressName && addressName !== prevAddressName) {
+            setIsButtonEnabled(true);
+        } else {
+            setIsButtonEnabled(false);
+        }
+    }, [addressName, prevAddressName]);
+
     const handleNameChange = (e) => {
+        setPrevAddressName(addressName);
         setAddressName(e.target.value);
     }
 
     const handleSave = () => {
         dispatch(updateName({address, network, addressName}));
         closePopUp();
+        setAddressName('');
     }
 
     return (
@@ -37,13 +50,16 @@ const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) =
                         </div>
                         <div className={styles.block}>
                             <label htmlFor="wallet_address_name">Name the address</label>
-                            <input id="wallet_address_name" type="text" name="wallet_address_name" value={addressName} onChange={handleNameChange}/>
+                            <input id="wallet_address_name" type="text" name="wallet_address_name" value={addressName}
+                                   onChange={handleNameChange}/>
                         </div>
                         <div className={`${styles.block} ${styles.addressBlock}`}>
-                           <h3>Wallet address</h3>
+                            <h3>Wallet address</h3>
                             <p>{address}</p>
                         </div>
-                        <Button text="Save" className={styles.saveBtn} handleClick={handleSave}/>
+                        <Button text="Save"
+                                className={`${styles.saveBtn} ${isButtonEnabled ? styles.enabledBtn : styles.disabledBtn}`}
+                                disabled={!isButtonEnabled} handleClick={handleSave}/>
                     </div>
                 </div>
             </div>

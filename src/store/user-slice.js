@@ -9,6 +9,7 @@ const initialState = {
     user: [
         {currency: "eur", total: "27 378,00", sign: '€'}
     ],
+
     exchange:
         {give: 'ETH', get: 'BTC'},
 
@@ -21,7 +22,6 @@ const initialState = {
         {name: "ETH", commercial: 0, warrants: 0, balance: 3, src: IconEtherium, networks: ['ERC20']},
         {name: "BNB", commercial: 0, warrants: 0, balance: 1, src: IconSomecoin, networks: ['BSC']}
     ],
-
 
     networks: {
         "TRC20": [
@@ -85,6 +85,21 @@ const userSlice = createSlice({
             });
 
             state.networks[network] = updatedWallets;
+        },
+
+        createWallet (state, action) {
+            let {address, network, name} = action.payload;
+
+            // just for demo purposes
+            function generateRandomAddress(baseAddress) {
+                const randomString = Math.random().toString(36).substring(2, 8);
+                return `${baseAddress}-${randomString}`;
+            }
+
+            const randomAddress = generateRandomAddress(address);
+            console.log(randomAddress);
+            let newWallet = {name: name, address: randomAddress};
+            state.networks[network] = [...state.networks[network], newWallet];
         }
     }
 });
@@ -95,5 +110,6 @@ export const {
     setGetCurrency,
     setSelectedCurrency,
     setNetwork,
-    updateName
+    updateName,
+    createWallet
 } = userSlice.actions;

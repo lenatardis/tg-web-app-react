@@ -7,11 +7,14 @@ import CopyItem from "../../Common/CopyItem/CopyItem";
 import IconUp from "../../../assets/images/up.svg";
 import {getSelectedCurrencyInfo} from "../../../store/selectors";
 import useClickOutside from "../../../hooks/useClickOutside";
+import {createWallet} from "../../../store/user-slice";
 
 const CreateWalletPopUp = ({isVisible, closePopUp}) => {
     const [walletName, setWalletName] = useState('');
+    const [prevWalletName, setPrevWalletName] = useState('');
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [dropDownOpen, setDropDownOpen] = useState(false);
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
     let availableNetworks = useSelector(getSelectedCurrencyInfo).networks;
 
@@ -19,8 +22,13 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
         setSelectedNetwork(availableNetworks[0]);
     }, [availableNetworks]);
 
-    console.log(availableNetworks);
-    console.log(availableNetworks.length);
+    useEffect(() => {
+        if (walletName && walletName !== prevWalletName) {
+            setIsButtonEnabled(true);
+        } else {
+            setIsButtonEnabled(false);
+        }
+    }, [walletName, prevWalletName]);
 
     const dropdownRef = useRef(null);
     useClickOutside(dropdownRef, () => setDropDownOpen(false));
@@ -38,10 +46,17 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
     }
 
     const handleChange = (e) => {
+        setPrevWalletName(walletName);
         setWalletName(e.target.value);
     }
 
     let generatedAddress = 'lQtfA...w0';
+
+    const handleSave = (e) => {
+        dispatch(createWallet({address: generatedAddress, name: walletName, network: selectedNetwork}))
+        closePopUp();
+        setWalletName('');
+    }
 
     return (
         <div
@@ -81,7 +96,9 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
                                 </ul>}
                             </div>
                         </div>
-                        <Button text="Save" className={styles.saveBtn} handleClick={null}/>
+                        <Button text="Save"
+                                className={`${styles.saveBtn} ${isButtonEnabled ? styles.enabledBtn : styles.disabledBtn}`}
+                                disabled={!isButtonEnabled} handleClick={handleSave}/>
                     </div>
                 </div>
             </div>

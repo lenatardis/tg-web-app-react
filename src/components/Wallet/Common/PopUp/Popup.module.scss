@@ -80,6 +80,14 @@ $header_height: 90px;
   .saveBtn {
     margin-bottom: 24px;
   }
+
+  .enabledBtn {
+    opacity: 1;
+  }
+
+  .disabledBtn {
+    opacity: 0.3;
+  }
 }
 
 .createWallet {
