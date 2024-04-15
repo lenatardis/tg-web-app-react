@@ -8,12 +8,16 @@ import IconUp from "../../../assets/images/up.svg";
 import {getSelectedCurrencyInfo} from "../../../store/selectors";
 import useClickOutside from "../../../hooks/useClickOutside";
 
-const CreateWalletPopUp = ({isVisible, closePopUp, networks}) => {
+const CreateWalletPopUp = ({isVisible, closePopUp}) => {
     const [walletName, setWalletName] = useState('');
-    const [selectedNetwork, setSelectedNetwork] = useState('TRC');
+    const [selectedNetwork, setSelectedNetwork] = useState('');
     const [dropDownOpen, setDropDownOpen] = useState(false);
 
     let availableNetworks = useSelector(getSelectedCurrencyInfo).networks;
+
+    useEffect(() => {
+        setSelectedNetwork(availableNetworks[0]);
+    }, [availableNetworks]);
 
     const dropdownRef = useRef(null);
     useClickOutside(dropdownRef, () => setDropDownOpen(false));
