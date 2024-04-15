@@ -38,6 +38,12 @@
     background: none;
   }
 
+  .address {
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 
 .networkWrap {

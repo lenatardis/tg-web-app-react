@@ -16,7 +16,7 @@ import Transactions from "./components/History/Transactions/Transactions";
 import Manager from "./components/Manager/Manager";
 import Crypto from "./components/Manager/Crypto/Crypto";
 import Fiat from "./components/Manager/Fiat/Fiat";
-import Wallet from "./components/Wallet/AllCurrency/Wallet";
+import Wallet from "./components/Wallet/AllCurrencies/Wallet";
 import SelectedCurrencyWallet from "./components/Wallet/SelectedCurrency/SelectedCurrency";
 import ManagerDepositAddresses from "./components/Wallet/ManagerDepositAddresses/ManagerDepositAddresses";
 import Layout from "./components/Layout/Layout";

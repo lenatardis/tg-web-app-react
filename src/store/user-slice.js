@@ -25,29 +25,29 @@ const initialState = {
 
     networks: {
         "TRC20": [
-            {"name": "Wallet-1", "address": "AdXn0uQbzN"},
-            {"name": "Wallet-2", "address": "RdTHDQbzN"},
-            {"name": "Wallet-3", "address": "RdTCVNQbzN"}
+            {"name": "Wallet-1", "address": "AdXn0uQbzNdss"},
+            {"name": "Wallet-2", "address": "RdTHDQbzNdsds"},
+            {"name": "Wallet-3", "address": "RdTCVNQbzNdsds"}
         ],
         "ERC20": [
-            {"name": "Wallet-1", "address": "AdXn0dsdsds"},
-            {"name": "Wallet-2", "address": "JsffLddsdf"},
-            {"name": "Wallet-3", "address": "RdaHdjjdJk"}
+            {"name": "Wallet-1", "address": "AdXn0dsdsdsdsds"},
+            {"name": "Wallet-2", "address": "JsffLddsdfdsddw"},
+            {"name": "Wallet-3", "address": "RdaHdjjdJkwdw"}
         ],
         "BTC": [
-            {"name": "Wallet-1", "address": "AdXn0dsfdsfs"},
-            {"name": "Wallet-2", "address": "Jsffsfsfds"},
-            {"name": "Wallet-3", "address": "Rdafafsfsd"}
+            {"name": "Wallet-1", "address": "AdXn0dsfdsfswdw"},
+            {"name": "Wallet-2", "address": "Jsffsfsfdsdwdwe"},
+            {"name": "Wallet-3", "address": "Rdafafsfsddwdw"}
         ],
         "LTC": [
-            {"name": "Wallet-1", "address": "GdsfsEfsfs"},
-            {"name": "Wallet-2", "address": "JGJhdhdhh"},
-            {"name": "Wallet-3", "address": "KjdshdHkdkd"}
+            {"name": "Wallet-1", "address": "GdsfsEfsfsdwdw"},
+            {"name": "Wallet-2", "address": "JGJhdhdhhdwdw"},
+            {"name": "Wallet-3", "address": "KjdshdHkdkddqdq"}
         ],
         "BSC": [
-            {"name": "Wallet-1", "address": "HdkdjJdkkdk"},
-            {"name": "Wallet-2", "address": "JLdjdjdHkkdk"},
-            {"name": "Wallet-3", "address": "LslssKkdkdkd"}
+            {"name": "Wallet-1", "address": "HdkdjJdkkdkdqdqw"},
+            {"name": "Wallet-2", "address": "JLdjdjdHkkdkdqd"},
+            {"name": "Wallet-3", "address": "LslssKkdkdkddqdq"}
         ]
     },
 
