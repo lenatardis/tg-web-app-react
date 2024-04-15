@@ -19,6 +19,9 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
         setSelectedNetwork(availableNetworks[0]);
     }, [availableNetworks]);
 
+    console.log(availableNetworks);
+    console.log(availableNetworks.length);
+
     const dropdownRef = useRef(null);
     useClickOutside(dropdownRef, () => setDropDownOpen(false));
 
@@ -60,24 +63,24 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
                             </div>
                             <CopyItem code={generatedAddress}/>
                         </div>
-                            <div className={`${styles.block} ${styles.dropdownBlock}`}>
-                                <div className={styles.dropdownWrap} ref={dropdownRef}>
-                                    <div onClick={() => setDropDownOpen(dropDownOpen => !dropDownOpen)}>
-                                        <span>{selectedNetwork}</span>
-                                        <button>
-                                            <img src={IconUp} alt=""
-                                                 className={`${!dropDownOpen ? styles['icon-flipped'] : ''}`}/>
-                                        </button>
-                                    </div>
-                                    {dropDownOpen && <ul className={styles.dropdownList}>
-                                        {availableNetworks.map((el, index) => (
-                                        <li key={index}  onClick={() => handleSelect(el)}>
+                        <div className={`${styles.block} ${styles.dropdownBlock}`}>
+                            <div className={styles.dropdownWrap} ref={dropdownRef}>
+                                <div onClick={() => setDropDownOpen(dropDownOpen => !dropDownOpen)}>
+                                    <span>{selectedNetwork}</span>
+                                    {availableNetworks.length > 1 && <button>
+                                        <img src={IconUp} alt=""
+                                             className={`${!dropDownOpen ? styles['icon-flipped'] : ''}`}/>
+                                    </button>}
+                                </div>
+                                {availableNetworks.length > 1 && dropDownOpen && <ul className={styles.dropdownList}>
+                                    {availableNetworks.map((el, index) => (
+                                        <li key={index} onClick={() => handleSelect(el)}>
                                             <span>{el}</span>
                                         </li>
                                     ))}
-                                    </ul>}
-                                </div>
+                                </ul>}
                             </div>
+                        </div>
                         <Button text="Save" className={styles.saveBtn} handleClick={null}/>
                     </div>
                 </div>
