@@ -5,7 +5,8 @@ import {getSelectedCurrency, getSelectedNetwork, getWalletsForSelectedNetwork} f
 import Item from "../Item/Item";
 import Button from "../../Common/Button";
 import {useEffect, useState} from "react";
-import SettingsPopUp from "./SettingsPopup/Popup";
+import SettingsPopUp from "../SettingsAddressPopup/Popup";
+import CreateWalletPopUp from "../CreateWalletPopup/Popup";
 
 const ManagerDepositAddresses = () => {
     const walletsForSelectedNetwork = useSelector(getWalletsForSelectedNetwork);
@@ -13,11 +14,7 @@ const ManagerDepositAddresses = () => {
     const currency = useSelector(getSelectedCurrency);
     const [settingsPopUp, setSettingsPopUp] = useState(false);
     const [selectedItem, setSelectedItem] = useState({name:'', address:'', index:''});
-
-    const closeSettingsPopUp = () => {
-        setSettingsPopUp(false);
-        setSelectedItem({ name: '', address: '', index: '' });
-    }
+    const [createWalletPopUp, setCreateWalletPopUp] = useState(false);
 
     const openSettingsPopUp = (item) => {
         let {name, index, address} = item;
@@ -25,8 +22,21 @@ const ManagerDepositAddresses = () => {
         setSettingsPopUp(true);
     }
 
+    const closeSettingsPopUp = () => {
+        setSettingsPopUp(false);
+        setSelectedItem({ name: '', address: '', index: '' });
+    }
+
+    const openCreateWalletPopUp = () => {
+        setCreateWalletPopUp(true);
+    }
+
+    const closeCreateWalletPopUp = () => {
+        setCreateWalletPopUp(false);
+    }
+
     useEffect(() => {
-        if (settingsPopUp) {
+        if (settingsPopUp || createWalletPopUp) {
             document.body.classList.add('noscroll');
         } else {
             document.body.classList.remove('noscroll');
@@ -35,7 +45,7 @@ const ManagerDepositAddresses = () => {
         return () => {
             document.body.classList.remove('noscroll');
         };
-    }, [settingsPopUp]);
+    }, [settingsPopUp, createWalletPopUp]);
 
     return (
         <div className={styles.mdPage}>
@@ -46,8 +56,9 @@ const ManagerDepositAddresses = () => {
                         <Item key={index} name={name} address={address} network={network} currency={currency} index={index} openPopUp={() => openSettingsPopUp({address, index, name})} closePopUp={closeSettingsPopUp}/>
                     ))
                 }
-                <Button text="Request new address" handleClick={null}/>
+                <Button text="Request new address" handleClick={openCreateWalletPopUp}/>
                 <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address} index={selectedItem.index} network={network}/>
+                <CreateWalletPopUp isVisible={createWalletPopUp} closePopUp={closeCreateWalletPopUp}/>
             </div>
         </div>
     )

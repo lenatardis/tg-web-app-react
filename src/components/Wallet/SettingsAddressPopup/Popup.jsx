@@ -1,9 +1,9 @@
-import styles from "./Popup.module.scss";
-import ClosePopUp from "../../../Common/ClosePopUp/ClosePopUp";
+import styles from "../Common/PopUp/Popup.module.scss";
+import ClosePopUp from "../../Common/ClosePopUp/ClosePopUp";
 import React, {useEffect, useState} from "react";
-import Button from "../../../Common/Button";
+import Button from "../../Common/Button";
 import {useDispatch} from "react-redux";
-import {updateName} from "../../../../store/user-slice";
+import {updateName} from "../../../store/user-slice";
 
 const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) => {
     const [addressName, setAddressName] = useState('');

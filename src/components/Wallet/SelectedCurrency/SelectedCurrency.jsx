@@ -53,10 +53,6 @@ const SelectedCurrencyWallet = () => {
         }
     }, []);
 
-   /* useEffect(() => {
-        if (networks) setSelectedNetwork(networks[0])
-    }, []);*/
-
     useEffect(() => {
         if (selectedCurrencyInfo) {
             if (selectedOption1 === 'All') {
