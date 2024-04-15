@@ -59,7 +59,7 @@ const SettingsPopUp = ({isVisible, closePopUp, name, address, index, network}) =
                         </div>
                         <div className={`${styles.block} ${styles.addressBlock}`}>
                             <h3>Wallet address</h3>
-                            <p>{address}</p>
+                            <p>{address.slice(0,5)+'...'+address.slice(address.length-2,address.length)}</p>
                         </div>
                         <Button text="Save"
                                 className={`${styles.saveBtn} ${isButtonEnabled ? styles.enabledBtn : styles.disabledBtn}`}

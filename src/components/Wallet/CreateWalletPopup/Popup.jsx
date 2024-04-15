@@ -48,10 +48,10 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
         setWalletName(e.target.value);
     }
 
-    let generatedAddress = 'lQtfA...w0';
+    let address = 'lQtfAAbcjdwdwdwkewiw0';
 
     const handleSave = (e) => {
-        dispatch(createWallet({address: generatedAddress, name: walletName, network: selectedNetwork}))
+        dispatch(createWallet({address: address, name: walletName, network: selectedNetwork}))
         closePopUp();
         setWalletName('');
     }
@@ -72,9 +72,9 @@ const CreateWalletPopUp = ({isVisible, closePopUp}) => {
                         <div className={`${styles.block} ${styles.addressBlock}`}>
                             <div>
                                 <h3>New wallet address</h3>
-                                <p>{generatedAddress}</p>
+                                <p>{address.slice(0,5)+'...'+address.slice(address.length-2,address.length)}</p>
                             </div>
-                            <CopyItem code={generatedAddress}/>
+                            <CopyItem code={address}/>
                         </div>
                         <div className={`${styles.block} ${styles.dropdownBlock}`}>
                             <div className={styles.dropdownWrap} ref={dropdownRef}>
