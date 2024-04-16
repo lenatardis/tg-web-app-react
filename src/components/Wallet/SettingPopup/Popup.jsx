@@ -6,7 +6,7 @@ import {useDispatch} from "react-redux";
 import {updateName} from "../../../store/user-slice";
 import CopyItem from "../../Common/CopyItem/CopyItem";
 
-const SettingsPopUp = ({isVisible, closePopUp, name, address, network}) => {
+const SettingsPopUp = ({isVisible, closePopUp, name, address}) => {
     const [addressName, setAddressName] = useState('');
     const [prevAddressName, setPrevAddressName] = useState('');
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
@@ -35,7 +35,7 @@ const SettingsPopUp = ({isVisible, closePopUp, name, address, network}) => {
     }
 
     const handleSave = () => {
-        dispatch(updateName({address, network, addressName}));
+        dispatch(updateName({address, addressName}));
         closePopUp();
         setAddressName('');
         setPrevAddressName(addressName);

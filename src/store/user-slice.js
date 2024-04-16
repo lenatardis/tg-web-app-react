@@ -75,16 +75,20 @@ const userSlice = createSlice({
         },
 
         updateName(state, action) {
-            let {address, network, addressName} = action.payload;
-            const networkWallets = state.networks[network];
-            const updatedWallets = networkWallets.map(wallet => {
-                if (wallet.address === address) {
-                    return { ...wallet, name: addressName };
-                }
-                return wallet;
-            });
+            let { address, addressName } = action.payload;
+            console.log(address, addressName);
 
-            state.networks[network] = updatedWallets;
+            Object.keys(state.networks).forEach(network => {
+                const updatedWallets = state.networks[network].map(wallet => {
+                    if (wallet.address === address) {
+                        return { ...wallet, name: addressName };
+                    }
+                    return wallet;
+                });
+
+                state.networks[network] = updatedWallets;
+                console.log(updatedWallets);
+            });
         },
 
         createWallet (state, action) {

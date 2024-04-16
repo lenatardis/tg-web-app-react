@@ -13,6 +13,7 @@ import Item from "../Item/Item.jsx";
 import React, {useEffect, useState} from "react";
 import NetworkPopUp from "./NetworkPopup/Popup";
 import {setNetwork} from "../../../store/user-slice";
+import SettingsPopUp from "../SettingPopup/Popup";
 
 const SelectedCurrencyWallet = () => {
 
@@ -21,6 +22,8 @@ const SelectedCurrencyWallet = () => {
     const [items, setItems] = useState([]);
     const [deposit, setDeposit] = useState(true);
     const [networkPopUp, setNetworkPopUp] = useState(false);
+    const [settingsPopUp, setSettingsPopUp] = useState(false);
+    const [selectedItem, setSelectedItem] = useState({name:'', address:''});
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [shouldNavigate, setShouldNavigate] = useState(false);
 
@@ -102,6 +105,17 @@ const SelectedCurrencyWallet = () => {
         setShouldNavigate(true);
     }
 
+    const openSettingsPopUp = (item) => {
+        let {name, address} = item;
+        setSelectedItem({name, address});
+        setSettingsPopUp(true);
+    }
+
+    const closeSettingsPopUp = () => {
+        setSettingsPopUp(false);
+        setSelectedItem({ name: '', address: ''});
+    }
+
     return (
         <div>
             <Header back text="Wallet" menu/>
@@ -127,10 +141,11 @@ const SelectedCurrencyWallet = () => {
                     className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
                     {
                         items.map(({name, address, network}, index) => (
-                            <Item name={name} address={address} network={network} key={index}/>
+                            <Item name={name} address={address} network={network} key={index} openPopUp={() => openSettingsPopUp({address, name})} closePopUp={closeSettingsPopUp}/>
                         ))
                     }
                 </div>
+                <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address}/>
                 <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} networks={networks} selected={selectedNetwork} onSelect={handleNetworkChange}/>
             </div>
         </div>

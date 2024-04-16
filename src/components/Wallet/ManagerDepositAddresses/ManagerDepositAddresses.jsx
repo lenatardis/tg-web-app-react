@@ -13,18 +13,18 @@ const ManagerDepositAddresses = () => {
     const network = useSelector(getSelectedNetwork);
     const currency = useSelector(getSelectedCurrency);
     const [settingsPopUp, setSettingsPopUp] = useState(false);
-    const [selectedItem, setSelectedItem] = useState({name:'', address:'', index:''});
+    const [selectedItem, setSelectedItem] = useState({name:'', address:''});
     const [createWalletPopUp, setCreateWalletPopUp] = useState(false);
 
     const openSettingsPopUp = (item) => {
-        let {name, index, address} = item;
-        setSelectedItem({name, index, address});
+        let {name, address} = item;
+        setSelectedItem({name, address});
         setSettingsPopUp(true);
     }
 
     const closeSettingsPopUp = () => {
         setSettingsPopUp(false);
-        setSelectedItem({ name: '', address: '', index: '' });
+        setSelectedItem({ name: '', address: ''});
     }
 
     const openCreateWalletPopUp = () => {
@@ -57,7 +57,7 @@ const ManagerDepositAddresses = () => {
                     ))
                 }
                 <Button text="Request new address" handleClick={openCreateWalletPopUp}/>
-                <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address} index={selectedItem.index} network={network}/>
+                <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address}/>
                 <CreateWalletPopUp isVisible={createWalletPopUp} closePopUp={closeCreateWalletPopUp}/>
             </div>
         </div>
