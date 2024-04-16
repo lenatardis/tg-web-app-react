@@ -5,7 +5,7 @@ import {getSelectedCurrency, getSelectedNetwork, getWalletsForSelectedNetwork} f
 import Item from "../Item/Item";
 import Button from "../../Common/Button";
 import {useEffect, useState} from "react";
-import SettingsPopUp from "../SettingsAddressPopup/Popup";
+import SettingsPopUp from "../SettingPopup/Popup";
 import CreateWalletPopUp from "../CreateWalletPopup/Popup";
 
 const ManagerDepositAddresses = () => {
