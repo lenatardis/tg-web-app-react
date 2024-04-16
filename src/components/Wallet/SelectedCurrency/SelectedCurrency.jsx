@@ -28,6 +28,7 @@ const SelectedCurrencyWallet = () => {
     const [shouldNavigate, setShouldNavigate] = useState(false);
 
     let selectedCurrencyInfo = useSelector(getSelectedCurrencyInfo);
+    console.log(selectedCurrencyInfo);
 
     let {name, commercial, warrants, balance, src, networks} = selectedCurrencyInfo;
 
@@ -54,7 +55,7 @@ const SelectedCurrencyWallet = () => {
             setInitialItems(initialItems);
             setItems(initialItems);
         }
-    }, []);
+    }, [networkInfo]);
 
     useEffect(() => {
         if (selectedCurrencyInfo) {
@@ -64,7 +65,7 @@ const SelectedCurrencyWallet = () => {
                 setItems(initialItems.filter(el => el.network === selectedOption1));
             }
         }
-    }, [selectedOption1, initialItems, selectedCurrencyInfo]);
+    }, [selectedOption1, initialItems]);
 
     useEffect(() => {
         if (networkPopUp) {
