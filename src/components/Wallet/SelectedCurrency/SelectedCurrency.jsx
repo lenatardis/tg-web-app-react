@@ -14,6 +14,8 @@ import React, {useEffect, useState} from "react";
 import NetworkPopUp from "./NetworkPopup/Popup";
 import {setNetwork} from "../../../store/user-slice";
 import SettingsPopUp from "../SettingPopup/Popup";
+import IconAdd from '../../../assets/images/add.svg';
+import CreateWalletPopUp from "../CreateWalletPopup/Popup";
 
 const SelectedCurrencyWallet = () => {
 
@@ -26,6 +28,7 @@ const SelectedCurrencyWallet = () => {
     const [selectedItem, setSelectedItem] = useState({name:'', address:''});
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [shouldNavigate, setShouldNavigate] = useState(false);
+    const [createWalletPopUp, setCreateWalletPopUp] = useState(false);
 
     let selectedCurrencyInfo = useSelector(getSelectedCurrencyInfo);
 
@@ -90,6 +93,17 @@ const SelectedCurrencyWallet = () => {
         return () => clearTimeout(timer);
     }, [shouldNavigate]);
 
+    useEffect(() => {
+        if (settingsPopUp || createWalletPopUp) {
+            document.body.classList.add('noscroll');
+        } else {
+            document.body.classList.remove('noscroll');
+        }
+
+        return () => {
+            document.body.classList.remove('noscroll');
+        };
+    }, [settingsPopUp, createWalletPopUp]);
 
     const closeNetworkPopUp = () => {
         setNetworkPopUp(false);
@@ -116,6 +130,14 @@ const SelectedCurrencyWallet = () => {
         setSelectedItem({ name: '', address: ''});
     }
 
+    const openCreateWalletPopUp = () => {
+        setCreateWalletPopUp(true);
+    }
+
+    const closeCreateWalletPopUp = () => {
+        setCreateWalletPopUp(false);
+    }
+
     return (
         <div>
             <Header back text="Wallet" menu/>
@@ -137,16 +159,24 @@ const SelectedCurrencyWallet = () => {
                         ))
                     }
                 </div>}
-                <div
-                    className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
+                {!!items.length && <div className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
                     {
                         items.map(({name, address, network}, index) => (
                             <Item name={name} address={address} network={network} key={index} openPopUp={() => openSettingsPopUp({address, name})} closePopUp={closeSettingsPopUp}/>
                         ))
                     }
-                </div>
+                </div>}
+                {!items.length &&
+                    <a className={styles.emptyWrap} onClick={openCreateWalletPopUp}>
+                        <span>
+                            <img src={IconAdd} alt=""/>
+                            <span>Add a wallet</span>
+                        </span>
+                    </a>
+                }
                 <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address}/>
                 <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} networks={networks} selected={selectedNetwork} onSelect={handleNetworkChange}/>
+                <CreateWalletPopUp isVisible={createWalletPopUp} closePopUp={closeCreateWalletPopUp}/>
             </div>
         </div>
     )
