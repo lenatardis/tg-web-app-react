@@ -69,7 +69,7 @@ const Exchange = () => {
                         <div className={`${styles['exchange-block__item']}`}>
                             <div className={`${styles['title-row']}`}>
                                 <h2>Give</h2>
-                                <h2>Spot balanass ETH</h2>
+                                <h2>Spot balance ETH</h2>
                             </div>
                             <div>
                                 <span className={`${styles['number']}`}>0.00</span>
@@ -98,7 +98,7 @@ const Exchange = () => {
                         <div className={`${styles['exchange-block__item']}`}>
                             <div className={`${styles['title-row']}`}>
                                 <h2>Get</h2>
-                                <h2>Spot balanass BTC</h2>
+                                <h2>Spot balance BTC</h2>
                             </div>
                             <div>
                                 <span className={`${styles['number']}`}>0.00</span>

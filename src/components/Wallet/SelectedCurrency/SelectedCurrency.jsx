@@ -28,7 +28,6 @@ const SelectedCurrencyWallet = () => {
     const [shouldNavigate, setShouldNavigate] = useState(false);
 
     let selectedCurrencyInfo = useSelector(getSelectedCurrencyInfo);
-    console.log(selectedCurrencyInfo);
 
     let {name, commercial, warrants, balance, src, networks} = selectedCurrencyInfo;
 

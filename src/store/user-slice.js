@@ -76,7 +76,6 @@ const userSlice = createSlice({
 
         updateName(state, action) {
             let { address, addressName } = action.payload;
-            console.log(address, addressName);
 
             Object.keys(state.networks).forEach(network => {
                 const updatedWallets = state.networks[network].map(wallet => {
@@ -87,7 +86,7 @@ const userSlice = createSlice({
                 });
 
                 state.networks[network] = updatedWallets;
-                console.log(updatedWallets);
+
             });
         },
 

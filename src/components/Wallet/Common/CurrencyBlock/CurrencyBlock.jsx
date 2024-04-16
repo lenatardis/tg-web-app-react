@@ -33,7 +33,7 @@ const CurrencyBlock = ({name, commercial, warrants, balance, src, handleClick, s
                     <span>{warrants}</span>
                 </div>
                 <div>
-                    <span>Final balanas</span>
+                    <span>Final balance</span>
                     <span>{balance}</span>
                 </div>
             </div>
