@@ -1,7 +1,7 @@
 import styles from "./Search.module.scss";
 import IconSearch from "../../../assets/images/search.svg";
 import GreyIconSearch from "../../../assets/images/grey_search.svg";
-const SearchInput = ({name, value, onSearch, grey}) => {
+const SearchInput = ({name, value, onSearch, grey, placeholder}) => {
 
     const handleChange = (e) => {
         onSearch(e.target.value);
@@ -10,7 +10,7 @@ const SearchInput = ({name, value, onSearch, grey}) => {
     return (
         <label className={styles['search-wrapper']}>
             <input type="search" name={name} value={value} className="search-input" autoCorrect="off"
-                   autoCapitalize="none" spellCheck="false" onChange={handleChange}/>
+                   autoCapitalize="none" spellCheck="false" onChange={handleChange} placeholder={placeholder}/>
             <img src={grey ? GreyIconSearch : IconSearch} alt=""/>
         </label>
     );

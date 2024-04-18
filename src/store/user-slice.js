@@ -4,6 +4,7 @@ import IconBitcoin from "../assets/images/bitcoin.svg";
 import IconLitecoin from "../assets/images/litecoin.svg";
 import IconEtherium from "../assets/images/etherium.svg";
 import IconSomecoin from "../assets/images/somecoin.svg";
+import IconTRX from "../assets/images/trx.svg";
 
 const initialState = {
     user: [
@@ -20,7 +21,8 @@ const initialState = {
         {name: "BTC", commercial: 0, warrants: 0, balance: 1, src: IconBitcoin, networks: ['BTC']},
         {name: "LTC", commercial: 0, warrants: 0, balance: 0, src: IconLitecoin, networks: ['LTC']},
         {name: "ETH", commercial: 0, warrants: 0, balance: 3, src: IconEtherium, networks: ['ERC20']},
-        {name: "BNB", commercial: 0, warrants: 0, balance: 1, src: IconSomecoin, networks: ['BSC']}
+        {name: "BNB", commercial: 0, warrants: 0, balance: 1, src: IconSomecoin, networks: ['BSC']},
+        {name: "TRX", commercial: 0, warrants: 0, balance: 1, src: IconTRX, networks: ['TRC20']},
     ],
 
     networks: {

@@ -33,7 +33,7 @@ const Withdraw = () => {
             <Header back text="Withdraw" menu/>
             <div className="wrap">
                 <div className={styles.innerWrap}>
-                    <SearchInput name="withdraw_search" value={searchInputValue} onSearch={setSearchInputValue} grey/>
+                    <SearchInput name="withdraw_search" value={searchInputValue} onSearch={setSearchInputValue} placeholder="Search assets" grey/>
                     <h2>Select asset to withdraw</h2>
                     <div className={styles.listWrap}>
                         {

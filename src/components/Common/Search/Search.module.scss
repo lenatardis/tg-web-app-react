@@ -9,7 +9,7 @@
   [type="search"] {
     width:100%;
     height: 100%;
-    padding: 0 5px 0 42px;
+    padding: 0 5px 0 48px;
     appearance: none;
     -webkit-appearance: none;
     background: none;
@@ -19,6 +19,10 @@
 
     &::-webkit-search-cancel-button {
       -webkit-appearance: none;
+    }
+
+    &::placeholder {
+      color: #535965;
     }
   }
 
