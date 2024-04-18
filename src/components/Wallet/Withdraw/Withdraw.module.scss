@@ -1,0 +1,18 @@
+.innerWrap {
+  padding-top: 5px;
+
+  h2 {
+    padding: 24px 0;
+    color: #535965;
+    text-align: center;
+    font-weight: 400;
+  }
+}
+
+$header_height:90px;
+$inner_gap:114px;
+
+.listWrap {
+  height: calc(100vh - #{$header_height} - #{$inner_gap});
+  overflow: auto;
+}

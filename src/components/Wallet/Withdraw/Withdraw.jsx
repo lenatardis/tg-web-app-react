@@ -1,7 +1,5 @@
-import styles from "../Manager.module.scss";
+import styles from "./Withdraw.module.scss";
 import Header from "../../Common/Header/Header";
-import useSubRoute from "../../../hooks/useSubRoute";
-import NavLinks from "../../Common/NavLinks/NavLinks";
 import ListItem from "../../Common/ListItem/ListItem";
 import IconTether from "../../../assets/images/tether.svg";
 import IconBitcoin from "../../../assets/images/bitcoin.svg";
@@ -9,10 +7,11 @@ import IconEtherium from "../../../assets/images/etherium.svg";
 import IconLitecoin from "../../../assets/images/litecoin.svg";
 import IconSomecoin from "../../../assets/images/somecoin.svg";
 import IconTRX from "../../../assets/images/trx.svg";
-import React from "react";
+import SearchInput from "../../Common/Search/Search";
+import {useState} from "react";
+const Withdraw = () => {
 
-const Crypto = () => {
-    let subroute = useSubRoute();
+    const [searchInputValue, setSearchInputValue] = useState('');
 
     const cryptoCurrencies = [
         {src: IconTether, name: 'Tether USDT', value: '2,655.0498 USDT', value2: '0.00 USD'},
@@ -31,11 +30,11 @@ const Crypto = () => {
     ]
     return (
         <div>
-            <Header back text="Manager" menu/>
+            <Header back text="Withdraw" menu/>
             <div className="wrap">
-                <NavLinks subroute={subroute} text1="Crypto" link1={'/manager/crypto'} text2="Fiat"
-                          link2={'/manager/fiat'}/>
                 <div className={styles.innerWrap}>
+                    <SearchInput name="withdraw_search" value={searchInputValue} onSearch={setSearchInputValue} grey/>
+                    <h2>Select asset to withdraw</h2>
                     <div className={styles.listWrap}>
                         {
                             cryptoCurrencies.map(({name, value, value2, src}, index) => (
@@ -50,4 +49,4 @@ const Crypto = () => {
     )
 }
 
-export default Crypto;
+export default Withdraw;

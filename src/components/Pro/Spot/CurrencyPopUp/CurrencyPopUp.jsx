@@ -35,7 +35,7 @@ const CurrencyPopUp = ({
             <div className="resize">
                 <Header back text="Exchange" menu close={closePopUp}/>
                 <div className="wrap">
-                    <SearchInput name="currencypopup_search" value={searchInputValue} onSearch={setSearchInputValue}/>
+                    <SearchInput name="currencypopup_search" value={searchInputValue} onSearch={setSearchInputValue} grey/>
                     <div className={`${styles['currency-popup__button-row']}`}>
                         <CheckBox name="currencypopup_checkbox" value={checked} setChecked={setChecked}/>
                         {

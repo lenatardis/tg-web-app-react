@@ -14,7 +14,7 @@ const MainLinks = () => {
                 <span>Deposit</span>
                 <img className={styles.icon} src={IconArrDown} alt=""/>
             </Link>
-            <Link to="/" className={styles.link}>
+            <Link to="/wallet/withdraw" className={styles.link}>
                 <span>Withdraw</span>
                 <img className={styles.icon} src={IconArrUp} alt=""/>
             </Link>

@@ -2,7 +2,7 @@ import styles from "./ManagerDepositAddresses.module.scss";
 import Header from "../../Common/Header/Header";
 import {useSelector} from "react-redux";
 import {getSelectedCurrency, getSelectedNetwork, getWalletsForSelectedNetwork} from "../../../store/selectors";
-import Item from "../Item/Item";
+import Item from "../Common/Item/Item";
 import Button from "../../Common/Button";
 import {useEffect, useState} from "react";
 import SettingsPopUp from "../SettingPopup/Popup";

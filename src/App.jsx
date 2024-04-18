@@ -19,6 +19,7 @@ import Fiat from "./components/Manager/Fiat/Fiat";
 import Wallet from "./components/Wallet/AllCurrencies/Wallet";
 import SelectedCurrencyWallet from "./components/Wallet/SelectedCurrency/SelectedCurrency";
 import ManagerDepositAddresses from "./components/Wallet/ManagerDepositAddresses/ManagerDepositAddresses";
+import Withdraw from "./components/Wallet/Withdraw/Withdraw";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
@@ -68,7 +69,8 @@ function App() {
                 {path: "manager/fiat", element: <Fiat/>},
                 {path: "wallet", element: <Wallet/>},
                 {path: "wallet/currency", element: <SelectedCurrencyWallet/>},
-                {path: "wallet/managerdeposit", element: <ManagerDepositAddresses/>}
+                {path: "wallet/managerdeposit", element: <ManagerDepositAddresses/>},
+                {path: "wallet/withdraw", element: <Withdraw/>},
             ],
         },
     ]);

@@ -1,4 +1,4 @@
-@import "src/components/Common/Mixins/mixins";
+@import "../../Common/Mixins/mixins";
 $header_height: 90px;
 
 @include bottomPopUpMixin();

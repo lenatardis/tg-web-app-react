@@ -1,7 +1,7 @@
 import styles from "./Item.module.scss";
-import IconArrow from "../../../assets/images/arr-gr.svg";
-import CopyItem from "../../Common/CopyItem/CopyItem";
-import IconPencil from "../../../assets/images/pencil.svg";
+import IconArrow from "../../../../assets/images/arr-gr.svg";
+import CopyItem from "../../../Common/CopyItem/CopyItem";
+import IconPencil from "../../../../assets/images/pencil.svg";
 
 const Item = ({name, address, network, currency, index, openPopUp}) => {
     return (

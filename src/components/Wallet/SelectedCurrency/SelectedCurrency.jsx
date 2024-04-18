@@ -9,9 +9,9 @@ import IconArrowDown from "../../../assets/images/arr_down.svg";
 import IconRefresh from "../../../assets/images/refresh.svg";
 import LinkButton from "../Common/Link/Link";
 import RadioButton from "../../Common/RadioButton/RadioButton";
-import Item from "../Item/Item.jsx";
+import Item from "../Common/Item/Item.jsx";
 import React, {useEffect, useState} from "react";
-import NetworkPopUp from "./NetworkPopup/Popup";
+import NetworkPopUp from "../NetworkPopup/Popup";
 import {setNetwork} from "../../../store/user-slice";
 import SettingsPopUp from "../SettingPopup/Popup";
 import IconAdd from '../../../assets/images/add.svg';
@@ -41,7 +41,7 @@ const SelectedCurrencyWallet = () => {
 
     const linkInfo = [
         {name: "Deposit", src: "/", img: IconArrowUp},
-        {name: "Withdraw", src: "/", img: IconArrowDown},
+        {name: "Withdraw", src: "/wallet/withdraw", img: IconArrowDown},
         {name: "Exchange", src: "/pro/exchange", img: IconRefresh},
     ]
 
