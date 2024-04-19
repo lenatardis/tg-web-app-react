@@ -1,31 +1,8 @@
 $header_height: 90px;
+@import "src/components/Common/Mixins/mixins";
 
 .popup {
-  position: fixed;
-  left: 0;
-  top: -1000px;
-  transition: all 800ms;
-  width: 100%;
-  z-index: 100;
-
-  :global(.resize) {
-    position: relative;
-    padding-top: 16px;
-    background: #111E39;
-    border-radius: 24px 24px 0 0;
-    height: calc(100vh - #{$header_height});
-    overflow: auto;
-    transition: all 800ms;
-    top: -1000px;
-  }
-
-  &.popup-show {
-    top: $header_height;
-
-    :global(.resize) {
-      top: 0;
-    }
-  }
+  @include topPopUpHeaderOffset(24px, 24px);
 
   h2 {
     margin-bottom: 10px;

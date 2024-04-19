@@ -29,3 +29,6 @@ export const getCurrencyToWithdrawInfo = createSelector(
     [getCurrencyInfo, getCurrencyToWithdraw],
     (currencyInfo, currencyToWithdraw) => currencyInfo.find(el => el.name === currencyToWithdraw)
 );
+
+export const getCurrencyToWithdrawNetwork = (state) => state.user.currencyToWithdrawNetwork;
+

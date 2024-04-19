@@ -1,0 +1,12 @@
+$header_height: 90px;
+@import "src/components/Common/Mixins/mixins";
+
+.popup {
+  @include topPopUpHeaderOffset(18px, 18px);
+
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 30px;
+  }
+}

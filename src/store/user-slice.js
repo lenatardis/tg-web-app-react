@@ -55,7 +55,9 @@ const initialState = {
 
     selectedNetwork: '',
 
-    currencyToWithdraw: 'USDT'
+    currencyToWithdraw: 'USDT',
+
+    currencyToWithdrawNetwork: ''
 }
 
 const userSlice = createSlice({
@@ -79,12 +81,12 @@ const userSlice = createSlice({
         },
 
         updateName(state, action) {
-            let { address, addressName } = action.payload;
+            let {address, addressName} = action.payload;
 
             Object.keys(state.networks).forEach(network => {
                 const updatedWallets = state.networks[network].map(wallet => {
                     if (wallet.address === address) {
-                        return { ...wallet, name: addressName };
+                        return {...wallet, name: addressName};
                     }
                     return wallet;
                 });
@@ -94,7 +96,7 @@ const userSlice = createSlice({
             });
         },
 
-        createWallet (state, action) {
+        createWallet(state, action) {
             let {address, network, name} = action.payload;
 
             // just for demo purposes
@@ -110,6 +112,10 @@ const userSlice = createSlice({
 
         setCurrencyToWithdraw(state, action) {
             state.currencyToWithdraw = action.payload;
+        },
+
+        setCurrencyToWithdrawNetwork(state, action) {
+            state.currencyToWithdrawNetwork = action.payload;
         }
     }
 });
@@ -122,5 +128,6 @@ export const {
     setNetwork,
     updateName,
     createWallet,
-    setCurrencyToWithdraw
+    setCurrencyToWithdraw,
+    setCurrencyToWithdrawNetwork
 } = userSlice.actions;

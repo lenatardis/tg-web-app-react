@@ -20,7 +20,7 @@ import Wallet from "./components/Wallet/AllCurrencies/Wallet";
 import SelectedCurrencyWallet from "./components/Wallet/SelectedCurrency/SelectedCurrency";
 import ManagerDepositAddresses from "./components/Wallet/ManagerDepositAddresses/ManagerDepositAddresses";
 import Withdraw from "./components/Wallet/Withdraw/Withdraw";
-import WithdrawNetwork from "./components/Wallet/Withdraw/Network";
+import WithdrawCurrency from "./components/Wallet/Withdraw/Currency";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
@@ -72,7 +72,7 @@ function App() {
                 {path: "wallet/currency", element: <SelectedCurrencyWallet/>},
                 {path: "wallet/managerdeposit", element: <ManagerDepositAddresses/>},
                 {path: "wallet/withdraw", element: <Withdraw/>},
-                {path: "wallet/withdraw/network", element: <WithdrawNetwork/>}
+                {path: "wallet/withdraw/currency", element: <WithdrawCurrency/>},
             ],
         },
     ]);

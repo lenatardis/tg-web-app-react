@@ -15,13 +15,13 @@ const Fiat = () => {
     let subroute = useSubRoute();
 
     const cryptoCurrencies = [
-        {src: IconTether, name: 'Tether USDT', value: '2,655.0498 USDT', value2: '0.00 USD'},
+        {src: IconTether, name: 'Tether USD', value: '2,655.0498 USDT', value2: '0.00 USD'},
         {src: IconBitcoin, name: 'BTC', value: '0.0000012 BTC', value2: '0.00 USD'},
         {src: IconEtherium, name: 'ETH', value: '5,453.000 ETH', value2: '0.00 USD'},
         {src: IconLitecoin, name: 'LTC', value: '1.0000 LNC', value2: '0.00 USD'},
         {src: IconSomecoin, name: 'BNB', value: '0.000032 BNB', value2: '0.00 USD'},
         {src: IconTRX, name: 'TRX', value: '2,655.0498 TRX', value2: '0.00 USD'},
-        {src: IconTether, name: 'Tether USDT', value: '2,655.0498 USDT', value2: '0.00 USD'},
+        {src: IconTether, name: 'Tether USD', value: '2,655.0498 USDT', value2: '0.00 USD'},
         {src: IconBitcoin, name: 'BTC', value: '0.0000012 BTC', value2: '0.00 USD'},
         {src: IconEtherium, name: 'ETH', value: '5,453.000 ETH', value2: '0.00 USD'},
         {src: IconLitecoin, name: 'LTC', value: '1.0000 LNC', value2: '0.00 USD'},
