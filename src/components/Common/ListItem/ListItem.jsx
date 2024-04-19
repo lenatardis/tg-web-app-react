@@ -1,7 +1,7 @@
 import styles from "./ListItem.module.scss"
-const ListItem = ({name, src, value, value2}) => {
+const ListItem = ({name, src, value, value2, handleClick}) => {
     return (
-        <div className={styles.listItem}>
+        <div className={styles.listItem} onClick={handleClick}>
             <div>
                 <div className={styles.nameBlock}>
                     <img src={src} alt=""/>

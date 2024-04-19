@@ -40,7 +40,7 @@ const Fiat = () => {
                         {
                             cryptoCurrencies.map(({name, value, value2, src}, index) => (
                                 <ListItem key={index} name={name} value={value} value2={value2}
-                                          src={src}/>
+                                          src={src} onClick={null}/>
                             ))
                         }
                     </div>

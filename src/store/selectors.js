@@ -22,3 +22,10 @@ export const getWalletsForSelectedNetwork = createSelector(
     (networks, selectedNetwork) => networks[selectedNetwork] || []
 );
 
+// Withdraw
+export const getCurrencyToWithdraw = (state) => state.user.currencyToWithdraw;
+
+export const getCurrencyToWithdrawInfo = createSelector(
+    [getCurrencyInfo, getCurrencyToWithdraw],
+    (currencyInfo, currencyToWithdraw) => currencyInfo.find(el => el.name === currencyToWithdraw)
+);
