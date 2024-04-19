@@ -52,12 +52,6 @@ const Withdraw = () => {
     }
 
     useEffect(() => {
-        if (cryptoInfo && cryptoInfo.networks) {
-            setNetworks(cryptoInfo.networks);
-        }
-    }, [cryptoInfo]);
-
-    useEffect(() => {
         if (networkPopUp) {
             document.body.classList.add('noscroll');
         } else {
@@ -104,7 +98,7 @@ const Withdraw = () => {
                         }
                     </div>
                 </div>
-                <PopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} networks={networks} selected={selectedNetwork}
+                <PopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} selected={selectedNetwork}
                        onSelect={handleNetworkChange}/>
             </div>
         </div>

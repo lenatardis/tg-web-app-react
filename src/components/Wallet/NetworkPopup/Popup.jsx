@@ -2,8 +2,12 @@ import styles from "./Popup.module.scss";
 import ClosePopUp from "../../Common/ClosePopUp/ClosePopUp";
 import RadioButtonRow from "../../Common/RadioButtonRow/RadioButtonRow";
 import React from "react";
+import {useSelector} from "react-redux";
+import {getSelectedCurrencyInfo} from "../../../store/selectors";
 
-const NetworkPopUp = ({closePopUp, isVisible, networks, selected, onSelect}) => {
+const NetworkPopUp = ({closePopUp, isVisible, selected, onSelect}) => {
+    let {networks = []} = useSelector(getSelectedCurrencyInfo) ?? {};
+
     return (
         <div className={`${styles['network-popup']} ${styles['bottom-popup']} ${isVisible ? styles['popup-show'] : ''}`}>
             <div className="resize">

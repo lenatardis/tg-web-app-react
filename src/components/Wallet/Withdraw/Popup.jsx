@@ -4,7 +4,10 @@ import styles from "./Popup.module.scss";
 import ClosePopUp from "../../Common/ClosePopUp/ClosePopUp";
 import RadioButtonRow from "../../Common/RadioButtonRow/RadioButtonRow";
 
-const WithdrawNetwork = ({closePopUp, isVisible, networks, selected, onSelect}) => {
+const WithdrawNetwork = ({closePopUp, isVisible, selected, onSelect}) => {
+
+    let {name, networks = [], src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
+
     return (
         <div className={`${styles.popup} ${isVisible ? styles['popup-show'] : ''}`}>
             <div className="resize">

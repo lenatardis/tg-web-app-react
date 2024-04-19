@@ -175,7 +175,7 @@ const SelectedCurrencyWallet = () => {
                     </a>
                 }
                 <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address}/>
-                <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} networks={networks} selected={selectedNetwork} onSelect={handleNetworkChange}/>
+                <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} selected={selectedNetwork} onSelect={handleNetworkChange}/>
                 <CreateWalletPopUp isVisible={createWalletPopUp} closePopUp={closeCreateWalletPopUp}/>
             </div>
         </div>
