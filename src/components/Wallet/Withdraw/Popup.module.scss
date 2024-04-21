@@ -9,4 +9,37 @@ $header_height: 90px;
     font-weight: 400;
     padding-bottom: 30px;
   }
+
+  .block {
+    padding: 18px;
+    border-radius: 18px;
+    background: #0D182E;
+  }
+
+  .currencyWrap {
+
+    margin-bottom: 8px;
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        margin-right: 16px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__inner-wrap {
+    > div:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
 }
