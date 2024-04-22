@@ -17,6 +17,10 @@ const CurrencyToWithdraw = () => {
         setAddress(e.target.value);
     }
 
+    let scanParams = {
+        text: "Please scan your QR code here."
+    };
+
     function onQrScanned(text) {
         setAddress(text);
         return true;
