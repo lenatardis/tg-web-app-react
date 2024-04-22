@@ -58,6 +58,11 @@
   display: flex;
   column-gap: 5px;
 
+  div {
+    width: 100%;
+    position: relative;
+  }
+
   input {
     width: 100%;
     background: #0D182E;
@@ -70,6 +75,15 @@
     &::placeholder {
       font-size: 18px;
       color: #ffffff;
+    }
+
+    & + img {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: 18px;
+      top: 50%;
+      transform: translate(0,-50%);
     }
   }
 

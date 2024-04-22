@@ -5,10 +5,13 @@ import {useSelector} from "react-redux";
 import React, {useState} from "react";
 import IconQr from "../../../assets/images/qr_icon.svg";
 import {useTelegram} from "../../../hooks/useTelegram";
+import IconAdd from "../../../assets/images/add.svg";
+import IconBin from "../../../assets/images/bin.svg";
 
 const CurrencyToWithdraw = () => {
     const [fullAddress, setFullAddress] = useState('');
     const [contractedAddress, setContractedAddress] = useState('');
+    const [showAdd, setShowAdd] = useState(true);
     let {name, balance, src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
     let selectedNetwork = useSelector(getCurrencyToWithdrawNetwork);
 
@@ -20,6 +23,7 @@ const CurrencyToWithdraw = () => {
             let contracted = value.slice(0, 5) + '...' + value.slice(value.length - 2, value.length);
             setFullAddress(value);
             setContractedAddress(contracted);
+            setShowAdd(false);
         }
     }
 
@@ -31,6 +35,7 @@ const CurrencyToWithdraw = () => {
         let contractedAddress = text.slice(0, 5) + '...' + text.slice(text.length - 2, text.length);
         setFullAddress(text);
         setContractedAddress(contractedAddress);
+        setShowAdd(false);
         return true;
     }
 
@@ -44,6 +49,12 @@ const CurrencyToWithdraw = () => {
         } else {
             console.error("Telegram API or showScanQrPopup method not available.");
         }
+    }
+
+    const handleDelete = () => {
+        setFullAddress('');
+        setContractedAddress('');
+        setShowAdd(true);
     }
 
     return (
@@ -64,8 +75,12 @@ const CurrencyToWithdraw = () => {
                     <span>{selectedNetwork}</span>
                 </div>
                 <div className={styles.addressRow}>
-                    <input type="text" name="withdraw_address" placeholder="Insert address" value={contractedAddress}
-                           onChange={handleAddressChange}/>
+                    <div>
+                        <input type="text" name="withdraw_address" placeholder="Insert address"
+                               value={contractedAddress}
+                               onChange={handleAddressChange}/>
+                        {showAdd ? <img src={IconAdd} alt=""/> : <img src={IconBin} alt="" onClick={handleDelete}/>}
+                    </div>
                     <span className={styles.qrWrap} onClick={handleScanner}>
                         <img src={IconQr} alt=""/>
                     </span>
