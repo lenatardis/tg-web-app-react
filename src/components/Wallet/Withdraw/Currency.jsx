@@ -15,8 +15,12 @@ const CurrencyToWithdraw = () => {
     const {tg} = useTelegram();
 
     const handleAddressChange = (e) => {
-        setFullAddress(e.target.value);
-        setContractedAddress(e.target.value);
+        let value = e.target.value;
+        if (value.length > 10) {
+            let contracted = value.slice(0, 5) + '...' + value.slice(value.length - 2, value.length);
+            setFullAddress(value);
+            setContractedAddress(contracted);
+        }
     }
 
     let scanParams = {
