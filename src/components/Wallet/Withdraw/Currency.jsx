@@ -7,7 +7,7 @@ import IconQr from "../../../assets/images/qr_icon.svg";
 import {useTelegram} from "../../../hooks/useTelegram";
 
 const CurrencyToWithdraw = () => {
-    let {address, setAddress} = useState('');
+    const [address, setAddress] = useState('');
     let {name, balance, src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
     let selectedNetwork = useSelector(getCurrencyToWithdrawNetwork);
 
@@ -22,7 +22,7 @@ const CurrencyToWithdraw = () => {
     };
 
     function onQrScanned(text) {
-     /*   setAddress(text);*/
+        setAddress(text);
         return true;
     }
 
@@ -57,7 +57,7 @@ const CurrencyToWithdraw = () => {
                 </div>
                 <div className={styles.addressRow}>
                     <input type="text" name="withdraw_address" placeholder="Insert address" value={address}
-                           onChange={() => handleAddressChange}/>
+                           onChange={handleAddressChange}/>
                     <span className={styles.qrWrap} onClick={handleScanner}>
                         <img src={IconQr} alt=""/>
                     </span>
