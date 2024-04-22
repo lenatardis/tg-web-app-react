@@ -85,6 +85,14 @@
       top: 50%;
       transform: translate(0,-50%);
     }
+
+    &:-internal-autofill-selected {
+      -webkit-text-fill-color: #ffffff !important;
+      text-fill-color: #ffffff !important;
+      -webkit-box-shadow: 0 0 0 1000px #0D182E inset;
+      box-shadow: 0 0 0 1000px #0D182E inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
 
   .qrWrap {
