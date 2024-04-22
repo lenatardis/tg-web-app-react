@@ -2,19 +2,21 @@ import styles from "./Currency.module.scss";
 import Header from "../../Common/Header/Header";
 import {getCurrencyToWithdrawInfo, getCurrencyToWithdrawNetwork} from "../../../store/selectors";
 import {useSelector} from "react-redux";
-import {useState} from "react";
+import React, {useState} from "react";
 import IconQr from "../../../assets/images/qr_icon.svg";
 import {useTelegram} from "../../../hooks/useTelegram";
 
 const CurrencyToWithdraw = () => {
-    const [address, setAddress] = useState('');
+    const [fullAddress, setFullAddress] = useState('');
+    const [contractedAddress, setContractedAddress] = useState('');
     let {name, balance, src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
     let selectedNetwork = useSelector(getCurrencyToWithdrawNetwork);
 
     const {tg} = useTelegram();
 
     const handleAddressChange = (e) => {
-        setAddress(e.target.value);
+        setFullAddress(e.target.value);
+        setContractedAddress(e.target.value);
     }
 
     let scanParams = {
@@ -22,7 +24,9 @@ const CurrencyToWithdraw = () => {
     };
 
     function onQrScanned(text) {
-        setAddress(text);
+        let contractedAddress = text.slice(0, 5) + '...' + text.slice(text.length - 2, text.length);
+        setFullAddress(text);
+        setContractedAddress(contractedAddress);
         return true;
     }
 
@@ -56,7 +60,7 @@ const CurrencyToWithdraw = () => {
                     <span>{selectedNetwork}</span>
                 </div>
                 <div className={styles.addressRow}>
-                    <input type="text" name="withdraw_address" placeholder="Insert address" value={address}
+                    <input type="text" name="withdraw_address" placeholder="Insert address" value={contractedAddress}
                            onChange={handleAddressChange}/>
                     <span className={styles.qrWrap} onClick={handleScanner}>
                         <img src={IconQr} alt=""/>
