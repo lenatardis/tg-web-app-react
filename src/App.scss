@@ -116,6 +116,12 @@ em {
   padding-left: 16px;
   padding-right: 16px;
 }
+@font-face {
+  font-family: 'Roboto';
+  src: url('../src/assets/fonts/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'Roboto';

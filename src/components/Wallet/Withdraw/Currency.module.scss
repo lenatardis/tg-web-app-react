@@ -57,6 +57,7 @@
 .addressRow {
   display: flex;
   column-gap: 5px;
+  margin-bottom: 8px;
 
   div {
     width: 100%;
@@ -83,7 +84,7 @@
       height: 20px;
       right: 18px;
       top: 50%;
-      transform: translate(0,-50%);
+      transform: translate(0, -50%);
     }
 
     &:-internal-autofill-selected {
@@ -111,5 +112,89 @@
     }
 
   }
+}
 
+.infoBlock {
+  padding: 16px 20px;
+  border-radius: 18px;
+  background: #43526C;
+  margin-bottom: 8px;
+
+  > div {
+    display: flex;
+
+    > div:first-of-type {
+      margin-right: 10px;
+
+      img {
+        padding-top: 4px;
+      }
+    }
+  }
+
+  span {
+    line-height: 1.2em;
+    font-size: 15px;
+  }
+}
+
+.amountBlock {
+  padding: 16px;
+  border-radius: 18px;
+  background: #0D182E;
+
+  p {
+    font-size: 15px;
+    color: #868B96;
+    margin-bottom: 16px;
+  }
+
+  >div {
+    div {
+      font-size: 20px;
+
+      span {
+        margin-right: 6.5px;
+      }
+    }
+  }
+
+  .inputRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    >div {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  input {
+    width: 100%;
+    padding: 0;
+    border:0;
+    background: transparent;
+    font-size: 20px;
+    color: #ffffff;
+
+    &::placeholder {
+      font-size: 20px;
+      color: #ffffff;
+    }
+  }
+
+  .max {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46.8px;
+    height: 32px;
+    flex: 0 0 auto;
+    margin-left: 6.5px;
+    border-radius: 8.4px;
+    background: #2C4A7E;
+    font-size: 16px;
+    font-weight: 300;
+  }
 }

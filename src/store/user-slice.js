@@ -17,8 +17,8 @@ const initialState = {
     selectedCurrency: 'USDT',
 
     currencyInfo: [
-        {name: "USDT", commercial: 0, warrants: 0, balance: 0, src: IconTether, networks: ['TRC20', 'ERC20']},
-        {name: "BTC", commercial: 0, warrants: 0, balance: 1, src: IconBitcoin, networks: ['BTC']},
+        {name: "USDT", commercial: 0, warrants: 0, balance: '2,655.0498', src: IconTether, networks: ['TRC20', 'ERC20']},
+        {name: "BTC", commercial: 0, warrants: 0, balance: 0, src: IconBitcoin, networks: ['BTC']},
         {name: "LTC", commercial: 0, warrants: 0, balance: 0, src: IconLitecoin, networks: ['LTC']},
         {name: "ETH", commercial: 0, warrants: 0, balance: 3, src: IconEtherium, networks: ['ERC20']},
         {name: "BNB", commercial: 0, warrants: 0, balance: 1, src: IconSomecoin, networks: ['BSC']},
