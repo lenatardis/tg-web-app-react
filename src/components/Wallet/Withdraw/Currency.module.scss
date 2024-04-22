@@ -142,6 +142,7 @@
   padding: 16px;
   border-radius: 18px;
   background: #0D182E;
+  margin-bottom: 10px;
 
   p {
     font-size: 15px;
@@ -149,7 +150,7 @@
     margin-bottom: 16px;
   }
 
-  >div {
+  > div {
     div {
       font-size: 20px;
 
@@ -164,7 +165,7 @@
     justify-content: space-between;
     align-items: center;
 
-    >div {
+    > div {
       display: flex;
       align-items: center;
     }
@@ -173,7 +174,7 @@
   input {
     width: 100%;
     padding: 0;
-    border:0;
+    border: 0;
     background: transparent;
     font-size: 20px;
     color: #ffffff;
@@ -197,4 +198,34 @@
     font-size: 16px;
     font-weight: 300;
   }
+}
+
+.coeffBlock {
+  padding-left: 16px;
+  font-size: 15px;
+  color: #848891;
+  margin-bottom: 40px;
+}
+
+.rateRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  span {
+    color: #6B717B;
+    font-weight: 500;
+  }
+
+  &:last-of-type {
+    margin-bottom: 24px;
+
+    > span:first-child {
+      text-decoration: underline;
+    }
+  }
+}
+
+.btn {
+  margin-bottom: 24px;
 }

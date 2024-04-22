@@ -2,20 +2,26 @@ import styles from "./Currency.module.scss";
 import Header from "../../Common/Header/Header";
 import {getCurrencyToWithdrawInfo, getCurrencyToWithdrawNetwork} from "../../../store/selectors";
 import {useSelector} from "react-redux";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import IconQr from "../../../assets/images/qr_icon.svg";
 import {useTelegram} from "../../../hooks/useTelegram";
 import IconAdd from "../../../assets/images/add.svg";
 import IconBin from "../../../assets/images/bin.svg";
 import IconInfo from "../../../assets/images/info.svg";
+import Button from "../../Common/Button";
 
 const CurrencyToWithdraw = () => {
     const [fullAddress, setFullAddress] = useState('');
     const [contractedAddress, setContractedAddress] = useState('');
     const [showAdd, setShowAdd] = useState(true);
     const [amount, setAmount] = useState('');
+    const [rate, setRate] = useState('0.00');
+
     let {name, balance, src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
     let selectedNetwork = useSelector(getCurrencyToWithdrawNetwork);
+    let exchangeCoefficient = 1;
+    const fee = 3;
+    const min = 3;
 
     const {tg} = useTelegram();
 
@@ -76,6 +82,16 @@ const CurrencyToWithdraw = () => {
         setAmount(processNumericValue(balance));
     }
 
+    useEffect(() => {
+        if (amount === '') {
+            setRate('0.00');
+        } else {
+            const numericAmount = parseFloat(amount);
+            const calculatedRate = numericAmount * exchangeCoefficient;
+            setRate(calculatedRate.toFixed(2));  // Formats the rate to two decimal places
+        }
+    }, [amount, exchangeCoefficient]);
+
     return (
         <div>
             <Header back text="Withdraw" menu/>
@@ -123,6 +139,11 @@ const CurrencyToWithdraw = () => {
                         <span className={styles.max} onClick={handleMaxPaste}>Max</span>
                     </div>
                 </div>
+                <p className={styles.coeffBlock}>≈ {rate} USD</p>
+                <div className={styles.rateRow}><span>Fee</span><span>{fee} {name}</span></div>
+                <div className={styles.rateRow}><span>Minimum</span><span>{min} {name}</span></div>
+                <div className={styles.rateRow}><span>Maximum withdrawal</span><span>{balance} {name}</span></div>
+                <Button text="Preview withdrawal" handleClick={null} className={styles.btn}/>
             </div>
         </div>
     )
