@@ -1,0 +1,54 @@
+.currencyWrap {
+  display: flex;
+  column-gap: 16px;
+  padding: 25.5px 18px;
+  border-radius: 18px;
+  background: #0C1527;
+  margin-bottom: 8px;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
+  > div {
+    width: 100%;
+  }
+
+  .name {
+    font-size: 24px;
+  }
+
+  .currencyLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    & + p {
+      font-size: 15px;
+      color: #6D737D;
+    }
+  }
+
+  .networkWrap {
+    background: #2C4A7E;
+    padding: 7px 8.46px;
+    border-radius: 6.83px;
+
+    span {
+      font-size: 13px;
+      font-weight: 500;
+    }
+  }
+}
+
+.networkBlock {
+  padding: 21px 18px;
+  border-radius: 18px;
+  background: #0D182E;
+
+  span {
+    font-size: 18px;
+  }
+}
