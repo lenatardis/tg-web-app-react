@@ -22,7 +22,7 @@ const CurrencyToWithdraw = () => {
     };
 
     function onQrScanned(text) {
-        setAddress(text);
+     /*   setAddress(text);*/
         return true;
     }
 
