@@ -2,10 +2,37 @@ import styles from "./Currency.module.scss";
 import Header from "../../Common/Header/Header";
 import {getCurrencyToWithdrawInfo, getCurrencyToWithdrawNetwork} from "../../../store/selectors";
 import {useSelector} from "react-redux";
+import {useState} from "react";
+import IconQr from "../../../assets/images/qr_icon.svg";
+import {useTelegram} from "../../../hooks/useTelegram";
 
 const CurrencyToWithdraw = () => {
-    let {name, balance, src} = useSelector(getCurrencyToWithdrawInfo)  ?? {};
+    let {address, setAddress} = useState('');
+    let {name, balance, src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
     let selectedNetwork = useSelector(getCurrencyToWithdrawNetwork);
+
+    const {tg} = useTelegram();
+
+    const handleAddressChange = (e) => {
+        setAddress(e.target.value);
+    }
+
+    function onQrScanned(text) {
+        setAddress(text);
+        return true;
+    }
+
+    const handleScanner = () => {
+        if (tg && typeof tg.showScanQrPopup === 'function') {
+            try {
+                tg.showScanQrPopup(scanParams, onQrScanned);
+            } catch (error) {
+                console.error("Error showing QR popup:", error);
+            }
+        } else {
+            console.error("Telegram API or showScanQrPopup method not available.");
+        }
+    }
 
     return (
         <div>
@@ -23,6 +50,13 @@ const CurrencyToWithdraw = () => {
                 </div>
                 <div className={styles.networkBlock}>
                     <span>{selectedNetwork}</span>
+                </div>
+                <div className={styles.addressRow}>
+                    <input type="text" name="withdraw_address" placeholder="Insert address" value={address}
+                           onChange={() => handleAddressChange}/>
+                    <span className={styles.qrWrap} onClick={handleScanner}>
+                        <img src={IconQr} alt=""/>
+                    </span>
                 </div>
             </div>
         </div>

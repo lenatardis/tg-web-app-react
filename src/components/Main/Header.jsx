@@ -23,7 +23,6 @@ const Header = ({qr}) => {
     };
 
     function onQrScanned(text) {
-        alert('Text is '+text);
         console.log(text);
         return true;
     }
