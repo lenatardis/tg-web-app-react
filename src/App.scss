@@ -1,6 +1,7 @@
 body {
   font: normal 16px 'Roboto', sans-serif;
-  background: #1a1a1a;
+  /*background: #1a1a1a;*/
+  background: #091223;
   color: #fff;
   /*background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);*/
@@ -91,8 +92,6 @@ em {
   &.main-content {
     min-height: 100vh;
     background: #091223;
-    //temp
-    border: 1px solid transparent;
   }
 
   .inner-wrap {

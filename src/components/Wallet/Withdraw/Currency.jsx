@@ -88,7 +88,7 @@ const CurrencyToWithdraw = () => {
         } else {
             const numericAmount = parseFloat(amount);
             const calculatedRate = numericAmount * exchangeCoefficient;
-            setRate(calculatedRate.toFixed(2));  // Formats the rate to two decimal places
+            setRate(calculatedRate.toFixed(2));
         }
     }, [amount, exchangeCoefficient]);
 
