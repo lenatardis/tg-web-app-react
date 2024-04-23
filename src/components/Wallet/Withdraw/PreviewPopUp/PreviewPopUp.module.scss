@@ -13,7 +13,7 @@ $header_height: 90px;
   }
 
   &__inner-wrap {
-    height: auto;
+    max-height: calc(100vh - #{$header_height});
     overflow: auto;
   }
 
