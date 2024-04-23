@@ -1,6 +1,7 @@
 @import "../../../Common/Mixins/mixins";
 
 $header_height: 90px;
+$popup_gap: 50px;
 
 @include bottomPopUpMixin();
 
@@ -13,7 +14,7 @@ $header_height: 90px;
   }
 
   &__inner-wrap {
-    max-height: calc(100vh - #{$header_height});
+    max-height: calc(100vh - #{$header_height} - #{$popup_gap});
     overflow: auto;
   }
 
