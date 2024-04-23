@@ -57,7 +57,11 @@ const initialState = {
 
     currencyToWithdraw: 'USDT',
 
-    currencyToWithdrawNetwork: ''
+    currencyToWithdrawNetwork: '',
+
+    amountToWithdraw:'',
+
+    addressToWithdraw: ''
 }
 
 const userSlice = createSlice({
@@ -116,6 +120,14 @@ const userSlice = createSlice({
 
         setCurrencyToWithdrawNetwork(state, action) {
             state.currencyToWithdrawNetwork = action.payload;
+        },
+
+        setAmountToWithdraw(state, action) {
+            state.amountToWithdraw = action.payload;
+        },
+
+        setAddressToWithdraw(state, action) {
+            state.addressToWithdraw = action.payload;
         }
     }
 });
@@ -129,5 +141,7 @@ export const {
     updateName,
     createWallet,
     setCurrencyToWithdraw,
-    setCurrencyToWithdrawNetwork
+    setCurrencyToWithdrawNetwork,
+    setAmountToWithdraw,
+    setAddressToWithdraw
 } = userSlice.actions;

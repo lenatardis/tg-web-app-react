@@ -32,3 +32,6 @@ export const getCurrencyToWithdrawInfo = createSelector(
 
 export const getCurrencyToWithdrawNetwork = (state) => state.user.currencyToWithdrawNetwork;
 
+export const getAmountToWithdraw = (state) => state.user.amountToWithdraw;
+export const getAddressToWithdraw = (state) => state.user.addressToWithdraw;
+

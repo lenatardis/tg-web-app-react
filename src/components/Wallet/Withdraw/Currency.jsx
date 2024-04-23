@@ -1,7 +1,7 @@
 import styles from "./Currency.module.scss";
 import Header from "../../Common/Header/Header";
 import {getCurrencyToWithdrawInfo, getCurrencyToWithdrawNetwork} from "../../../store/selectors";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import React, {useState, useEffect} from "react";
 import IconQr from "../../../assets/images/qr_icon.svg";
 import {useTelegram} from "../../../hooks/useTelegram";
@@ -9,6 +9,8 @@ import IconAdd from "../../../assets/images/add.svg";
 import IconBin from "../../../assets/images/bin.svg";
 import IconInfo from "../../../assets/images/info.svg";
 import Button from "../../Common/Button";
+import {setAddressToWithdraw, setAmountToWithdraw} from "../../../store/user-slice";
+import PreviewPopUp from "./PreviewPopUp/PreviewPopUp";
 
 const CurrencyToWithdraw = () => {
     const [fullAddress, setFullAddress] = useState('');
@@ -16,6 +18,7 @@ const CurrencyToWithdraw = () => {
     const [showAdd, setShowAdd] = useState(true);
     const [amount, setAmount] = useState('');
     const [rate, setRate] = useState('0.00');
+    const [previewPopUp, setPreviewPopUp] = useState(false);
 
     let {name, balance, src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
     let selectedNetwork = useSelector(getCurrencyToWithdrawNetwork);
@@ -25,6 +28,8 @@ const CurrencyToWithdraw = () => {
 
     const {tg} = useTelegram();
 
+    let dispatch = useDispatch();
+
     const handleAddressChange = (e) => {
         let value = e.target.value;
         if (value.length > 10) {
@@ -32,6 +37,7 @@ const CurrencyToWithdraw = () => {
             setFullAddress(value);
             setContractedAddress(contracted);
             setShowAdd(false);
+            dispatch(setAddressToWithdraw(value));
         }
     }
 
@@ -44,6 +50,7 @@ const CurrencyToWithdraw = () => {
         setFullAddress(text);
         setContractedAddress(contractedAddress);
         setShowAdd(false);
+        dispatch(setAddressToWithdraw(text));
         return true;
     }
 
@@ -69,6 +76,7 @@ const CurrencyToWithdraw = () => {
         let value = e.target.value;
         if (/^\d*\.?\d*$/.test(value)) {
             setAmount(value);
+            dispatch(setAmountToWithdraw(value));
         }
     }
 
@@ -79,7 +87,9 @@ const CurrencyToWithdraw = () => {
     }
 
     const handleMaxPaste = () => {
-        setAmount(processNumericValue(balance));
+        let value = processNumericValue(balance)
+        setAmount(value);
+        dispatch(setAmountToWithdraw(value));
     }
 
     useEffect(() => {
@@ -91,6 +101,14 @@ const CurrencyToWithdraw = () => {
             setRate(calculatedRate.toFixed(2));
         }
     }, [amount, exchangeCoefficient]);
+
+    const openPopUp = () => {
+        setPreviewPopUp(true);
+    }
+
+    const closePreviewPopUp = () => {
+        setPreviewPopUp(false);
+    }
 
     return (
         <div>
@@ -143,7 +161,8 @@ const CurrencyToWithdraw = () => {
                 <div className={styles.rateRow}><span>Fee</span><span>{fee} {name}</span></div>
                 <div className={styles.rateRow}><span>Minimum</span><span>{min} {name}</span></div>
                 <div className={styles.rateRow}><span>Maximum withdrawal</span><span>{balance} {name}</span></div>
-                <Button text="Preview withdrawal" handleClick={null} className={styles.btn}/>
+                <Button text="Preview withdrawal" handleClick={openPopUp} className={styles.btn}/>
+                <PreviewPopUp closePopUp={closePreviewPopUp} isVisible={previewPopUp}/>
             </div>
         </div>
     )
