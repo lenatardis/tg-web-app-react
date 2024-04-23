@@ -21,6 +21,7 @@ import SelectedCurrencyWallet from "./components/Wallet/SelectedCurrency/Selecte
 import ManagerDepositAddresses from "./components/Wallet/ManagerDepositAddresses/ManagerDepositAddresses";
 import Withdraw from "./components/Wallet/Withdraw/Withdraw";
 import WithdrawCurrency from "./components/Wallet/Withdraw/Currency";
+import Authenticator from "./components/Wallet/Withdraw/Authenticator";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
@@ -73,6 +74,7 @@ function App() {
                 {path: "wallet/managerdeposit", element: <ManagerDepositAddresses/>},
                 {path: "wallet/withdraw", element: <Withdraw/>},
                 {path: "wallet/withdraw/currency", element: <WithdrawCurrency/>},
+                {path: "wallet/withdraw/authenticator", element: <Authenticator/>},
             ],
         },
     ]);

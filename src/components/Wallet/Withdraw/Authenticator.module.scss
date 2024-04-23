@@ -1,0 +1,107 @@
+.authenticatorWrap {
+  background: #242b3f;
+}
+
+.authenticatorHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6.03vh;
+  height: 35vh;
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
+.arrowWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 8vh;
+  background: #303752;
+  cursor: pointer;
+
+  img {
+    transform: rotate(180deg);
+  }
+}
+
+.dashboardWrap {
+  background: #091223;
+  border-radius: 18px 18px 0 0;
+  padding-top: 16px;
+}
+
+.currencyPanel {
+  padding: 18px;
+  border-radius: 18px;
+  background: #0C1527;
+  margin-bottom: 32px;
+
+  .currencyWrap {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    margin-bottom: 32px;
+
+    img {
+      width: 40px;
+      height: 40px;
+
+      + span {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .amountWrap {
+    p {
+      font-size: 40px;
+    }
+  }
+
+  & + p {
+    font-size: 15px;
+    line-height: 1.1em;
+    margin-bottom: 32px;
+  }
+}
+
+.authInput {
+  width: 100%;
+  height: 64px;
+  padding: 21px 16px;
+  border-radius: 18px;
+  background: #0D182E;
+  margin-bottom: 32px;
+  border: none;
+  font-size: 24px;
+  color: #565D6D;
+
+  &::placeholder {
+    font-size: 24px;
+    color: #565D6D;
+  }
+}
+
+.support {
+  display: flex;
+  align-items: center;
+  column-gap: 7px;
+  margin-bottom: 40px;
+
+  span {
+    font-size: 15px;
+  }
+}
+
+.btn {
+  margin-bottom: 24px;
+}
+
+
+

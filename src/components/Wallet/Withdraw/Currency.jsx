@@ -152,7 +152,7 @@ const CurrencyToWithdraw = () => {
                         <div>
                             <span>=</span>
                             <input type="text" name="withdraw_amount" value={amount} onChange={handleAmountChange}
-                                   placeholder="0.00000"/>
+                                   placeholder="0.00000" inputMode="numeric"/>
                         </div>
                         <span className={styles.max} onClick={handleMaxPaste}>Max</span>
                     </div>

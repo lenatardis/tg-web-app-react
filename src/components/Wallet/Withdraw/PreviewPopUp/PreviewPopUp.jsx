@@ -10,6 +10,7 @@ import {
 import IconArrow from "../../../../assets/images/arr_down.svg";
 import React from "react";
 import Button from "../../../Common/Button";
+import {useNavigate} from "react-router-dom";
 
 const PreviewPopUp = ({closePopUp, isVisible}) => {
     let amount = useSelector(getAmountToWithdraw);
@@ -18,6 +19,11 @@ const PreviewPopUp = ({closePopUp, isVisible}) => {
     let {name} = useSelector(getCurrencyToWithdrawInfo) ?? {};
     let selectedNetwork = useSelector(getCurrencyToWithdrawNetwork);
     let address = useSelector(getAddressToWithdraw);
+    let navigate = useNavigate();
+
+    let handleNavigation = () => {
+        navigate('/wallet/withdraw/authenticator');
+    }
 
     return (
         <div
@@ -27,7 +33,7 @@ const PreviewPopUp = ({closePopUp, isVisible}) => {
                     <ClosePopUp close={closePopUp}/>
                     <div className={`${styles['preview-popup__inner-wrap']}`}>
                         <div className={styles.amountWrap}>
-                            <p>- {useSelector(getAmountToWithdraw)}</p>
+                            <p>- {amount}</p>
                             <p>{total}$</p>
                         </div>
                         <div className={styles.infoBlock}>
@@ -56,10 +62,8 @@ const PreviewPopUp = ({closePopUp, isVisible}) => {
                                 <span>Total</span>
                                 <span className={styles.total}>= {total}$</span>
                             </div>
-
-
                         </div>
-                        <Button text="Verify/enter" className={styles.btn} handleClick={null}/>
+                        <Button text="Verify/enter" className={styles.btn} handleClick={handleNavigation}/>
                     </div>
                 </div>
             </div>
