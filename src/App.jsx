@@ -22,6 +22,7 @@ import ManagerDepositAddresses from "./components/Wallet/ManagerDepositAddresses
 import Withdraw from "./components/Wallet/Withdraw/Withdraw";
 import WithdrawCurrency from "./components/Wallet/Withdraw/Currency";
 import Authenticator from "./components/Wallet/Withdraw/Authenticator";
+import Status from "./components/Wallet/Withdraw/Status";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
@@ -75,6 +76,7 @@ function App() {
                 {path: "wallet/withdraw", element: <Withdraw/>},
                 {path: "wallet/withdraw/currency", element: <WithdrawCurrency/>},
                 {path: "wallet/withdraw/authenticator", element: <Authenticator/>},
+                {path: "wallet/withdraw/status", element: <Status/>},
             ],
         },
     ]);

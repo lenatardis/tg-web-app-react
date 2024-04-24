@@ -107,6 +107,19 @@ const CurrencyToWithdraw = () => {
         }
     }, [fullAddress, amount]);
 
+    useEffect(() => {
+        if (previewPopUp) {
+            document.body.classList.add('noscroll');
+        } else {
+            document.body.classList.remove('noscroll');
+        }
+
+        return () => {
+            document.body.classList.remove('noscroll');
+        };
+    }, [previewPopUp]);
+
+
     const openPopUp = () => {
         dispatch(setAmountToWithdraw(amount));
         dispatch(setAddressToWithdraw(fullAddress));

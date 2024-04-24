@@ -1,0 +1,28 @@
+.currencyPanel {
+  padding: 18px;
+  border-radius: 18px;
+  background: #0C1527;
+  margin-bottom: 32px;
+
+  p {
+    text-align: center;
+
+    &:first-of-type {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: 40px;
+      margin-bottom: 15px;
+
+      & + p {
+        font-size: 23px;
+        color: #5D687E;
+      }
+    }
+  }
+
+  &.light {
+    background: #182847;
+  }
+}

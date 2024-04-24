@@ -11,6 +11,7 @@ import IconArrow from "../../../../assets/images/arr_down.svg";
 import React from "react";
 import Button from "../../../Common/Button";
 import {useNavigate} from "react-router-dom";
+import CurrencyPanel from "../CurrencyPanel";
 
 const PreviewPopUp = ({closePopUp, isVisible}) => {
     let amount = useSelector(getAmountToWithdraw);
@@ -32,10 +33,7 @@ const PreviewPopUp = ({closePopUp, isVisible}) => {
                 <div className="wrap">
                     <ClosePopUp close={closePopUp}/>
                     <div className={`${styles['preview-popup__inner-wrap']}`}>
-                        <div className={styles.amountWrap}>
-                            <p>- {amount}</p>
-                            <p>{total}$</p>
-                        </div>
+                        <CurrencyPanel light text1={amount} text2={total}/>
                         <div className={styles.infoBlock}>
                             <div>
                                 <span>Network</span>

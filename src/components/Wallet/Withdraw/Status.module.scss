@@ -1,0 +1,99 @@
+.authenticatorWrap {
+  background: #242b3f;
+}
+
+.authenticatorHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 11.82vh;
+  height: 30.79vh;
+
+  h2 {
+    font-size: 36px;
+  }
+}
+
+.arrowWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 3.69vh;
+  background: #303752;
+  cursor: pointer;
+
+  img {
+    transform: rotate(180deg);
+  }
+}
+
+.dashboardWrap {
+  background: #091223;
+  border-radius: 18px 18px 0 0;
+  padding-top: 16px;
+}
+
+.infoBlock {
+  padding: 20px;
+  border-radius: 18px;
+  background: #0D182E;
+  margin-bottom: 8px;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    > span {
+      font-size: 15px;
+    }
+
+    &.commissionRow {
+      margin-bottom: 0;
+    }
+  }
+
+  .status {
+    color: #E7DE00;
+  }
+}
+
+.copyBlock {
+  display: flex;
+  justify-content: space-between;
+  background: #0D182E;
+  border-radius: 18px;
+  padding: 13px 20px;
+  margin-bottom: 16px;
+
+  > div:first-child {
+    p:first-of-type {
+      font-size: 12px;
+      color: #868B96;
+      margin-bottom: 8px;
+
+      + p {
+        font-size: 18px;
+      }
+    }
+
+    & + div {
+      width: 44px;
+      height: 39px;
+    }
+  }
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid #2C4A7E;
+  margin-bottom: 24px;
+}
+
+
+
+
+

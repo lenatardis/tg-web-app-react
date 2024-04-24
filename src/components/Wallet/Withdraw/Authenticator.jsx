@@ -22,6 +22,10 @@ const Authenticator = () => {
         }
     }
 
+    const handleNavigation = () => {
+        navigate('/wallet/withdraw/status')
+    }
+
     return (
         <div className={styles.authenticatorWrap}>
             <div className={styles.authenticatorHeader}>
@@ -43,12 +47,12 @@ const Authenticator = () => {
 
                     </div>
                     <p>Enter the Sign-in 2FA code from your<br/>authenticator app</p>
-                    <input type="text" className={styles.authInput} placeholder="2F2 code" value={inputValue} onChange={handleInputChange} inputMode="numeric"/>
+                    <input type="text" className={styles.authInput} placeholder="2FA code" value={inputValue} onChange={handleInputChange} inputMode="numeric"/>
                     <p className={styles.support}>
                         <img src={IconQuestionMark} alt=""/>
                         <span>Contact Support</span>
                     </p>
-                    <Button text="Enter" handleClick={null} className={styles.btn}/>
+                    <Button text="Enter" handleClick={handleNavigation} className={styles.btn}/>
                 </div>
             </div>
         </div>
