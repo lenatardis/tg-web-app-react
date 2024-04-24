@@ -19,6 +19,7 @@ const CurrencyToWithdraw = () => {
     const [amount, setAmount] = useState('');
     const [rate, setRate] = useState('0.00');
     const [previewPopUp, setPreviewPopUp] = useState(false);
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
     let {name, balance, src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
     let selectedNetwork = useSelector(getCurrencyToWithdrawNetwork);
@@ -37,7 +38,6 @@ const CurrencyToWithdraw = () => {
             setFullAddress(value);
             setContractedAddress(contracted);
             setShowAdd(false);
-            dispatch(setAddressToWithdraw(value));
         }
     }
 
@@ -50,7 +50,6 @@ const CurrencyToWithdraw = () => {
         setFullAddress(text);
         setContractedAddress(contractedAddress);
         setShowAdd(false);
-        dispatch(setAddressToWithdraw(text));
         return true;
     }
 
@@ -76,7 +75,6 @@ const CurrencyToWithdraw = () => {
         let value = e.target.value;
         if (/^\d*\.?\d*$/.test(value)) {
             setAmount(value);
-            dispatch(setAmountToWithdraw(value));
         }
     }
 
@@ -89,7 +87,6 @@ const CurrencyToWithdraw = () => {
     const handleMaxPaste = () => {
         let value = processNumericValue(balance)
         setAmount(value);
-        dispatch(setAmountToWithdraw(value));
     }
 
     useEffect(() => {
@@ -102,7 +99,17 @@ const CurrencyToWithdraw = () => {
         }
     }, [amount, exchangeCoefficient]);
 
+    useEffect(() => {
+        if (fullAddress && amount) {
+            setIsButtonEnabled(true);
+        } else {
+            setIsButtonEnabled(false);
+        }
+    }, [fullAddress, amount]);
+
     const openPopUp = () => {
+        dispatch(setAmountToWithdraw(amount));
+        dispatch(setAddressToWithdraw(fullAddress));
         setPreviewPopUp(true);
     }
 
@@ -161,7 +168,7 @@ const CurrencyToWithdraw = () => {
                 <div className={styles.rateRow}><span>Fee</span><span>{fee} {name}</span></div>
                 <div className={styles.rateRow}><span>Minimum</span><span>{min} {name}</span></div>
                 <div className={styles.rateRow}><span>Maximum withdrawal</span><span>{balance} {name}</span></div>
-                <Button text="Preview withdrawal" handleClick={openPopUp} className={styles.btn}/>
+                <Button text="Preview withdrawal" handleClick={openPopUp} className={`${styles.btn} ${!isButtonEnabled ? styles.disabledBtn: ''}`} disabled={!isButtonEnabled}/>
                 <PreviewPopUp closePopUp={closePreviewPopUp} isVisible={previewPopUp}/>
             </div>
         </div>
