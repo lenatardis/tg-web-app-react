@@ -24,12 +24,14 @@ import WithdrawCurrency from "./components/Wallet/Withdraw/Currency";
 import Authenticator from "./components/Wallet/Withdraw/Authenticator";
 import Status from "./components/Wallet/Withdraw/Status";
 import Deposit from "./components/Wallet/Deposit/Deposit";
+import QrPage from "./components/Wallet/Deposit/Qr";
 import Layout from "./components/Layout/Layout";
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
 import './App.scss';
+
 
 function App() {
     console.log(window.Telegram.WebApp);
@@ -79,6 +81,7 @@ function App() {
                 {path: "wallet/withdraw/authenticator", element: <Authenticator/>},
                 {path: "wallet/withdraw/status", element: <Status/>},
                 {path: "wallet/deposit", element: <Deposit/>},
+                {path: "wallet/deposit/qr", element: <QrPage/>}
             ],
         },
     ]);

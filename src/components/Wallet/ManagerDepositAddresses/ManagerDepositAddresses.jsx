@@ -13,7 +13,7 @@ import Button from "../../Common/Button";
 import {useEffect, useState} from "react";
 import SettingsPopUp from "../SettingPopup/Popup";
 import CreateWalletPopUp from "../CreateWalletPopup/Popup";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const ManagerDepositAddresses = () => {
     const [settingsPopUp, setSettingsPopUp] = useState(false);
@@ -30,6 +30,7 @@ const ManagerDepositAddresses = () => {
     const walletsForSelectedNetwork = useSelector(wallets);
     const network = useSelector(selectedNetwork);
     const currency = useSelector(selectedCurrency);
+    let navigate = useNavigate();
 
     const openSettingsPopUp = (item) => {
         let {name, address} = item;
@@ -62,6 +63,10 @@ const ManagerDepositAddresses = () => {
         };
     }, [settingsPopUp, createWalletPopUp]);
 
+    const handleNavigation = () => {
+        navigate('/wallet/deposit/qr');
+    }
+
     return (
         <div className={styles.mdPage}>
             <Header back text="Manager deposit addresses"/>
@@ -70,7 +75,7 @@ const ManagerDepositAddresses = () => {
                     walletsForSelectedNetwork.map(({name, address}, index) => (
                         <Item key={index} name={name} address={address} network={network} currency={currency}
                               index={index} openPopUp={() => openSettingsPopUp({address, index, name})}
-                              closePopUp={closeSettingsPopUp}/>
+                              closePopUp={closeSettingsPopUp} deposit={type} {...(type ? { handleNavigation } : {})}/>
                     ))
                 }
                 <Button text="Request new address" handleClick={openCreateWalletPopUp}/>
