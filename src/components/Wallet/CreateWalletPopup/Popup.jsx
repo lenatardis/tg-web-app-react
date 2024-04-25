@@ -5,17 +5,18 @@ import Button from "../../Common/Button";
 import {useDispatch, useSelector} from "react-redux";
 import CopyItem from "../../Common/CopyItem/CopyItem";
 import IconUp from "../../../assets/images/up.svg";
-import {getSelectedCurrencyInfo} from "../../../store/selectors";
+import {getCurrencyToDepositInfo, getSelectedCurrencyInfo} from "../../../store/selectors";
 import useClickOutside from "../../../hooks/useClickOutside";
 import {createWallet} from "../../../store/user-slice";
 
-const CreateWalletPopUp = ({isVisible, closePopUp}) => {
+const CreateWalletPopUp = ({isVisible, closePopUp, type}) => {
     const [walletName, setWalletName] = useState('');
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [dropDownOpen, setDropDownOpen] = useState(false);
     const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
-    let availableNetworks = useSelector(getSelectedCurrencyInfo).networks;
+    const getInfo = type ? getCurrencyToDepositInfo : getSelectedCurrencyInfo;
+    let availableNetworks = useSelector(getInfo).networks;
 
     useEffect(() => {
         setSelectedNetwork(availableNetworks[0]);

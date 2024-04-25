@@ -46,3 +46,10 @@ export const getCurrencyToDepositInfo = createSelector(
 
 export const getCurrencyToDepositNetwork = (state) => state.user.currencyToDepositNetwork;
 
+export const getWalletsForCurrencyToDepositNetwork = createSelector(
+    [getNetworks, getCurrencyToDepositNetwork],
+    (networks, currencyToDepositNetwork) => networks[currencyToDepositNetwork] || []
+);
+
+
+
