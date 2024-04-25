@@ -43,7 +43,7 @@ const Wallet = () => {
     }
 
     const linkInfo = [
-        {name: "Deposit", src: "/"},
+        {name: "Deposit", src: "/wallet/deposit"},
         {name: "Withdraw", src: "/wallet/withdraw"},
         {name: "Exchange", src: "/pro/exchange"},
     ]

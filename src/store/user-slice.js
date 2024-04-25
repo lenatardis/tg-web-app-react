@@ -61,7 +61,11 @@ const initialState = {
 
     amountToWithdraw:'',
 
-    addressToWithdraw: ''
+    addressToWithdraw: '',
+
+    currencyToDeposit: 'USDT',
+
+    currencyToDepositNetwork: '',
 }
 
 const userSlice = createSlice({
@@ -128,7 +132,17 @@ const userSlice = createSlice({
 
         setAddressToWithdraw(state, action) {
             state.addressToWithdraw = action.payload;
-        }
+        },
+
+        setCurrencyToDeposit(state, action) {
+            console.log(action.payload);
+            state.currencyToDeposit = action.payload;
+        },
+
+        setCurrencyToDepositNetwork(state, action) {
+            console.log(action.payload);
+            state.currencyToDepositNetwork = action.payload;
+        },
     }
 });
 export default userSlice.reducer;
@@ -143,5 +157,7 @@ export const {
     setCurrencyToWithdraw,
     setCurrencyToWithdrawNetwork,
     setAmountToWithdraw,
-    setAddressToWithdraw
+    setAddressToWithdraw,
+    setCurrencyToDeposit,
+    setCurrencyToDepositNetwork
 } = userSlice.actions;

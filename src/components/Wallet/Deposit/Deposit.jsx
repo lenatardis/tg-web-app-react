@@ -10,18 +10,18 @@ import IconTRX from "../../../assets/images/trx.svg";
 import SearchInput from "../../Common/Search/Search";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrencyToWithdraw, setCurrencyToWithdrawNetwork} from "../../../store/user-slice";
+import {setCurrencyToDeposit, setCurrencyToDepositNetwork} from "../../../store/user-slice";
 import {useNavigate} from "react-router-dom";
 import PopUp from "../Common/Transactions/Popup/Popup";
 
-const Withdraw = () => {
+const Deposit = () => {
     const [searchInputValue, setSearchInputValue] = useState('');
     const [networkPopUp, setNetworkPopUp] = useState(false);
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [shouldNavigate, setShouldNavigate] = useState(false);
 
-    let dispatch = useDispatch();
     let navigate = useNavigate();
+    let dispatch = useDispatch();
 
     const cryptoCurrencies = [
         {src: IconTether, name: 'Tether USD', abbr: 'USDT', value: '2,655.0498 USDT', value2: '0.00 USD'},
@@ -39,12 +39,8 @@ const Withdraw = () => {
     ]
 
     const handleClick = (name, abbr) => {
-        dispatch(setCurrencyToWithdraw(abbr ?? name));
+        dispatch(setCurrencyToDeposit(abbr ?? name));
         setNetworkPopUp(true);
-    }
-
-    const closeNetworkPopUp = () => {
-        setNetworkPopUp(false);
     }
 
     useEffect(() => {
@@ -59,9 +55,13 @@ const Withdraw = () => {
         };
     }, [networkPopUp]);
 
+    const closeNetworkPopUp = () => {
+        setNetworkPopUp(false);
+    }
+
     const handleNetworkChange = (network) => {
         setSelectedNetwork(network);
-        dispatch(setCurrencyToWithdrawNetwork(network));
+        dispatch(setCurrencyToDepositNetwork(network));
         setShouldNavigate(true);
     }
 
@@ -69,7 +69,7 @@ const Withdraw = () => {
         let timer;
         if (shouldNavigate) {
             timer = setTimeout(() => {
-                navigate('/wallet/withdraw/currency');
+                navigate('/wallet/managerdeposit', { state: { type: 'deposit-page' } });
                 setShouldNavigate(false);
             }, 1000);
         }
@@ -79,12 +79,12 @@ const Withdraw = () => {
 
     return (
         <div>
-            <Header back text="Withdraw" menu/>
+            <Header back text="Deposit" menu/>
             <div className="wrap">
                 <div className={styles.innerWrap}>
-                    <SearchInput name="withdraw_search" value={searchInputValue} onSearch={setSearchInputValue}
+                    <SearchInput name="deposit_search" value={searchInputValue} onSearch={setSearchInputValue}
                                  placeholder="Search assets" grey/>
-                    <h2>Select asset to withdraw</h2>
+                    <h2>Select asset to deposit</h2>
                     <div className={styles.listWrap}>
                         {
                             cryptoCurrencies.map(({name, value, value2, src, abbr}, index) => (
@@ -95,10 +95,10 @@ const Withdraw = () => {
                     </div>
                 </div>
                 <PopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} selected={selectedNetwork}
-                       onSelect={handleNetworkChange}/>
+                       onSelect={handleNetworkChange} deposit/>
             </div>
         </div>
     )
 }
 
-export default Withdraw;
+export default Deposit;

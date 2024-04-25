@@ -10,7 +10,7 @@ const MainLinks = () => {
 
     return (
         <div className={`${styles['main-links']} wrap`}>
-            <Link to="/" className={styles.link}>
+            <Link to="/wallet/deposit" className={styles.link}>
                 <span>Deposit</span>
                 <img className={styles.icon} src={IconArrDown} alt=""/>
             </Link>

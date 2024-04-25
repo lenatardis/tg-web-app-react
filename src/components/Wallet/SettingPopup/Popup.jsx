@@ -1,4 +1,4 @@
-import styles from "../Common/PopUp/Popup.module.scss";
+import styles from "../Common/ConfigPopUp/Popup.module.scss";
 import ClosePopUp from "../../Common/ClosePopUp/ClosePopUp";
 import React, {useEffect, useState} from "react";
 import Button from "../../Common/Button";

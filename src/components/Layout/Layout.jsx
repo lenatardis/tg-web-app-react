@@ -8,7 +8,7 @@ const Layout = () => {
     const mainRoute = location.pathname.split('/')[1];
     const secondaryRoute = location.pathname.split('/')[2];
     const noNavBarMainRoutes = ['account', 'verification', 'cvv'];
-    const noNavBarSecondaryRoutes = ['withdraw']
+    const noNavBarSecondaryRoutes = ['withdraw', 'deposit']
     const isHomeRoute = location.pathname === '/';
     const showNav = isHomeRoute || 
                 (!noNavBarMainRoutes.includes(mainRoute) && 

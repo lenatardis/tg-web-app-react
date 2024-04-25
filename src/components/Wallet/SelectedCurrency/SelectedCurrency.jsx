@@ -40,7 +40,7 @@ const SelectedCurrencyWallet = () => {
     let navigate = useNavigate();
 
     const linkInfo = [
-        {name: "Deposit", src: "/", img: IconArrowUp},
+        {name: "Deposit", src: "/wallet/deposit", img: IconArrowUp},
         {name: "Withdraw", src: "/wallet/withdraw", img: IconArrowDown},
         {name: "Exchange", src: "/pro/exchange", img: IconRefresh},
     ]

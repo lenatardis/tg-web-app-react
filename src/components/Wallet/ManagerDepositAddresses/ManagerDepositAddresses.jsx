@@ -7,6 +7,7 @@ import Button from "../../Common/Button";
 import {useEffect, useState} from "react";
 import SettingsPopUp from "../SettingPopup/Popup";
 import CreateWalletPopUp from "../CreateWalletPopup/Popup";
+import {useLocation} from "react-router-dom";
 
 const ManagerDepositAddresses = () => {
     const walletsForSelectedNetwork = useSelector(getWalletsForSelectedNetwork);
@@ -15,6 +16,9 @@ const ManagerDepositAddresses = () => {
     const [settingsPopUp, setSettingsPopUp] = useState(false);
     const [selectedItem, setSelectedItem] = useState({name:'', address:''});
     const [createWalletPopUp, setCreateWalletPopUp] = useState(false);
+
+    const location = useLocation();
+    const { type } = location.state || {};
 
     const openSettingsPopUp = (item) => {
         let {name, address} = item;

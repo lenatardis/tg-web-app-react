@@ -1,12 +1,13 @@
-import {getCurrencyToWithdrawInfo} from "../../../store/selectors";
+import {getCurrencyToDepositInfo, getCurrencyToWithdrawInfo} from "../../../../../store/selectors";
 import {useSelector} from "react-redux";
 import styles from "./Popup.module.scss";
-import ClosePopUp from "../../Common/ClosePopUp/ClosePopUp";
-import RadioButtonRow from "../../Common/RadioButtonRow/RadioButtonRow";
+import ClosePopUp from "../../../../Common/ClosePopUp/ClosePopUp";
+import RadioButtonRow from "../../../../Common/RadioButtonRow/RadioButtonRow";
 
-const WithdrawNetwork = ({closePopUp, isVisible, selected, onSelect}) => {
+const TransactionsNetworkPopUp = ({closePopUp, isVisible, selected, onSelect, deposit}) => {
 
-    let {name, networks = [], src} = useSelector(getCurrencyToWithdrawInfo) ?? {};
+    const getInfo = deposit ? getCurrencyToDepositInfo : getCurrencyToWithdrawInfo;
+    const { name, networks = [], src } = useSelector(getInfo) ?? {};
 
     return (
         <div className={`${styles.popup} ${isVisible ? styles['popup-show'] : ''}`}>
@@ -37,4 +38,4 @@ const WithdrawNetwork = ({closePopUp, isVisible, selected, onSelect}) => {
 }
 
 
-export default WithdrawNetwork;
+export default TransactionsNetworkPopUp;

@@ -1,5 +1,5 @@
 $header_height: 90px;
-@import "src/components/Common/Mixins/mixins";
+@import "../../../../Common/Mixins/mixins";
 
 .popup {
   @include topPopUpHeaderOffset(18px, 18px);

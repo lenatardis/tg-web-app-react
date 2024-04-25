@@ -1,4 +1,5 @@
-import { createSelector } from '@reduxjs/toolkit';
+import {createSelector} from '@reduxjs/toolkit';
+
 export const getUser = (state) => state.user.user;
 
 export const getGiveCurrency = (state) => state.user.exchange.give;
@@ -34,4 +35,14 @@ export const getCurrencyToWithdrawNetwork = (state) => state.user.currencyToWith
 
 export const getAmountToWithdraw = (state) => state.user.amountToWithdraw;
 export const getAddressToWithdraw = (state) => state.user.addressToWithdraw;
+
+//Deposit
+export const getCurrencyToDeposit = (state) => state.user.currencyToDeposit;
+
+export const getCurrencyToDepositInfo = createSelector(
+    [getCurrencyInfo, getCurrencyToDeposit],
+    (currencyInfo, currencyToDeposit) => currencyInfo.find(el => el.name === currencyToDeposit)
+);
+
+export const getCurrencyToDepositNetwork = (state) => state.user.currencyToDepositNetwork;
 
