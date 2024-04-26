@@ -5,7 +5,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const CopyItem = ({code}) => {
     const handleClick = (e) => {
-        e.stopPropagation(); // This prevents the event from bubbling up to the parent
+        e.stopPropagation();
     };
 
     return (

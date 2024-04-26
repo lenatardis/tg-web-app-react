@@ -1,6 +1,6 @@
 import styles from "./ManagerDepositAddresses.module.scss";
 import Header from "../../Common/Header/Header";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {
     getCurrencyToDeposit,
     getCurrencyToDepositNetwork,
@@ -14,6 +14,7 @@ import {useEffect, useState} from "react";
 import SettingsPopUp from "../SettingPopup/Popup";
 import CreateWalletPopUp from "../CreateWalletPopup/Popup";
 import {useLocation, useNavigate} from "react-router-dom";
+import {setWalletToDepositInfo} from "../../../store/user-slice";
 
 const ManagerDepositAddresses = () => {
     const [settingsPopUp, setSettingsPopUp] = useState(false);
@@ -31,6 +32,7 @@ const ManagerDepositAddresses = () => {
     const network = useSelector(selectedNetwork);
     const currency = useSelector(selectedCurrency);
     let navigate = useNavigate();
+    let dispatch = useDispatch();
 
     const openSettingsPopUp = (item) => {
         let {name, address} = item;
@@ -63,7 +65,8 @@ const ManagerDepositAddresses = () => {
         };
     }, [settingsPopUp, createWalletPopUp]);
 
-    const handleNavigation = () => {
+    const handleNavigation = (item) => {
+        dispatch(setWalletToDepositInfo(item));
         navigate('/wallet/deposit/qr');
     }
 
@@ -75,7 +78,7 @@ const ManagerDepositAddresses = () => {
                     walletsForSelectedNetwork.map(({name, address}, index) => (
                         <Item key={index} name={name} address={address} network={network} currency={currency}
                               index={index} openPopUp={() => openSettingsPopUp({address, index, name})}
-                              closePopUp={closeSettingsPopUp} deposit={type} {...(type ? { handleNavigation } : {})}/>
+                              closePopUp={closeSettingsPopUp} deposit={type} {...(type ? { handleNavigation: () => handleNavigation({ address, name }) } : {})}/>
                     ))
                 }
                 <Button text="Request new address" handleClick={openCreateWalletPopUp}/>
