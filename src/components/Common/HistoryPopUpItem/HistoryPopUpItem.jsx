@@ -1,7 +1,7 @@
 import styles from "./HistoryPopUpItem.module.scss";
 import IconBin from "../../../assets/images/bin.svg";
 
-const HistoryPopUpItem = ({date, time, amount, price, accepted, parent, type}) => {
+const HistoryPopUpItem = ({date, time, amount, price, accepted, parent, type, deleteItem}) => {
     const isOrdersParent = parent === "orders";
     return (
         <div className={styles.item}>
@@ -41,7 +41,7 @@ const HistoryPopUpItem = ({date, time, amount, price, accepted, parent, type}) =
                     </div>
                 </div>
                 {!isOrdersParent &&
-                    <button>
+                    <button onClick={deleteItem}>
                         <img src={IconBin} alt=""/>
                     </button>
                 }

@@ -10,6 +10,7 @@ import PopUp from "./PopUp/PopUp";
 const Orders = () => {
     let subroute = useSubRoute();
     const [popUp, setPopUp] = useState(false);
+    const [items, setItems] = useState([]);
 
     const ordersInfo = {
         'items': [
@@ -24,6 +25,11 @@ const Orders = () => {
             {date: "24-01-18", time: "20:29:05", accepted:true, type:'market', amount: "0.9141 USD", price: "55,691.68 USDT"}
         ]
     };
+
+    useEffect(() => {
+        setItems(ordersInfo.items);
+    }, []);
+
     const openPopUp = () => {
         setPopUp(true);
     }
@@ -42,7 +48,7 @@ const Orders = () => {
                 </div>
                 <div className={styles.orderBlock}>
                     {
-                        ordersInfo.items.map(({date, time, amount, price, accepted, type}, index) => (
+                        items.map(({date, time, amount, price, accepted, type}, index) => (
                             <HistoryPopUpItem key={index} date={date} time={time} amount={amount}
                                               price={price} accepted={accepted} type={type} parent="orders"/>
                         ))
