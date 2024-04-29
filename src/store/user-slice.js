@@ -72,7 +72,9 @@ const initialState = {
 
     currencyToDepositNetwork: '',
 
-    walletToDepositInfo: {name:'', address:''}
+    walletToDepositInfo: {name:'', address:''},
+
+    googleAuth: false
 }
 
 const userSlice = createSlice({
@@ -152,6 +154,10 @@ const userSlice = createSlice({
         setWalletToDepositInfo(state, action) {
             let {name, address} = action.payload;
             state.walletToDepositInfo = {name, address};
+        },
+
+        setGoogleAuth(state, action) {
+            state.googleAuth = action.payload;
         }
     }
 });
@@ -170,5 +176,6 @@ export const {
     setAddressToWithdraw,
     setCurrencyToDeposit,
     setCurrencyToDepositNetwork,
-    setWalletToDepositInfo
+    setWalletToDepositInfo,
+    setGoogleAuth
 } = userSlice.actions;

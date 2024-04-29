@@ -5,6 +5,8 @@ import Account from "./components/Account/Account";
 import Verification from "./components/Verification/Verification";
 import Verification_step2 from "./components/Verification/Verification_step2";
 import Verification_step3 from "./components/Verification/Verification_step3";
+import SwitcherPage from "./components/Verification/Switcher_page";
+import Warning from "./components/Verification/Warning";
 import Pro from "./components/Pro/Pro";
 import CVV from "./components/CVV/CVV";
 import Spot from "./components/Pro/Spot/Spot";
@@ -31,7 +33,6 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import './App.scss';
-
 
 function App() {
     console.log(window.Telegram.WebApp);
@@ -65,6 +66,8 @@ function App() {
                 {path: "verification", element: <Verification/>},
                 {path: "verification/step2", element: <Verification_step2/>},
                 {path: "verification/step3", element: <Verification_step3/>},
+                {path: "verification/switcher", element: <SwitcherPage/>},
+                {path: "verification/warning", element: <Warning/>},
                 {path: "cvv", element: <CVV/>},
                 {path: "pro", element: <Pro/>},
                 {path: "pro/spot", element: <Spot/>},

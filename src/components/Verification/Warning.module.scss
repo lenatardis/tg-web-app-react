@@ -1,0 +1,28 @@
+.imgWrap {
+  padding-top: 40px;
+  padding-bottom: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.infoBlock {
+  padding: 16px 20px;
+  background: #0D182E;
+  border-radius: 18px;
+  margin-bottom: 50px;
+
+  p {
+    font-size: 15px;
+    line-height: 1.2em;
+  }
+}
+
+.continueBtn {
+  margin-bottom: 8px;
+}
+
+.cancelBtn {
+  background: transparent;
+  border: 1px solid #2C4A7E;
+  margin-bottom: 24px;
+}

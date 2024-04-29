@@ -6,11 +6,14 @@ import Button from "../Common/Button";
 import {useState} from "react";
 import styles from "./Verification.module.scss";
 import {useNavigate} from "react-router-dom";
+import {setGoogleAuth} from "../../store/user-slice";
+import {useDispatch} from "react-redux";
 
 const Verification_step3 = () => {
     const [code, setCode] = useState('');
     const [error, setError] = useState(false);
     let navigate = useNavigate();
+    let dispatch = useDispatch();
 
     const handleCodeChange = (value) => {
         setCode(value);
@@ -28,7 +31,8 @@ const Verification_step3 = () => {
 
     const handleNextStep = () => {
         if (handleValidation()) {
-            navigate('/');
+            dispatch(setGoogleAuth(true));
+            navigate('/verification/warning');
         }
     };
 

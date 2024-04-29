@@ -53,5 +53,7 @@ export const getWalletsForCurrencyToDepositNetwork = createSelector(
 
 export const getWalletToDepositInfo = (state) => state.user.walletToDepositInfo;
 
+export const getGoogleAuth = (state) => state.user.googleAuth;
+
 
 

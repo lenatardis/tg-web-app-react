@@ -1,0 +1,32 @@
+.switcher {
+  display: flex;
+  align-items: center;
+  width: 51px;
+  height: 31px;
+  border-radius: 17px;
+  padding: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &.on {
+    background-color: #2C4A7E;
+
+    .toggle {
+      transform: translateX(20px);
+    }
+  }
+
+  &.off {
+    background-color: #1E273B;
+    justify-content: flex-start;
+  }
+
+  .toggle {
+    width: 27px;
+    height: 27px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+
+  }
+}
