@@ -11,6 +11,8 @@ const Header = ({back, text, menu, close}) => {
 
         if (close && typeof close === 'function') {
             close();
+        } else if (typeof back === 'string') {
+            navigate(back);
         } else if (back) {
             navigate(-1);
         }

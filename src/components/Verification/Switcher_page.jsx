@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Header from "../Common/Header/Header";
 import styles from "./Switcher_page.module.scss";
 import Switcher from "./Switcher";
@@ -27,25 +27,30 @@ const SwitcherPage = () => {
         setTelegramBotEnabled(prevState => !prevState);
     };
 
+    useEffect(() => {
+        setGoogleAuthEnabled(isGoogleAuthEnabled);
+
+        if (!isGoogleAuthEnabled) {
+            openPopUp();
+        }
+
+    }, [isGoogleAuthEnabled]);
+
     const toggleGoogleAuth = () => {
         setGoogleAuthEnabled(prevState => {
             if (prevState) {
                 navigate('/verification/warning');
             }
+            if (!prevState) {
+                navigate('/verification');
+            }
             return !prevState;
         });
     };
 
-    useEffect(() => {
-        setGoogleAuthEnabled(isGoogleAuthEnabled);
-        if (!isGoogleAuthEnabled) {
-            openPopUp();
-        }
-    }, []);
-
     return (
         <div className={styles.switcherPage}>
-            <Header text="Two factor verification" back/>
+            <Header text="Two factor verification" back="/account"/>
             <div className={`wrap ${styles.switcherBlock}`}>
                 <div className={styles.block}>
                     <div>
