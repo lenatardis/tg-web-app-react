@@ -1,0 +1,36 @@
+@import "../Common/Mixins/mixins";
+
+$header_height: 90px;
+
+@include bottomPopUpMixin();
+
+.popup {
+  padding-top: 32px;
+
+  .imgWrap {
+    display: flex;
+    padding: 16px 0 24px;
+    justify-content: center;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+
+    & + p {
+      font-size: 20px;
+      text-align: center;
+      padding-bottom: 48px;
+    }
+  }
+
+  .btn {
+    margin-bottom: 32px;
+  }
+
+  .innerWrap {
+    height: auto;
+    overflow: auto;
+  }
+}

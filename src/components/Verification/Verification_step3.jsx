@@ -32,7 +32,7 @@ const Verification_step3 = () => {
     const handleNextStep = () => {
         if (handleValidation()) {
             dispatch(setGoogleAuth(true));
-            navigate('/verification/warning');
+            navigate('/verification/switcher');
         }
     };
 
