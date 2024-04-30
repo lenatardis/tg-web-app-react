@@ -159,14 +159,13 @@ const SelectedCurrencyWallet = () => {
                         ))
                     }
                 </div>}
-                {!!items.length && <div className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
+                {items.length ? <div className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
                     {
                         items.map(({name, address, network}, index) => (
                             <Item name={name} address={address} network={network} key={index} openPopUp={() => openSettingsPopUp({address, name})} closePopUp={closeSettingsPopUp}/>
                         ))
                     }
-                </div>}
-                {!items.length &&
+                </div> :
                     <a className={styles.emptyWrap} onClick={openCreateWalletPopUp}>
                         <span>
                             <img src={IconAdd} alt=""/>
