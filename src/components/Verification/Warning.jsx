@@ -12,8 +12,7 @@ const Warning = () => {
     let dispatch = useDispatch();
 
     const handleContinue = () => {
-        dispatch(setGoogleAuth(false));
-        navigate('/verification/switcher');
+        navigate('/verification/confirmation');
     }
 
     const handleCancel = () => {

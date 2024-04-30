@@ -7,6 +7,7 @@ import Verification_step2 from "./components/Verification/Verification_step2";
 import Verification_step3 from "./components/Verification/Verification_step3";
 import SwitcherPage from "./components/Verification/Switcher_page";
 import Warning from "./components/Verification/Warning";
+import Confirmation from "./components/Verification/Disabling_confirmation";
 import Pro from "./components/Pro/Pro";
 import CVV from "./components/CVV/CVV";
 import Spot from "./components/Pro/Spot/Spot";
@@ -68,6 +69,7 @@ function App() {
                 {path: "verification/step3", element: <Verification_step3/>},
                 {path: "verification/switcher", element: <SwitcherPage/>},
                 {path: "verification/warning", element: <Warning/>},
+                {path: "verification/confirmation", element: <Confirmation/>},
                 {path: "cvv", element: <CVV/>},
                 {path: "pro", element: <Pro/>},
                 {path: "pro/spot", element: <Spot/>},
