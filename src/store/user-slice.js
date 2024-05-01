@@ -50,11 +50,6 @@ const initialState = {
             {"name": "Wallet-1", "address": "HdkdjJdkkdkdqdqw"},
             {"name": "Wallet-2", "address": "JLdjdjdHkkdkdqd"},
             {"name": "Wallet-3", "address": "LslssKkdkdkddqdq"}
-        ],
-        "TRX": [
-            {"name": "Wallet-1", "address": "Hafwfdsahdsahdsa"},
-            {"name": "Wallet-2", "address": "KfdJSdskdskdsudsl"},
-            {"name": "Wallet-3", "address": "Ndsdskdskdskdsjkdk"}
         ]
     },
 
@@ -127,6 +122,13 @@ const userSlice = createSlice({
             state.networks[network] = [...state.networks[network], newWallet];
         },
 
+        deleteWallet(state, action) {
+            let {address, network} = action.payload;
+            state.networks[network] = state.networks[network].filter((wallet) => {
+                return wallet.address !== address
+            });
+        },
+
         setCurrencyToWithdraw(state, action) {
             state.currencyToWithdraw = action.payload;
         },
@@ -177,5 +179,6 @@ export const {
     setCurrencyToDeposit,
     setCurrencyToDepositNetwork,
     setWalletToDepositInfo,
-    setGoogleAuth
+    setGoogleAuth,
+    deleteWallet
 } = userSlice.actions;

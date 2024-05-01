@@ -3,19 +3,22 @@ import IconArrow from "../../../../assets/images/arr-gr.svg";
 import CopyItem from "../../../Common/CopyItem/CopyItem";
 import IconPencil from "../../../../assets/images/pencil.svg";
 import {useRef, useState} from "react";
+import {useDispatch} from "react-redux";
+import {deleteWallet} from "../../../../store/user-slice";
 
 const Item = ({name, address, network, currency, index, openPopUp, deposit, handleNavigation}) => {
 
     const [showDelete, setShowDelete] = useState(false);
     const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
     let touchTimeout;
-  /*  const touchStartPos = useRef({x: 0, y: 0});*/
+    /*  const touchStartPos = useRef({x: 0, y: 0});*/
+    let dispatch = useDispatch();
 
     const handleTouchStart = (e) => {
-       /* touchStartPos.current = {x: e.touches[0].clientX, y: e.touches[0].clientY};*/
+        /* touchStartPos.current = {x: e.touches[0].clientX, y: e.touches[0].clientY};*/
         touchTimeout = setTimeout(() => {
             setShowDelete(true);
-        }, 1000);
+        }, 1500);
     };
 
     const handleTouchEnd = () => {
@@ -23,17 +26,17 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     };
 
     const handleTouchMove = (e) => {
-      /*  const moveX = Math.abs(e.touches[0].clientX - touchStartPos.current.x);
-        const moveY = Math.abs(e.touches[0].clientY - touchStartPos.current.y);*/
-       /* if (moveX > 10 || moveY > 10) {
-            clearTimeout(touchTimeout);
-        }*/
+        /*  const moveX = Math.abs(e.touches[0].clientX - touchStartPos.current.x);
+          const moveY = Math.abs(e.touches[0].clientY - touchStartPos.current.y);*/
+        /* if (moveX > 10 || moveY > 10) {
+             clearTimeout(touchTimeout);
+         }*/
         clearTimeout(touchTimeout);
     };
 
     const handleDeleteClick = (event) => {
         event.stopPropagation();
-        setDeleteButtonClicked(true);
+        dispatch(deleteWallet({address, network}));
     };
 
     const handleItemClick = (e) => {
@@ -63,6 +66,7 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
                     </button>
                 </div>
             )}
+
             <div>
                 <div className={styles.titleBlock}>
                     <h3>{name}</h3>
