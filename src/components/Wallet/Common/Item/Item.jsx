@@ -7,6 +7,7 @@ import {useState} from "react";
 const Item = ({name, address, network, currency, index, openPopUp, deposit, handleNavigation}) => {
 
     const [showDelete, setShowDelete] = useState(false);
+    const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
     let touchTimeout;
 
     const handleTouchStart = () => {
@@ -17,13 +18,26 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
 
     const handleTouchEnd = () => {
         clearTimeout(touchTimeout);
-        if (showDelete) {
+        if (showDelete && !deleteButtonClicked) {
             setShowDelete(false);
         }
+        setDeleteButtonClicked(false);
     };
 
     const handleTouchMove = () => {
         clearTimeout(touchTimeout);
+    };
+
+    const handleDeleteClick = (event) => {
+        event.stopPropagation();
+        console.log('Delete');
+        setDeleteButtonClicked(true);
+    };
+
+    const handleItemClick = () => {
+        if (showDelete) {
+            setShowDelete(false);
+        }
     };
 
     const shouldAttachHandlers = !currency && !deposit;
@@ -37,14 +51,13 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     return (
         <div
             className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''} ${deposit ? styles.depositWrap : ''} ${showDelete ? styles.showDelete : ''}`}
-            onClick={handleNavigation ? handleNavigation : null} {...touchHandlers}>
+            onClick={handleNavigation ? handleNavigation : (shouldAttachHandlers ? handleItemClick : null)} {...touchHandlers}>
 
             {showDelete && (
                 <div className={styles.deleteButton}>
-                    <button onClick={() => console.log('Delete')}>Delete</button>
+                    <button onClick={handleDeleteClick}>Delete</button>
                 </div>
             )}
-
             <div>
                 <div className={styles.titleBlock}>
                     <h3>{name}</h3>
