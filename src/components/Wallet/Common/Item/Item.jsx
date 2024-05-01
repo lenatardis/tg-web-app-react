@@ -2,15 +2,17 @@ import styles from "./Item.module.scss";
 import IconArrow from "../../../../assets/images/arr-gr.svg";
 import CopyItem from "../../../Common/CopyItem/CopyItem";
 import IconPencil from "../../../../assets/images/pencil.svg";
-import {useState} from "react";
+import {useRef, useState} from "react";
 
 const Item = ({name, address, network, currency, index, openPopUp, deposit, handleNavigation}) => {
 
     const [showDelete, setShowDelete] = useState(false);
     const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
     let touchTimeout;
+    const touchStartPos = useRef({x: 0, y: 0});
 
-    const handleTouchStart = () => {
+    const handleTouchStart = (e) => {
+        touchStartPos.current = {x: e.touches[0].clientX, y: e.touches[0].clientY};
         touchTimeout = setTimeout(() => {
             setShowDelete(true);
         }, 1000);
@@ -20,8 +22,12 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
         clearTimeout(touchTimeout);
     };
 
-    const handleTouchMove = () => {
-        clearTimeout(touchTimeout);
+    const handleTouchMove = (e) => {
+        const moveX = Math.abs(e.touches[0].clientX - touchStartPos.current.x);
+        const moveY = Math.abs(e.touches[0].clientY - touchStartPos.current.y);
+        if (moveX > 10 || moveY > 10) {
+            clearTimeout(touchTimeout);
+        }
     };
 
     const handleDeleteClick = (event) => {
