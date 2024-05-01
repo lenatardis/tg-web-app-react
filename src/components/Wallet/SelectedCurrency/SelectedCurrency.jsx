@@ -29,6 +29,7 @@ const SelectedCurrencyWallet = () => {
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [shouldNavigate, setShouldNavigate] = useState(false);
     const [createWalletPopUp, setCreateWalletPopUp] = useState(false);
+    const [activeDeleteButtonId, setActiveDeleteButtonId] = useState(null);
 
     let selectedCurrencyInfo = useSelector(getSelectedCurrencyInfo);
 
@@ -138,6 +139,14 @@ const SelectedCurrencyWallet = () => {
         setCreateWalletPopUp(false);
     }
 
+    const showDeleteButton = (id) => {
+        setActiveDeleteButtonId(id);
+    };
+
+    const hideDeleteButton = () => {
+        setActiveDeleteButtonId(null);
+    };
+
     return (
         <div>
             <Header back text="Wallet" menu/>
@@ -162,7 +171,11 @@ const SelectedCurrencyWallet = () => {
                 {items.length ? <div className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
                     {
                         items.map(({name, address, network}, index) => (
-                            <Item name={name} address={address} network={network} key={index} openPopUp={() => openSettingsPopUp({address, name})} closePopUp={closeSettingsPopUp}/>
+                            <Item name={name} address={address} network={network} key={index} openPopUp={() => openSettingsPopUp({address, name})} closePopUp={closeSettingsPopUp}
+                                  showDeleteButton={() => showDeleteButton(address)}
+                                  hideDeleteButton={hideDeleteButton}
+                                  isDeleteButtonVisible={activeDeleteButtonId === address}
+                            />
                         ))
                     }
                 </div> :

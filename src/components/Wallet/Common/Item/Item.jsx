@@ -6,10 +6,15 @@ import {useRef, useState} from "react";
 import {useDispatch} from "react-redux";
 import {deleteWallet} from "../../../../store/user-slice";
 
-const Item = ({name, address, network, currency, index, openPopUp, deposit, handleNavigation}) => {
+const Item = ({
+                  name, address, network, currency, index, openPopUp, deposit, handleNavigation,
+                  showDeleteButton = () => {
+                  },
+                  hideDeleteButton = () => {
+                  },
+                  isDeleteButtonVisible = false
+              }) => {
 
-    const [showDelete, setShowDelete] = useState(false);
-    const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
     let touchTimeout;
     /*  const touchStartPos = useRef({x: 0, y: 0});*/
     let dispatch = useDispatch();
@@ -17,7 +22,7 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     const handleTouchStart = (e) => {
         /* touchStartPos.current = {x: e.touches[0].clientX, y: e.touches[0].clientY};*/
         touchTimeout = setTimeout(() => {
-            setShowDelete(true);
+            showDeleteButton();
         }, 1500);
     };
 
@@ -37,13 +42,13 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     const handleDeleteClick = (event) => {
         event.stopPropagation();
         dispatch(deleteWallet({address, network}));
-        setShowDelete(false);
+        hideDeleteButton();
     };
 
     const handleItemClick = (e) => {
         const isDeleteButton = e.target.closest(`.${styles.deleteBtn}`);
         if (!isDeleteButton) {
-            setShowDelete(false);
+            hideDeleteButton();
         }
     };
 
@@ -57,13 +62,12 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
 
     return (
         <div
-            className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''} ${deposit ? styles.depositWrap : ''} ${showDelete ? styles.showDelete : ''}`}
+            className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''} ${deposit ? styles.depositWrap : ''} ${isDeleteButtonVisible ? styles.showDelete : ''}`}
             onClick={handleNavigation ? handleNavigation : (shouldAttachHandlers ? handleItemClick : null)} {...touchHandlers}>
 
-            {showDelete && (
+            {isDeleteButtonVisible && (
                 <div className={styles.deleteBtn}>
                     <button onClick={handleDeleteClick}>Delete
-                        {deleteButtonClicked && <span>Clicked!</span>}
                     </button>
                 </div>
             )}
