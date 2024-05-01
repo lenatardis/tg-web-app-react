@@ -18,10 +18,6 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
 
     const handleTouchEnd = () => {
         clearTimeout(touchTimeout);
-        /*if (showDelete && !deleteButtonClicked) {
-            setShowDelete(false);
-        }
-        setDeleteButtonClicked(false);*/
     };
 
     const handleTouchMove = () => {
@@ -35,7 +31,9 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     };
 
     const handleItemClick = (e) => {
-        alert('click');
+        alert(e.target);
+        alert(!e.target.closest(`.${styles.deleteBtn}`));
+        console.log(e.target);
         if (!e.target.closest(`.${styles.deleteBtn}`)) {
             setShowDelete(false);
         }
