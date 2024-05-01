@@ -35,9 +35,9 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     };
 
     const handleItemClick = () => {
-        if (showDelete) {
+        /*if (showDelete) {
             setShowDelete(false);
-        }
+        }*/
     };
 
     const shouldAttachHandlers = !currency && !deposit;
