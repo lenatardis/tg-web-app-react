@@ -142,7 +142,7 @@ const SelectedCurrencyWallet = () => {
         <div>
             <Header back text="Wallet" menu/>
             <div className="wrap">
-                <CurrencyBlock name={name} commercial={commercial} warrants={warrants} balance={balance} src={src}
+               {/* <CurrencyBlock name={name} commercial={commercial} warrants={warrants} balance={balance} src={src}
                                handleClick={openNetworkPopUp} selected deposit/>
                 <div className={styles.row}>
                     {
@@ -150,7 +150,7 @@ const SelectedCurrencyWallet = () => {
                             <LinkButton key={index} title={name} src={src} img={img}/>
                         ))
                     }
-                </div>
+                </div>*/}
                 {networks.length > 1 && <div className={styles.row}>
                     {
                         networks.map((el, index) => (
