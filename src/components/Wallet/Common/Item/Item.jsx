@@ -13,7 +13,7 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     const handleTouchStart = () => {
         touchTimeout = setTimeout(() => {
             setShowDelete(true);
-        }, 1500);
+        }, 1000);
     };
 
     const handleTouchEnd = () => {
@@ -34,10 +34,14 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
         setDeleteButtonClicked(true);
     };
 
-    const handleItemClick = () => {
+    const handleItemClick = (e) => {
         /*if (showDelete) {
             setShowDelete(false);
         }*/
+
+        if (!e.target.classList.includes('deleteItemBtn')) {
+            setShowDelete(false);
+        }
     };
 
     const shouldAttachHandlers = !currency && !deposit;
@@ -54,8 +58,10 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
             onClick={handleNavigation ? handleNavigation : (shouldAttachHandlers ? handleItemClick : null)} {...touchHandlers}>
 
             {showDelete && (
-                <div className={styles.deleteButton}>
-                    <button onClick={handleDeleteClick}>Delete</button>
+                <div className={`deleteItemBtn ${styles.deleteButton}`}>
+                    <button onClick={handleDeleteClick}>Delete
+                        {deleteButtonClicked && <span>Clicked!</span>}
+                    </button>
                 </div>
             )}
             <div>
