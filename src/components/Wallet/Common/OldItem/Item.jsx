@@ -2,49 +2,12 @@ import styles from "./Item.module.scss";
 import IconArrow from "../../../../assets/images/arr-gr.svg";
 import CopyItem from "../../../Common/CopyItem/CopyItem";
 import IconPencil from "../../../../assets/images/pencil.svg";
-import {useState} from "react";
 
 const Item = ({name, address, network, currency, index, openPopUp, deposit, handleNavigation}) => {
-
-    const [showDelete, setShowDelete] = useState(false);
-    let touchTimeout;
-
-    const handleTouchStart = () => {
-        touchTimeout = setTimeout(() => {
-            setShowDelete(true);
-        }, 1500);
-    };
-
-    const handleTouchEnd = () => {
-        clearTimeout(touchTimeout);
-        if (showDelete) {
-            setShowDelete(false);
-        }
-    };
-
-    const handleTouchMove = () => {
-        clearTimeout(touchTimeout);
-    };
-
-    const shouldAttachHandlers = !currency && !deposit;
-
-    const touchHandlers = shouldAttachHandlers ? {
-        onTouchStart: handleTouchStart,
-        onTouchEnd: handleTouchEnd,
-        onTouchMove: handleTouchMove
-    } : {};
-
     return (
         <div
-            className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''} ${deposit ? styles.depositWrap : ''} ${showDelete ? styles.showDelete : ''}`}
-            onClick={handleNavigation ? handleNavigation : null} {...touchHandlers}>
-
-            {showDelete && (
-                <div className={styles.deleteButton}>
-                    <button onClick={() => console.log('Delete')}>Delete</button>
-                </div>
-            )}
-
+            className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''} ${deposit ? styles.depositWrap : ''}`}
+            onClick={handleNavigation ? handleNavigation : null}>
             <div>
                 <div className={styles.titleBlock}>
                     <h3>{name}</h3>
