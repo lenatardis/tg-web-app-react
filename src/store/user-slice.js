@@ -27,9 +27,9 @@ const initialState = {
 
     networks: {
         "TRC20": [
-            {"name": "Wallet-1", "address": "AdXn0uQbzNdss"},
+           /* {"name": "Wallet-1", "address": "AdXn0uQbzNdss"},
             {"name": "Wallet-2", "address": "RdTHDQbzNdsds"},
-            {"name": "Wallet-3", "address": "RdTCVNQbzNdsds"}
+            {"name": "Wallet-3", "address": "RdTCVNQbzNdsds"}*/
         ],
         "ERC20": [
             {"name": "Wallet-1", "address": "AdXn0dsdsdsdsds"},
