@@ -148,11 +148,13 @@ const SelectedCurrencyWallet = () => {
     };
 
     return (
-        <div>
+        <div className={styles.mainWrap}>
             <Header back text="Wallet" menu/>
             <div className="wrap">
-               {/* <CurrencyBlock name={name} commercial={commercial} warrants={warrants} balance={balance} src={src}
-                               handleClick={openNetworkPopUp} selected deposit/>
+             {/*   <div className={styles.currencyContainer}>
+                    <CurrencyBlock name={name} commercial={commercial} warrants={warrants} balance={balance} src={src}
+                                   handleClick={openNetworkPopUp} selected deposit/>
+                </div>
                 <div className={styles.row}>
                     {
                         linkInfo.map(({name, src, img}, index) => (
@@ -174,7 +176,7 @@ const SelectedCurrencyWallet = () => {
                             <Item name={name} address={address} network={network} key={index} openPopUp={() => openSettingsPopUp({address, name})} closePopUp={closeSettingsPopUp}
                                   showDeleteButton={() => showDeleteButton(address)}
                                   hideDeleteButton={hideDeleteButton}
-                                  isDeleteButtonVisible={activeDeleteButtonId === address}
+                                  /*isDeleteButtonVisible={activeDeleteButtonId === address}*/
                             />
                         ))
                     }

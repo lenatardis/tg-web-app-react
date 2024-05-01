@@ -19,6 +19,8 @@ const Item = ({
     /*  const touchStartPos = useRef({x: 0, y: 0});*/
     let dispatch = useDispatch();
 
+    const [tempVisible, setTempVisible] = useState(false);
+
     const handleTouchStart = (e) => {
         /* touchStartPos.current = {x: e.touches[0].clientX, y: e.touches[0].clientY};*/
         touchTimeout = setTimeout(() => {
@@ -46,10 +48,11 @@ const Item = ({
     };
 
     const handleItemClick = (e) => {
-        const isDeleteButton = e.target.closest(`.${styles.deleteBtn}`);
+      /*  const isDeleteButton = e.target.closest(`.${styles.deleteBtn}`);
         if (!isDeleteButton) {
             hideDeleteButton();
-        }
+        }*/
+        setTempVisible(true);
     };
 
     const shouldAttachHandlers = !currency && !deposit;
@@ -62,17 +65,17 @@ const Item = ({
 
     return (
         <div
-            className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''} ${deposit ? styles.depositWrap : ''} ${isDeleteButtonVisible ? styles.showDelete : ''}`}
+            className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''} ${deposit ? styles.depositWrap : ''} 
+            ${tempVisible ? styles.showBtnWrap : ''}  ${shouldAttachHandlers ? styles.deletableWrap : ''}`}
             onClick={handleNavigation ? handleNavigation : (shouldAttachHandlers ? handleItemClick : null)} {...touchHandlers}>
 
-            {isDeleteButtonVisible && (
-                <div className={styles.deleteBtn}>
-                    <button onClick={handleDeleteClick}>Delete
-                    </button>
+            {tempVisible && shouldAttachHandlers && (
+                <div className={styles.deleteBtn} onClick={handleDeleteClick}>
+                    <span>Delete</span>
                 </div>
             )}
 
-            <div>
+            <div className={styles.titleRow}>
                 <div className={styles.titleBlock}>
                     <h3>{name}</h3>
                     <span className={styles.networkWrap}>

@@ -7,15 +7,28 @@ $gap_with_radio_without_sb: 263px;
 $gap_without_radio_without_sb: 211px;
 $gap_without_radio_with_sb: 265px;
 
+.mainWrap :global(.wrap) {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 .row {
   display: flex;
   column-gap: 8px;
   margin-bottom: 8px;
+
+}
+
+.row, .currencyContainer {
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .listWrap {
+  position: relative;
   overflow: auto;
+  padding-left: 16px;
+  padding-right: 16px;
 
  /* &.with-radio.with-sb {
     height: calc(100vh - #{$navigation_height} - #{$header_height} - #{$gap_with_radio_with_sb});
