@@ -35,8 +35,8 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     };
 
     const handleItemClick = (e) => {
-
-        if (!e.target.closest(`.${styles.deleteButton}`)) {
+        alert('click');
+        if (!e.target.closest(`.${styles.deleteBtn}`)) {
             setShowDelete(false);
         }
     };
