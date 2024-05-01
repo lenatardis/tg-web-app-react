@@ -35,11 +35,8 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     };
 
     const handleItemClick = (e) => {
-        /*if (showDelete) {
-            setShowDelete(false);
-        }*/
 
-        if (!e.target.classList.includes('deleteItemBtn')) {
+        if (!e.target.closest(`.${styles.deleteButton}`)) {
             setShowDelete(false);
         }
     };
@@ -58,7 +55,7 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
             onClick={handleNavigation ? handleNavigation : (shouldAttachHandlers ? handleItemClick : null)} {...touchHandlers}>
 
             {showDelete && (
-                <div className={`deleteItemBtn ${styles.deleteButton}`}>
+                <div className={`${styles.deleteBtn}`}>
                     <button onClick={handleDeleteClick}>Delete
                         {deleteButtonClicked && <span>Clicked!</span>}
                     </button>
