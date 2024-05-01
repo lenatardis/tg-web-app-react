@@ -37,6 +37,7 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     const handleDeleteClick = (event) => {
         event.stopPropagation();
         dispatch(deleteWallet({address, network}));
+        setShowDelete(false);
     };
 
     const handleItemClick = (e) => {
