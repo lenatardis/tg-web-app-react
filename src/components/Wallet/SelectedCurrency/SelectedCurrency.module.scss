@@ -30,7 +30,7 @@ $gap_without_radio_with_sb: 265px;
   padding-left: 16px;
   padding-right: 16px;
 
- /* &.with-radio.with-sb {
+ &.with-radio.with-sb {
     height: calc(100vh - #{$navigation_height} - #{$header_height} - #{$gap_with_radio_with_sb});
   }
 
@@ -44,7 +44,7 @@ $gap_without_radio_with_sb: 265px;
 
   &.without-radio.with-sb {
     height: calc(100vh - #{$navigation_height} - #{$header_height} - #{$gap_without_radio_with_sb});
-  }*/
+  }
 }
 
 .emptyWrap {
