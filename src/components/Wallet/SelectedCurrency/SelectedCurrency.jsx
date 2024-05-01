@@ -148,9 +148,7 @@ const SelectedCurrencyWallet = () => {
     };
 
     const handleItemClick = (address) => {
-        if (activeDeleteButtonId === address) {
-            hideDeleteButton();
-        }
+        hideDeleteButton();
     }
 
     const handleDeleteClick = (event, address, network) => {
