@@ -9,10 +9,10 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     const [showDelete, setShowDelete] = useState(false);
     const [deleteButtonClicked, setDeleteButtonClicked] = useState(false);
     let touchTimeout;
-    const touchStartPos = useRef({x: 0, y: 0});
+  /*  const touchStartPos = useRef({x: 0, y: 0});*/
 
     const handleTouchStart = (e) => {
-        touchStartPos.current = {x: e.touches[0].clientX, y: e.touches[0].clientY};
+       /* touchStartPos.current = {x: e.touches[0].clientX, y: e.touches[0].clientY};*/
         touchTimeout = setTimeout(() => {
             setShowDelete(true);
         }, 1000);
@@ -23,11 +23,12 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
     };
 
     const handleTouchMove = (e) => {
-        const moveX = Math.abs(e.touches[0].clientX - touchStartPos.current.x);
-        const moveY = Math.abs(e.touches[0].clientY - touchStartPos.current.y);
-        if (moveX > 10 || moveY > 10) {
+      /*  const moveX = Math.abs(e.touches[0].clientX - touchStartPos.current.x);
+        const moveY = Math.abs(e.touches[0].clientY - touchStartPos.current.y);*/
+       /* if (moveX > 10 || moveY > 10) {
             clearTimeout(touchTimeout);
-        }
+        }*/
+        clearTimeout(touchTimeout);
     };
 
     const handleDeleteClick = (event) => {
