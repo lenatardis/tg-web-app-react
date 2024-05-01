@@ -12,7 +12,7 @@ import RadioButton from "../../Common/RadioButton/RadioButton";
 import Item from "../Common/Item/Item.jsx";
 import React, {useEffect, useState} from "react";
 import NetworkPopUp from "../NetworkPopup/Popup";
-import {setNetwork} from "../../../store/user-slice";
+import {deleteWallet, setNetwork} from "../../../store/user-slice";
 import SettingsPopUp from "../SettingPopup/Popup";
 import IconAdd from '../../../assets/images/add.svg';
 import CreateWalletPopUp from "../CreateWalletPopup/Popup";
@@ -25,7 +25,7 @@ const SelectedCurrencyWallet = () => {
     const [deposit, setDeposit] = useState(true);
     const [networkPopUp, setNetworkPopUp] = useState(false);
     const [settingsPopUp, setSettingsPopUp] = useState(false);
-    const [selectedItem, setSelectedItem] = useState({name:'', address:''});
+    const [selectedItem, setSelectedItem] = useState({name: '', address: ''});
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [shouldNavigate, setShouldNavigate] = useState(false);
     const [createWalletPopUp, setCreateWalletPopUp] = useState(false);
@@ -128,7 +128,7 @@ const SelectedCurrencyWallet = () => {
 
     const closeSettingsPopUp = () => {
         setSettingsPopUp(false);
-        setSelectedItem({ name: '', address: ''});
+        setSelectedItem({name: '', address: ''});
     }
 
     const openCreateWalletPopUp = () => {
@@ -139,19 +139,31 @@ const SelectedCurrencyWallet = () => {
         setCreateWalletPopUp(false);
     }
 
-    const showDeleteButton = (id) => {
-        setActiveDeleteButtonId(id);
+    const showDeleteButton = (address) => {
+        setActiveDeleteButtonId(address);
     };
 
     const hideDeleteButton = () => {
         setActiveDeleteButtonId(null);
     };
 
+    const handleItemClick = (address) => {
+        if (activeDeleteButtonId === address) {
+            hideDeleteButton();
+        }
+    }
+
+    const handleDeleteClick = (event, address, network) => {
+        event.stopPropagation();
+        dispatch(deleteWallet({address, network}));
+        hideDeleteButton();
+    };
+
     return (
         <div className={styles.mainWrap}>
             <Header back text="Wallet" menu/>
             <div className="wrap">
-             {/*   <div className={styles.currencyContainer}>
+                {/*   <div className={styles.currencyContainer}>
                     <CurrencyBlock name={name} commercial={commercial} warrants={warrants} balance={balance} src={src}
                                    handleClick={openNetworkPopUp} selected deposit/>
                 </div>
@@ -170,17 +182,28 @@ const SelectedCurrencyWallet = () => {
                         ))
                     }
                 </div>}
-                {items.length ? <div className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
-                    {
-                        items.map(({name, address, network}, index) => (
-                            <Item name={name} address={address} network={network} key={index} openPopUp={() => openSettingsPopUp({address, name})} closePopUp={closeSettingsPopUp}
-                                  showDeleteButton={() => showDeleteButton(address)}
-                                  hideDeleteButton={hideDeleteButton}
-                                  /*isDeleteButtonVisible={activeDeleteButtonId === address}*/
-                            />
-                        ))
-                    }
-                </div> :
+                {items.length ? <div
+                        className={`${styles.listWrap} ${networks.length > 1 ? styles['with-radio'] : styles['without-radio']} ${deposit ? styles['with-sb'] : styles['without-sb']}`}>
+                        {
+                            items.map(({name, address, network}, index) => (
+                                <div className={styles.itemParent} key={index}>
+                                    {activeDeleteButtonId === address &&
+                                        <div className={styles.deleteBtn} onClick={(e) => handleDeleteClick(e, address, network)}>
+                                            <span>Delete</span>
+                                        </div>
+                                    }
+                                    <Item name={name} address={address} network={network} key={index}
+                                          openPopUp={() => openSettingsPopUp({address, name})}
+                                          closePopUp={closeSettingsPopUp}
+                                          showDeleteButton={() => showDeleteButton(address)}
+                                          hideDeleteButton={hideDeleteButton}
+                                          isDeleteButtonVisible={activeDeleteButtonId === address}
+                                          handleItemClick={() => handleItemClick(address)}
+                                    />
+                                </div>
+                            ))
+                        }
+                    </div> :
                     <a className={styles.emptyWrap} onClick={openCreateWalletPopUp}>
                         <span>
                             <img src={IconAdd} alt=""/>
@@ -188,8 +211,10 @@ const SelectedCurrencyWallet = () => {
                         </span>
                     </a>
                 }
-                <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name} address={selectedItem.address}/>
-                <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} selected={selectedNetwork} onSelect={handleNetworkChange}/>
+                <SettingsPopUp isVisible={settingsPopUp} closePopUp={closeSettingsPopUp} name={selectedItem.name}
+                               address={selectedItem.address}/>
+                <NetworkPopUp closePopUp={closeNetworkPopUp} isVisible={networkPopUp} selected={selectedNetwork}
+                              onSelect={handleNetworkChange}/>
                 <CreateWalletPopUp isVisible={createWalletPopUp} closePopUp={closeCreateWalletPopUp}/>
             </div>
         </div>

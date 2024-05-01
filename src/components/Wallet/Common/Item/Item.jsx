@@ -4,7 +4,6 @@ import CopyItem from "../../../Common/CopyItem/CopyItem";
 import IconPencil from "../../../../assets/images/pencil.svg";
 import {useRef, useState} from "react";
 import {useDispatch} from "react-redux";
-import {deleteWallet} from "../../../../store/user-slice";
 
 const Item = ({
                   name, address, network, currency, index, openPopUp, deposit, handleNavigation,
@@ -12,14 +11,18 @@ const Item = ({
                   },
                   hideDeleteButton = () => {
                   },
-                  isDeleteButtonVisible = false
+                  isDeleteButtonVisible = false,
+
+                  handleItemClick = () => {
+                  }
+
               }) => {
 
     let touchTimeout;
     /*  const touchStartPos = useRef({x: 0, y: 0});*/
     let dispatch = useDispatch();
 
-    const [tempVisible, setTempVisible] = useState(false);
+    /*const [tempVisible, setTempVisible] = useState(false);*/
 
     const handleTouchStart = (e) => {
         /* touchStartPos.current = {x: e.touches[0].clientX, y: e.touches[0].clientY};*/
@@ -41,19 +44,12 @@ const Item = ({
         clearTimeout(touchTimeout);
     };
 
-    const handleDeleteClick = (event) => {
-        event.stopPropagation();
-        dispatch(deleteWallet({address, network}));
-        hideDeleteButton();
-    };
-
-    const handleItemClick = (e) => {
-      /*  const isDeleteButton = e.target.closest(`.${styles.deleteBtn}`);
-        if (!isDeleteButton) {
-            hideDeleteButton();
-        }*/
-        setTempVisible(true);
-    };
+    /*const handleItemClick = (e) => {
+        /!*  const isDeleteButton = e.target.closest(`.${styles.deleteBtn}`);
+          if (!isDeleteButton) {
+              hideDeleteButton();
+          }*!/
+    };*/
 
     const shouldAttachHandlers = !currency && !deposit;
 
@@ -66,14 +62,8 @@ const Item = ({
     return (
         <div
             className={`${styles.itemWrap} ${currency ? styles.currencyWrap : ''} ${deposit ? styles.depositWrap : ''} 
-            ${tempVisible ? styles.showBtnWrap : ''}  ${shouldAttachHandlers ? styles.deletableWrap : ''}`}
+            ${isDeleteButtonVisible ? styles.showBtnWrap : ''}  ${shouldAttachHandlers ? styles.deletableWrap : ''}`}
             onClick={handleNavigation ? handleNavigation : (shouldAttachHandlers ? handleItemClick : null)} {...touchHandlers}>
-
-            {tempVisible && shouldAttachHandlers && (
-                <div className={styles.deleteBtn} onClick={handleDeleteClick}>
-                    <span>Delete</span>
-                </div>
-            )}
 
             <div className={styles.titleRow}>
                 <div className={styles.titleBlock}>

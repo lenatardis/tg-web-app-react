@@ -168,74 +168,16 @@
   }
 }
 
-/*padding overlap*/
-
-/*.parentContainer {
-  overflow: visible;
-  position: relative;
-  padding: 20px;
-}*/
-
-/*.itemWrap {
-  position: relative;
-  transition: transform 0.3s ease-in-out;
-  z-index: 1;
-}
-
-.deleteButton {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 101px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #FF3B30;
-  color: white;
-  transform: translateX(-101%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 2;
-}
-
-.itemWrap.showDelete {
-  transform: translateX(101px);
-  margin-left: -20px;
-} */
-
 .deletableWrap {
   position: relative;
+  z-index: 2;
   transition: transform 0.3s;
-  z-index: 1;
 }
-
 
 .deletableWrap.showBtnWrap {
   transform: translateX(101px);
-  /*margin-left: -16px;*/
 }
 
-.deleteBtn {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 101px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #BA5349;
-  transform: translateX(-101%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 2;
-  padding: 0 0 0 18px;
-  border-radius: 18px 0 0 18px;
-
-  span {
-    color: white;
-    font-size: 24px;
-  }
-}
 
 
 

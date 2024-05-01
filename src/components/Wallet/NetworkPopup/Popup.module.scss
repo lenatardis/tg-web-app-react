@@ -5,6 +5,11 @@ $header_height: 90px;
 
 .network-popup {
 
+  :global(.wrap) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   &__inner-wrap {
     height: auto;
     overflow: auto;

@@ -72,3 +72,27 @@ $gap_without_radio_with_sb: 265px;
     }
   }
 }
+
+.deleteBtn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #BA5349;
+  z-index: 1;
+  padding: 0 18px;
+  border-radius: 18px 0 0 18px;
+
+  span {
+    color: white;
+    font-size: 24px;
+  }
+}
+
+.itemParent {
+  position: relative;
+}
