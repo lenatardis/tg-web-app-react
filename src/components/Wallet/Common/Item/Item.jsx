@@ -26,15 +26,12 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
 
     const handleDeleteClick = (event) => {
         event.stopPropagation();
-        console.log('Delete');
         setDeleteButtonClicked(true);
     };
 
     const handleItemClick = (e) => {
-        alert(e.target);
-        alert(('Closest:', e.target.closest(`.${styles.deleteBtn}`)));
-        console.log(e.target);
-        if (!e.target.closest(`.${styles.deleteBtn}`)) {
+        const isDeleteButton = e.target.closest(`.${styles.deleteBtn}`);
+        if (!isDeleteButton) {
             setShowDelete(false);
         }
     };
@@ -53,7 +50,7 @@ const Item = ({name, address, network, currency, index, openPopUp, deposit, hand
             onClick={handleNavigation ? handleNavigation : (shouldAttachHandlers ? handleItemClick : null)} {...touchHandlers}>
 
             {showDelete && (
-                <div className={`${styles.deleteBtn}`}>
+                <div className={styles.deleteBtn}>
                     <button onClick={handleDeleteClick}>Delete
                         {deleteButtonClicked && <span>Clicked!</span>}
                     </button>
