@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from "./CVV.module.scss";
 import Header from "../Common/Header/Header"
 import {useState} from "react";
@@ -20,8 +20,8 @@ const CVV = () => {
     const [selectedOption4, setSelectedOption4] = useState('BTC/USDT');
     const [searchInputValue, setSearchInputValue] = useState('');
 
-    const [value, setValue] = React.useState(dayjs('2024/01/21'));
-    const [value2, setValue2] = React.useState(dayjs('2024/01/28'));
+    const [value, setValue] = useState(dayjs().subtract(7, 'day'));
+    const [value2, setValue2] = useState(dayjs());
 
     const radioButtonInfo = {
         option_1: [
@@ -46,6 +46,23 @@ const CVV = () => {
             {name: "option_4", value: "BTC/XLM"},
         ]
     };
+
+    useEffect(() => {
+        const calculateStartDate = () => {
+            switch (selectedOption2) {
+                case '24h':
+                    return dayjs().subtract(1, 'day');
+                case 'Last 7d':
+                    return dayjs().subtract(7, 'day');
+                case 'Last 30d':
+                    return dayjs().subtract(30, 'day');
+                default:
+                    return dayjs();
+            }
+        };
+        setValue(calculateStartDate());
+        setValue2(dayjs());
+    }, [selectedOption2]);
 
     return (
         <div>

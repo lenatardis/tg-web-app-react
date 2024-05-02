@@ -1,6 +1,6 @@
 import styles from "../../PopUp.module.scss";
 import ClosePopUp from "../../../Common/ClosePopUp/ClosePopUp";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import RadioButton from "../../../Common/RadioButton/RadioButton";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs, {Dayjs} from 'dayjs';
@@ -19,8 +19,8 @@ const PopUp = ({isVisible, closePopUp}) => {
     const [selectedOption4, setSelectedOption4] = useState('All');
     const [selectedOption5, setSelectedOption5] = useState('');
 
-    const [value, setValue] = React.useState(dayjs('2024/01/21'));
-    const [value2, setValue2] = React.useState(dayjs('2024/01/28'));
+    const [value, setValue] = useState(dayjs().subtract(1, 'day'));
+    const [value2, setValue2] = useState(dayjs());
 
     const radioButtonInfo = {
         option_1: [
@@ -51,6 +51,21 @@ const PopUp = ({isVisible, closePopUp}) => {
             {name: "option_5", value: "BTC/XLM"},
         ]
     };
+
+    useEffect(() => {
+        const calculateStartDate = () => {
+            switch (selectedOption3) {
+                case '24h':
+                    return dayjs().subtract(1, 'day');
+                case 'Last 7d':
+                    return dayjs().subtract(7, 'day');
+                default:
+                    return dayjs();
+            }
+        };
+        setValue(calculateStartDate());
+        setValue2(dayjs());
+    }, [selectedOption3]);
 
     return (
         <div className={`${styles.popup} ${isVisible ? styles['popup-show'] : ''}`}>
