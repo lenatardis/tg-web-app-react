@@ -66,6 +66,7 @@ const SelectedCurrencyWallet = () => {
                 setItems(initialItems);
             } else {
                 setItems(initialItems.filter(el => el.network === selectedOption1));
+                hideDeleteButton();
             }
         }
     }, [selectedOption1, initialItems]);
