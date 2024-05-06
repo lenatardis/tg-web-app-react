@@ -6,7 +6,7 @@ const CustomRange = () => {
     const rangeRef = useRef(null);
     const activeStripeRef = useRef(null);
     const circleActiveRef = useRef(null);
-    const circleRefs = useRef(new Array(5).fill(null).map(() => React.createRef())); // Array of refs for each circleGrey
+    const circleRefs = useRef(new Array(5).fill(null).map(() => React.createRef()));
 
     useEffect(() => {
         // This is just to log positions and see if they are correct
@@ -24,7 +24,7 @@ const CustomRange = () => {
         const rangeWidth = rangeRef.current.offsetWidth;
         const normalizedPosition = Math.min(Math.max(0, position), rangeWidth);
         activeStripeRef.current.style.width = `${normalizedPosition}px`;
-        circleActiveRef.current.style.left = `${normalizedPosition - 2}px`;  // Adjust for circleActive centering
+        circleActiveRef.current.style.left = `${normalizedPosition - 2}px`;
         setValue((normalizedPosition / rangeWidth) * 100);
     };
 
@@ -51,7 +51,7 @@ const CustomRange = () => {
 
     const handleClick = (index) => {
         const circlePosition = circleRefs.current[index].current.offsetLeft;
-        updatePosition(circlePosition + 6); // Adjust to center since offsetLeft gives the start of the element
+        updatePosition(circlePosition);
     };
 
     return (
