@@ -96,10 +96,14 @@
   }
 }
 
+.totalRow {
+  margin-bottom: 16px;
+}
+
 .balance {
   display: flex;
   justify-content: space-between;
-  padding-top: 67px;
+  padding-top: 15px;
   margin-bottom: 24px;
 
   span {

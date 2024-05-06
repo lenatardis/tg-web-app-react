@@ -1,0 +1,66 @@
+.wrap {
+  position: relative;
+  height: 37px;
+}
+
+.stripe {
+  position: absolute;
+  top: 7px;
+  height: 2px;
+  width: 100%;
+  background: #535965;
+  z-index: 1;
+}
+
+.stripe.active {
+  background: white;
+  width: 0;
+  z-index: 2;
+}
+
+.circles {
+  display: flex;
+  position: relative;
+  top: 2px;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 3;
+}
+
+.circleGrey {
+  width: 12px;
+  height: 12px;
+  background-color: blue;
+  border: 2px solid #535965;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.valueStart, .valueEnd, .valueCurrent {
+  position: absolute;
+  top: 26px;
+}
+
+.valueStart {
+  left: 0;
+}
+
+.valueEnd {
+  right: 0;
+}
+
+.valueCurrent {
+  z-index: 4;
+}
+
+.circleActive {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  background-color: green;
+  border-radius: 50%;
+  border: 3px solid red;
+  cursor: pointer;
+  z-index: 4;
+}

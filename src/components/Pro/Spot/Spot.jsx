@@ -8,10 +8,10 @@ import React, {useState} from "react";
 import RadioButton from "../../Common/RadioButton/RadioButton";
 import MarketPrice from "./MarketPrice";
 import BtnBlock from "./BtnBlock";
-import Balance from "./Balance";
 import {useEffect} from "react";
 import HistoryPopUp from "./HistoryPopUp/HistoryPopUp";
 import CurrencyPopUp from "./CurrencyPopUp/CurrencyPopUp";
+import CustomRange from "./CustomRange/CustomRange";
 
 const Spot = () => {
     let subroute = useSubRoute();
@@ -77,7 +77,8 @@ const Spot = () => {
         <div>
             <Header back text="Exchange" menu/>
             <div className="wrap">
-                <NavLinks subroute={subroute} text1="Exchange" link1={'/pro/exchange'} text2="Spot" link2={'/pro/spot'}/>
+                <NavLinks subroute={subroute} text1="Exchange" link1={'/pro/exchange'} text2="Spot"
+                          link2={'/pro/spot'}/>
                 <div className={`${styles['row']} ${styles['main-row']}`}>
                     <span onClick={openCurrencyPopUp}>
                         <img src={IconTether} alt=""/>
@@ -101,11 +102,15 @@ const Spot = () => {
                     }
                 </div>
                 <MarketPrice title={`${selectedOption2} price`}/>
-                <div className={styles.row}>
+                <div className={`${styles.row} ${styles.totalRow}`}>
                     <MarketPrice title="Quantity"/>
                     <MarketPrice title="Total"/>
                 </div>
-                <Balance/>
+                <CustomRange/>
+                <div className={styles.balance}>
+                    <span>Available balance</span>
+                    <span>2,655.0498 USDT</span>
+                </div>
                 <BtnBlock option={selectedOption1}/>
                 <div className={`${styles['row']} ${styles['order-row']}`}>
                     {
@@ -117,11 +122,11 @@ const Spot = () => {
                 </div>
                 <HistoryPopUp closePopUp={closeHistoryPopUp} isVisible={historyPopUp}/>
                 <CurrencyPopUp closePopUp={closeCurrencyPopUp} isVisible={currencyPopUp}
-                                                 searchInputValue={searchInputValue}
-                                                 setSearchInputValue={setSearchInputValue}
-                                                 selectedCurrency={selectedCurrency}
-                                                 setSelectedCurrency={setSelectedCurrency}
-                                                 checked={checked} setChecked={handleCheckBox}
+                               searchInputValue={searchInputValue}
+                               setSearchInputValue={setSearchInputValue}
+                               selectedCurrency={selectedCurrency}
+                               setSelectedCurrency={setSelectedCurrency}
+                               checked={checked} setChecked={handleCheckBox}
                 />
             </div>
         </div>
