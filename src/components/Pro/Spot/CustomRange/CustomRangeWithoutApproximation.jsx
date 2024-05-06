@@ -18,19 +18,19 @@ const CustomRange = () => {
     const getPositionFromEvent = (event) => {
         const clientX = event.touches ? event.touches[0].clientX : event.clientX;
         const rect = rangeRef.current.getBoundingClientRect();
-        return clientX - rect.left;
+        return clientX - rect.left; // Ensure position is relative to the stripe start
     };
 
     const updatePosition = (position) => {
         const rangeWidth = rangeRef.current.offsetWidth;
         const normalizedPosition = Math.min(Math.max(0, position), rangeWidth);
         activeStripeRef.current.style.width = `${normalizedPosition}px`;
-        circleActiveRef.current.style.left = `${normalizedPosition}px`;
+        circleActiveRef.current.style.left = `${normalizedPosition}px`; // Adjust to center the active circle
         setValue((normalizedPosition / rangeWidth) * 100);
     };
 
     const handleMove = (event) => {
-        event.preventDefault();
+        event.preventDefault(); // Prevent scrolling on touch devices
         const position = getPositionFromEvent(event);
         updatePosition(position);
     };
@@ -62,8 +62,6 @@ const CustomRange = () => {
         const circleActiveWidth = circleActiveRef.current.offsetWidth;
         const position = circleGreyCenter - (circleActiveWidth / 2); // Centering the active circle on the grey circle
         updatePosition(position);
-        const percentagePositions = [0, 25, 50, 75, 100]; // Array of exact percentages
-        setValue(percentagePositions[index]); // Directly set the value to ensure accuracy
     };
 
     return (
