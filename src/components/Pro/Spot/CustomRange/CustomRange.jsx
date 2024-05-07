@@ -27,7 +27,6 @@ const CustomRange = () => {
     };
 
     const handleMove = (event) => {
-        event.preventDefault();
         const position = getPositionFromEvent(event) - (circleWidth / 2);
         updatePosition(position);
     };
@@ -62,6 +61,16 @@ const CustomRange = () => {
         setValue(points[index]);
     };
 
+    useEffect(() => {
+        if (currentValueRef.current && rangeRef.current) {
+            const sliderWidth = rangeRef.current.clientWidth;
+            const labelWidth = currentValueRef.current.offsetWidth;
+            const leftPosition = sliderWidth * (value / 100);
+            const adjustedLeft = Math.min(sliderWidth - labelWidth + 6, leftPosition);
+            currentValueRef.current.style.left = `${adjustedLeft - 6}px`;
+        }
+    }, [value]);
+
     return (
         <div className={styles.wrap} ref={rangeRef}>
             <div className={`${styles.stripe} ${styles.inactive}`} onClick={handleClick}>
@@ -75,17 +84,12 @@ const CustomRange = () => {
             </div>
             <span className={`${styles.valueStart} ${value < 10 ? styles.hiddenBlock : ''}`}>0%</span>
             <span className={`${styles.valueEnd} ${value > 80 ? styles.hiddenBlock : ''}`}>100%</span>
-            <span className={styles.valueCurrent} ref={currentValueRef} style={{left: `${value}%`}}>{value.toFixed(0)}%</span>
+            <span className={styles.valueCurrent} ref={currentValueRef}>{value.toFixed(0)}%</span>
             <span className={styles.circleActive} ref={circleActiveRef} onMouseDown={startInteraction}
                   onTouchStart={startInteraction}/>
             <input type="range" value={value} readOnly style={{display: 'none'}}/>
         </div>
     );
 };
-
-/*const curLeft = Math.min(circlesWrap.clientWidth - spanValueCurrent.clientWidth + 6, width);
-spanValueCurrent.style.left = curLeft - 6 + 'px';*/
-/*spanValueStart.style.visibility = +input.value < 10 ? 'hidden' : 'visible';
-spanValueEnd.style.visibility = +input.value > 80 ? 'hidden' : 'visible';*/
 
 export default CustomRange;
