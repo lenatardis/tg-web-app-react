@@ -63,11 +63,11 @@ const CustomRange = () => {
 
     useEffect(() => {
         if (currentValueRef.current && rangeRef.current) {
-            const sliderWidth = rangeRef.current.clientWidth;
+            const sliderWidth = rangeRef.current.clientWidth - circleWidth;
             const labelWidth = currentValueRef.current.offsetWidth;
             const leftPosition = sliderWidth * (value / 100);
-            const adjustedLeft = Math.min(sliderWidth - labelWidth + 6, leftPosition);
-            currentValueRef.current.style.left = `${adjustedLeft - 6}px`;
+            const adjustedLeft = Math.min(sliderWidth - labelWidth + circleWidth, leftPosition);
+            currentValueRef.current.style.left = `${adjustedLeft}px`;
         }
     }, [value]);
 
