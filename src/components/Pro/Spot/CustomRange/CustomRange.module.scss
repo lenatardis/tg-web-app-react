@@ -51,6 +51,10 @@
   right: 0;
 }
 
+.valueStart, .valueEnd {
+  visibility: visible;
+}
+
 .valueCurrent {
   z-index: 4;
 }
@@ -65,4 +69,8 @@
   border: 3px solid red;
   cursor: pointer;
   z-index: 4;
+}
+
+.hiddenBlock {
+  visibility: hidden;
 }
