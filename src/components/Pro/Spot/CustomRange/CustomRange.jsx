@@ -8,23 +8,19 @@ const CustomRange = () => {
     const circleActiveRef = useRef(null);
     const circleRefs = useRef(new Array(5).fill(null).map(() => React.createRef()));
 
-    useEffect(() => {
-        // Optionally log positions to ensure they are correct
-        circleRefs.current.forEach((ref, index) => {
-            console.log(`Circle ${index * 25}% position: `, ref.current?.offsetLeft);
-        });
-    }, []);
-
     const getPositionFromEvent = (event) => {
         const clientX = event.touches ? event.touches[0].clientX : event.clientX;
         const rect = rangeRef.current.getBoundingClientRect();
+       /* return clientX - rect.left + 6;*/
         return clientX - rect.left;
     };
 
     const updatePosition = (position) => {
-        const rangeWidth = rangeRef.current.offsetWidth;
+        const rangeWidth = rangeRef.current.offsetWidth - 12;
+      /*  const rangeWidth = rangeRef.current.offsetWidth;*/
         const normalizedPosition = Math.min(Math.max(0, position), rangeWidth);
         activeStripeRef.current.style.width = `${normalizedPosition}px`;
+      /*  circleActiveRef.current.style.left = `${normalizedPosition - 8}px`;*/
         circleActiveRef.current.style.left = `${normalizedPosition}px`;
         setValue((normalizedPosition / rangeWidth) * 100);
     };
@@ -56,14 +52,14 @@ const CustomRange = () => {
     };
 
     const handleCircleClick = (index, event) => {
-        event.stopPropagation(); // Prevent the stripe's handler from firing
+        event.stopPropagation();
         const circleGrey = circleRefs.current[index].current;
         const circleGreyCenter = circleGrey.offsetLeft + circleGrey.offsetWidth / 2;
         const circleActiveWidth = circleActiveRef.current.offsetWidth;
-        const position = circleGreyCenter - (circleActiveWidth / 2); // Centering the active circle on the grey circle
+        const position = circleGreyCenter - (circleActiveWidth / 2);
         updatePosition(position);
-        const percentagePositions = [0, 25, 50, 75, 100]; // Array of exact percentages
-        setValue(percentagePositions[index]); // Directly set the value to ensure accuracy
+        const percentagePositions = [0, 25, 50, 75, 100];
+        setValue(percentagePositions[index]);
     };
 
     return (
