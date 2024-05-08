@@ -1,7 +1,7 @@
 import styles from "./CustomRange.module.scss";
 import React, {useRef, useState, useEffect} from "react";
 
-const CustomRange = () => {
+const CustomRange = ({updateRangeValue}) => {
     const [value, setValue] = useState(0);
     const rangeRef = useRef(null);
     const activeStripeRef = useRef(null);
@@ -68,6 +68,7 @@ const CustomRange = () => {
             const leftPosition = sliderWidth * (value / 100);
             const adjustedLeft = Math.min(sliderWidth - labelWidth + circleWidth, leftPosition);
             currentValueRef.current.style.left = `${adjustedLeft}px`;
+            updateRangeValue(value);
         }
     }, [value]);
 

@@ -1,16 +1,18 @@
 import styles from "../Pro.module.scss";
 import React from "react";
 
-const MarketPrice = ({title}) => {
+const MarketPrice = ({title, currency, quantity, price, total}) => {
     return (
         <div className={`${styles['market-price']}`}>
             <div>
                 <span>{title}</span>
-                <span>EUR</span>
+                <span>{currency}</span>
             </div>
             <p>
                 <span>≈</span>
-                <span>0.9154</span>
+                <span>
+                    {quantity? quantity : (total? total : price)}
+                </span>
             </p>
         </div>
     )

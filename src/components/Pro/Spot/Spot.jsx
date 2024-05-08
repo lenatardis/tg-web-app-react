@@ -4,11 +4,10 @@ import useSubRoute from "../../../hooks/useSubRoute";
 import NavLinks from "../../Common/NavLinks/NavLinks";
 import IconTether from "../../../assets/images/tether_min.svg";
 import IconSelect from "../../../assets/images/select.svg";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import RadioButton from "../../Common/RadioButton/RadioButton";
 import MarketPrice from "./MarketPrice";
 import BtnBlock from "./BtnBlock";
-import {useEffect} from "react";
 import HistoryPopUp from "./HistoryPopUp/HistoryPopUp";
 import CurrencyPopUp from "./CurrencyPopUp/CurrencyPopUp";
 import CustomRange from "./CustomRange/CustomRange";
@@ -23,6 +22,12 @@ const Spot = () => {
     const [searchInputValue, setSearchInputValue] = useState('');
     const [selectedCurrency, setSelectedCurrency] = useState('FIAT');
     const [checked, setChecked] = useState(false);
+    const [percent, setPercent] = useState(0);
+    const [quantity, setQuantity] = useState(0.9154);
+    const [total, setTotal] = useState(0);
+    let balance = '2,655.0498';
+    let price= '0.9154';
+
 
     useEffect(() => {
         if (historyPopUp) {
@@ -73,6 +78,26 @@ const Spot = () => {
         setChecked(checked => !checked);
     }
 
+    const updatePercent = (value) => {
+        setPercent(value.toFixed(0));
+    }
+
+    const processNumericValue = (displayValue) => {
+        const inputString = String(displayValue);
+        const numericValue = parseFloat(inputString.replace(/,/g, ''));
+        return numericValue;
+    }
+
+    let processedBalance = processNumericValue(balance);
+
+    useEffect(() => {
+        setQuantity((parseFloat(processedBalance)*(parseInt(percent)/100)).toFixed(4));
+    }, [percent]);
+
+    useEffect(() => {
+       setTotal((parseFloat(quantity)* parseFloat(price)).toFixed(2));
+    }, [quantity]);
+
     return (
         <div>
             <Header back text="Exchange" menu/>
@@ -101,15 +126,15 @@ const Spot = () => {
                         ))
                     }
                 </div>
-                <MarketPrice title={`${selectedOption2} price`}/>
+                <MarketPrice title={`${selectedOption2} price`} currency="EUR" price={price}/>
                 <div className={`${styles.row} ${styles.totalRow}`}>
-                    <MarketPrice title="Quantity"/>
-                    <MarketPrice title="Total"/>
+                    <MarketPrice title="Quantity" currency="USDT" quantity={quantity}/>
+                    <MarketPrice title="Total" currency="EUR" total={total}/>
                 </div>
-                <CustomRange/>
+                <CustomRange updateRangeValue={(value) => updatePercent(value)}/>
                 <div className={styles.balance}>
                     <span>Available balance</span>
-                    <span>2,655.0498 USDT</span>
+                    <span>{balance} USDT</span>
                 </div>
                 <BtnBlock option={selectedOption1}/>
                 <div className={`${styles['row']} ${styles['order-row']}`}>
