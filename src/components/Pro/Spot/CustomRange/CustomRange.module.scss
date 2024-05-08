@@ -36,6 +36,11 @@
   border-radius: 50%;
   cursor: pointer;
   z-index: 3;
+
+  &.included {
+    border-color: #ffffff;
+    background-color: #091223;
+  }
 }
 
 .valueStart, .valueEnd, .valueCurrent {

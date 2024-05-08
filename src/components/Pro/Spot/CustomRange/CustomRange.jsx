@@ -78,7 +78,8 @@ const CustomRange = () => {
             <div className={`${styles.stripe} ${styles.active}`} ref={activeStripeRef} onClick={handleClick}/>
             <div className={styles.circles}>
                 {points.map((perc, index) => (
-                    <span key={perc} ref={circleRefs.current[index]} className={styles.circleGrey}
+                    <span key={perc} ref={circleRefs.current[index]}
+                          className={`${styles.circleGrey} ${parseInt(perc) < value ? styles.included : ''}`}
                           onClick={(e) => handleCircleClick(index, e)}/>
                 ))}
             </div>
