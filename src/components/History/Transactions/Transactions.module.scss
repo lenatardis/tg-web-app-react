@@ -1,9 +1,9 @@
-$header_height: 90px;
-$navigation_height: 102px;
+@import 'src/components/Common/Variables/variables';
+
 $popup_gap: 193px;
 
 .linkBlock {
-  margin-bottom:34px;
+  margin-bottom: 34px;
 }
 
 .transactionsBlock {

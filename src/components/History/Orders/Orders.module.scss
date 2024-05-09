@@ -1,6 +1,6 @@
-$navigation_height:110px;
-$header_height:90px;
-$popup_gap:148px;
+@import 'src/components/Common/Variables/variables';
+
+$popup_gap: 148px;
 
 .linkBlock {
   margin-bottom: 37px;

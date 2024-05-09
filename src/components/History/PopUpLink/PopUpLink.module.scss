@@ -2,16 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius:18px;
-  padding:16px;
-  background:#0D182E;
-  cursor:pointer;
+  border-radius: 18px;
+  padding: 16px;
+  background: #0D182E;
+  cursor: pointer;
 
   span {
     font-size: 18px;
   }
 
   img {
-    transform:rotate(270deg);
+    transform: rotate(270deg);
   }
 }
