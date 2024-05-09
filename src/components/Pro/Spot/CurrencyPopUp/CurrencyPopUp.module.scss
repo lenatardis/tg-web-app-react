@@ -1,5 +1,5 @@
-$header_height: 90px;
-$navigation_height: 102px;
+@import 'src/components/Common/Variables/variables';
+
 $popup_gap: 111px;
 
 .currency-popup {
@@ -19,10 +19,11 @@ $popup_gap: 111px;
   }
 
   &.popup-show {
-    z-index:150;
-    top:0;
+    z-index: 150;
+    top: 0;
+
     :global(.resize) {
-      top:0;
+      top: 0;
     }
   }
 
