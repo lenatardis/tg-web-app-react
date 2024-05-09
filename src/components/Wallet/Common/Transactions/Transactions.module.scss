@@ -1,3 +1,5 @@
+@import 'src/components/Common/Variables/variables';
+
 .innerWrap {
   padding-top: 5px;
 
@@ -9,8 +11,7 @@
   }
 }
 
-$header_height:90px;
-$inner_gap:114px;
+$inner_gap: 114px;
 
 .listWrap {
   height: calc(100vh - #{$header_height} - #{$inner_gap});

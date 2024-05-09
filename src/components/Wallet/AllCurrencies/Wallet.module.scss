@@ -1,6 +1,6 @@
-$header_height:90px;
-$inner_gap:201px;
-$navigation_height:102px;
+@import 'src/components/Common/Variables/variables';
+
+$inner_gap: 201px;
 
 .row {
   display: flex;

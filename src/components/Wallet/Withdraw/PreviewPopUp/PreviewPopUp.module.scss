@@ -1,6 +1,7 @@
 @import "../../../Common/Mixins/mixins";
 
-$header_height: 90px;
+@import 'src/components/Common/Variables/variables';
+
 $popup_gap: 50px;
 
 @include bottomPopUpMixin();
