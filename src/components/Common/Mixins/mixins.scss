@@ -21,11 +21,13 @@
     }
 
     &.popup-show {
-      bottom:0;
+      bottom: 0;
+
       :global(.resize) {
-        bottom:0;
+        bottom: 0;
       }
-    }}
+    }
+  }
 }
 
 @mixin topPopUpHeaderOffset($top-left-radius: 24px, $top-right-radius: 24px) {
