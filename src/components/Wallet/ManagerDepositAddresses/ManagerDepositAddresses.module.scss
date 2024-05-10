@@ -3,3 +3,9 @@
     font-size: 19px;
   }
 }
+
+.shift {
+  > span:nth-of-type(2) {
+    transform: translate(-50%, 2px);
+  }
+}

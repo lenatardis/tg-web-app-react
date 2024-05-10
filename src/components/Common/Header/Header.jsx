@@ -4,8 +4,10 @@ import {useNavigate} from "react-router-dom";
 import IconArrowLeft from '../../../assets/images/arrow-left.svg';
 import Menu from '../../../assets/images/menu.svg';
 
-const Header = ({back, text, menu, close}) => {
+const Header = ({back, text, menu, close, className}) => {
     let navigate = useNavigate();
+
+    const headerClasses = `${styles.header} ${className}`.trim();
 
     const handleBackClick = () => {
 
@@ -19,7 +21,7 @@ const Header = ({back, text, menu, close}) => {
     };
 
     return (
-        <div className={styles.header}>
+        <div className={headerClasses}>
             {(back || close) && (
                 <span onClick={handleBackClick} className={styles.back}>
                     <img src={IconArrowLeft} alt="back"/>

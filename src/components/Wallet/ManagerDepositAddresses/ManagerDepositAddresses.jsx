@@ -72,7 +72,7 @@ const ManagerDepositAddresses = () => {
 
     return (
         <div className={styles.mdPage}>
-            <Header back text="Manager deposit addresses"/>
+            <Header back text="Manager deposit addresses" className={styles.shift}/>
             <div className="wrap">
                 {
                     walletsForSelectedNetwork.map(({name, address}, index) => (
