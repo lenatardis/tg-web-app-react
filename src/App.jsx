@@ -49,31 +49,12 @@ function App() {
         }
     }, [])
 
-    let id = user? user.id : 1712578669;
-
-    console.log(id);
-    /*if (typeof tg.initDataUnsafe === 'string') {
-        let initData = JSON.parse(tg.initDataUnsafe);
-        id = initData?.user?.id;
-    } else {
-        //id taken from mobile version for test purposes on desktop
-        //TODO: DELETE next line in prod!!!
-        id = 1712578669;
-    }*/
-
-
-
     useEffect(() => {
-        console.log(id);
-        const fetchData = async () => {
-           /* const response = await fetch(`https://a280508d80ae04089db8315aed56df27.serveo.net/api/v2/home/start_web_app/${id}`);
-            const data = await response.json();
-            console.log("Fetched data:", data);
-            await setTestData(data);*/
-        };
-
-      /*  fetchData().catch(console.error);*/
-    }, [id]);
+        getUserInfo(user? user.id : 1712578669).then((response) => {
+            console.log(response);
+           /* setTestData(response.user);*/
+        })
+    }, []);
 
     const router = createBrowserRouter([
         {
@@ -116,7 +97,6 @@ function App() {
         <div className="resize main-content">
             <div>
                 {JSON.stringify(testData)}
-                {id}
             </div>
             <RouterProvider router={router}/>
         </div>
