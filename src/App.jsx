@@ -111,7 +111,7 @@ function App() {
     return (
         <div className="resize main-content">
             <div>
-                {testData}
+                {JSON.stringify(testData)}
             </div>
             <RouterProvider router={router}/>
         </div>
