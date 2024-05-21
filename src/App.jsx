@@ -65,7 +65,7 @@ function App() {
             const response = await fetch(`https://a280508d80ae04089db8315aed56df27.serveo.net/api/v2/home/start_web_app/${id}`);
             const data = await response.json();
             console.log("Fetched data:", data);
-            setTestData(data);
+            await setTestData(data);
         };
 
         fetchData().catch(console.error);
