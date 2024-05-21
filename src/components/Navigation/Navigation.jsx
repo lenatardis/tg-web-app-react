@@ -11,7 +11,6 @@ import IconHistory from '../../assets/images/history.svg';
 const Navigation = () => {
     let navigate = useNavigate();
     const currentPageName = usePageName();
-    console.log(currentPageName);
 
     const isActive = (pageName) => {
         if (pageName === "Main" && currentPageName === "") return true;

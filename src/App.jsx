@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useTelegram} from "./hooks/useTelegram";
 import Main from "./components/Main/Main";
 import Account from "./components/Account/Account";
@@ -38,6 +38,7 @@ import './App.scss';
 function App() {
     console.log(window.Telegram.WebApp);
     const {onToggleButton, onClose, tg} = useTelegram();
+    const [testData, setTestData] = useState('data is null');
 
     useEffect(() => {
         tg.ready();
@@ -52,7 +53,23 @@ function App() {
         id = initData?.user?.id;
     } else {
         id = tg.initDataUnsafe?.user?.id;
+        console.log('desktop no id');
+        //id taken from mobile version for test purposes on desktop
+        //TODO: DELETE next line in prod!!!
+        id = 1712578669;
     }
+
+    useEffect(() => {
+        console.log(id);
+        const fetchData = async () => {
+            const response = await fetch(`https://a280508d80ae04089db8315aed56df27.serveo.net/api/v2/home/start_web_app/${id}`);
+            const data = await response.json();
+            console.log("Fetched data:", data);
+            setTestData(data);
+        };
+
+        fetchData().catch(console.error);
+    }, [id]);
 
     const router = createBrowserRouter([
         {
@@ -93,6 +110,9 @@ function App() {
 
     return (
         <div className="resize main-content">
+            <div>
+                {testData}
+            </div>
             <RouterProvider router={router}/>
         </div>
     );
