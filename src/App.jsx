@@ -29,7 +29,7 @@ import Status from "./components/Wallet/Withdraw/Status";
 import Deposit from "./components/Wallet/Deposit/Deposit";
 import QrPage from "./components/Wallet/Deposit/Qr";
 import Layout from "./components/Layout/Layout";
-import {getUserInfo} from "./api/api";
+import {getNetworks, getTokens, getTokensIcon, getTotalBalance, getTransactionHistory, getUserInfo} from "./api/api";
 import {
     createBrowserRouter,
     RouterProvider,
@@ -39,7 +39,6 @@ import './App.scss';
 function App() {
     console.log(window.Telegram.WebApp);
     const {tg, user} = useTelegram();
-    const [testData, setTestData] = useState('data is null');
 
     useEffect(() => {
         tg.ready();
@@ -50,10 +49,29 @@ function App() {
     }, [])
 
     useEffect(() => {
-        getUserInfo(user? user.id : 1712578669).then((response) => {
+        getUserInfo(user ? user.id : 1712578669).then((response) => {
             console.log(response);
-           /* setTestData(response.user);*/
         })
+
+        getTotalBalance(user ? user.id : 1712578669).then((response) => {
+            console.log(response);
+        })
+
+        getTransactionHistory(user ? user.id : 1712578669).then((response) => {
+            console.log(response);
+        })
+
+       /* getTokensIcon().then((response) => {
+            console.log(response);
+        })*/
+
+        getNetworks().then((response) => {
+            console.log(response);
+        })
+
+       /* getTokens().then((response) => {
+            console.log(response);
+        })*/
     }, []);
 
     const router = createBrowserRouter([
@@ -95,9 +113,6 @@ function App() {
 
     return (
         <div className="resize main-content">
-            <div>
-                {JSON.stringify(testData)}
-            </div>
             <RouterProvider router={router}/>
         </div>
     );
